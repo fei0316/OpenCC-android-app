@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TSConverter</string>
+    <string name="action_settings">設定</string>
+    <string name="enter_text_prompt">請輸入需轉換的文字：</string>
+    <string name="translate_button">轉換</string>
+    <string name="clear_button">清除</string>
+</resources>

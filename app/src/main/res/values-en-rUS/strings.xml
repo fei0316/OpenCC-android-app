@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TSConverter</string>
+    <string name="enter_text_prompt">Please enter text to be translated...</string>
+</resources>
