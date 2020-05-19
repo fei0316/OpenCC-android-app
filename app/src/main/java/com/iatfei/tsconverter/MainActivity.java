@@ -1,4 +1,4 @@
-package com.example.tsconverter;
+package com.iatfei.tsconverter;
 
 import android.os.Bundle;
 
@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import static com.zqc.opencc.android.lib.ConversionType.HK2S;
-import static com.zqc.opencc.android.lib.ConversionType.TW2SP;
 
 public class MainActivity extends AppCompatActivity {
 

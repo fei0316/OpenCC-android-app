@@ -1,4 +1,4 @@
-package com.example.tsconverter;
+package com.iatfei.tsconverter;
 
 import org.junit.Test;
 
