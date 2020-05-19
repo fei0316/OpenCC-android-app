@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">TSConverter</string>
     <string name="enter_text_prompt">Please enter text to be translated...</string>
+    <string name="menu_trans_text">Chinese Convert</string>
 </resources>

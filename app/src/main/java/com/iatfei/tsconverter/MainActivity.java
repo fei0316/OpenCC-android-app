@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText conv_text = (EditText) findViewById(R.id.editText_convert);
                 String text = conv_text.getText().toString();
-                String converted = openCCConv(text, 1);
+                String converted = Convert.openCCConv(text, 1, getApplicationContext());
 
                 Toast toast = Toast.makeText(getApplicationContext(),text, Toast.LENGTH_LONG);
                 toast.show();
@@ -72,12 +72,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public String openCCConv (String from, int type) {
-
-        String result = ChineseConverter.convert(from, HK2S, getApplicationContext());
-        return result;
-    }
-
-
 }
