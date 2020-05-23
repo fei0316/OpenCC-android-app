@@ -5,4 +5,18 @@
     <string name="translate_button">轉換</string>
     <string name="clear_button">清除</string>
     <string name="menu_trans_text">繁簡轉換</string>
+    <string name="menu_readonly">已轉換的文字已複製到剪貼簿</string>
+    <string name="main_simp_trad">簡轉繁</string>
+    <string name="main_trad_simp">繁轉簡</string>
+    <string name="main_tw_hk">港臺異體轉換</string>
+    <string name="main_orig_tw">原文是臺灣標準</string>
+    <string name="main_orig_hk">原文是香港標準</string>
+    <string name="main_to_tw">轉換爲臺灣標準</string>
+    <string name="main_to_hk">轉換爲香港標準</string>
+    <string name="main_no_conv">不轉換</string>
+    <string name="main_to_twP">轉換爲臺灣用詞</string>
+    <string name="main_to_cnP">轉換爲中國大陸用詞</string>
+    <string name="main_type">類型</string>
+    <string name="main_varchar">異體標準</string>
+    <string name="main_worduse">用詞</string>
 </resources>

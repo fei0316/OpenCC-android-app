@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TSConverter</string>
-    <string name="enter_text_prompt">Please enter text to be translated...</string>
+    <string name="enter_text_prompt">Please enter text to be translated…</string>
     <string name="menu_trans_text">Chinese Convert</string>
+    <string name="menu_readonly">Converted text has been copied to the clipboard</string>
+    <string name="translate_button">Convert</string>
+    <string name="clear_button">Clear</string>
+    <string name="main_simp_trad">Simp. to Trad.</string>
+    <string name="main_trad_simp">Trad. to Simp.</string>
+    <string name="main_tw_hk">TW-HK variant conv.</string>
+    <string name="main_orig_tw">Orig. is TW variant</string>
+    <string name="main_orig_hk">Orig. is HK variant</string>
+    <string name="main_to_tw">Conv. to TW variant</string>
+    <string name="main_to_hk">Conv. to HK variant</string>
+    <string name="main_no_conv">No conversion</string>
+    <string name="main_to_twP">Conv. to TW phrases</string>
+    <string name="main_varchar">Chinese Variants</string>
+    <string name="main_worduse">Word Choice</string>
+    <string name="main_type">Type</string>
+    <string name="main_to_cnP">Conv. to CN phrases</string>
 </resources>
