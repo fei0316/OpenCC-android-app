@@ -2,10 +2,12 @@ package com.iatfei.tsconverter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.io.Console;
 import java.util.Objects;
 
 public class ConvertActivity extends AppCompatActivity {
@@ -17,10 +19,17 @@ public class ConvertActivity extends AppCompatActivity {
 
         boolean readonly = getIntent()
                 .getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false);
+        boolean cantReplace;
+        String callingPackage = getCallingPackage();
+        if (callingPackage == null)
+            callingPackage = "bruh";
+        if (callingPackage.equalsIgnoreCase("com.tencent.mm"))
+            cantReplace = true;
+        else
+            cantReplace = false;
 
 
-
-        if (readonly)
+        if (readonly || cantReplace)
             failed();
         else {
             CharSequence text = getIntent()
@@ -28,7 +37,7 @@ public class ConvertActivity extends AppCompatActivity {
             String fromText = Objects.requireNonNull(text).toString();
             String resultText = Convert.openCCConv(fromText, 1, getApplicationContext());
 
-            Toast toast = Toast.makeText(getApplicationContext(), getIntent().getPackage(), Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), getCallingPackage() , Toast.LENGTH_LONG);
             toast.show();
 
             Intent intent = new Intent();
@@ -41,5 +50,6 @@ public class ConvertActivity extends AppCompatActivity {
     private void failed() {
         Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
         toast.show();
+        finish();
     }
 }
