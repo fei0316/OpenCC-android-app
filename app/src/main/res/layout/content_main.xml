@@ -9,108 +9,59 @@
     tools:layout_editor_absoluteY="56dp"
     tools:showIn="@layout/activity_main">
 
-    <RadioGroup
-        android:id="@+id/radioGroupVar"
-        android:layout_width="184dp"
-        android:layout_height="220dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_convert"
-        app:layout_constraintVertical_bias="0.136">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="@string/main_varchar" />
-
-        <RadioButton
-            android:id="@+id/radioButtonVar1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/main_no_conv" />
-
-        <RadioButton
-            android:id="@+id/radioButtonVar2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/main_to_tw" />
-
-        <RadioButton
-            android:id="@+id/radioButtonVar3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/main_to_hk" />
-
-        <RadioButton
-            android:id="@+id/radioButtonVar4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/main_orig_tw" />
-
-        <RadioButton
-            android:id="@+id/radioButtonVar5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/main_orig_hk" />
-
-    </RadioGroup>
-
     <EditText
         android:id="@+id/editText_convert"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:ems="10"
+        android:gravity="top|start"
         android:hint="@string/enter_text_prompt"
         android:inputType="textMultiLine"
         android:maxLines="7"
         android:minLines="7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.0"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/convert_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/translate_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_convert"
-        app:layout_constraintVertical_bias="0.753" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupIdiom"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/clear_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/clear_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.733"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_convert"
-        app:layout_constraintVertical_bias="0.753" />
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupVar"
+        app:layout_constraintVertical_bias="1.0" />
 
     <RadioGroup
         android:id="@+id/radioGroupType"
-        android:layout_width="162dp"
-        android:layout_height="137dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/convert_button"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_convert"
         app:layout_constraintVertical_bias="0.0">
@@ -119,14 +70,15 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
             android:text="@string/main_type" />
 
         <RadioButton
             android:id="@+id/radioButtonType1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="@string/main_simp_trad" />
 
         <RadioButton
@@ -143,25 +95,81 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/radioGroupIdiom"
-        android:layout_width="189dp"
-        android:layout_height="158dp"
-        android:layout_marginTop="189dp"
-        android:layout_marginBottom="108dp"
+        android:id="@+id/radioGroupVar"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.166"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/editText_convert"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/main_varchar" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/main_no_conv" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/main_to_tw" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/main_to_hk" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/main_orig_tw" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/main_orig_hk" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroupIdiom"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupType"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="@string/main_worduse" />
+            android:text="@string/main_wordUse" />
 
         <RadioButton
             android:id="@+id/radioButtonIdiom1"
@@ -183,5 +191,16 @@
             android:text="@string/main_to_cnP" />
 
     </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

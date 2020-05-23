@@ -19,14 +19,12 @@ import static com.zqc.opencc.android.lib.ConversionType.TW2SP;
 class Convert {
 
     static String openCCConv(String from, int type, Context context) {
-        ConversionType convtype = findType (type);
-        return ChineseConverter.convert(from, convtype, context);
+        ConversionType convType = findType (type);
+        return ChineseConverter.convert(from, convType, context);
     }
 
-    static ConversionType findType(int type){
+    private static ConversionType findType(int type){
         switch (type) {
-            case 1:
-                return S2T;
             case 2:
                 return S2TW;
             case 3:

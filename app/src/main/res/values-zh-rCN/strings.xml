@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TSConverter</string>
+    <string name="action_settings">设置</string>
+    <string name="enter_text_prompt">请输入需转换的文本：</string>
+    <string name="translate_button">转换</string>
+    <string name="clear_button">清除</string>
+    <string name="menu_trans_text">繁简转换</string>
+    <string name="menu_readonly">已转换的文本已复制到剪贴板</string>
+    <string name="main_simp_trad">简转繁</string>
+    <string name="main_trad_simp">繁转简</string>
+    <string name="main_tw_hk">港台异体转换</string>
+    <string name="main_orig_tw">原文是台湾标准</string>
+    <string name="main_orig_hk">原文是香港标准</string>
+    <string name="main_to_tw">转换为台湾标准</string>
+    <string name="main_to_hk">转换为香港标准</string>
+    <string name="main_no_conv">不转换</string>
+    <string name="main_to_twP">转换为台湾用词</string>
+    <string name="main_to_cnP">转换为中国大陆用词</string>
+    <string name="main_type">类型</string>
+    <string name="main_varchar">异体标准</string>
+    <string name="main_wordUse">用词（同时转换异体）</string>
 </resources>

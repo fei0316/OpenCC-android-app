@@ -16,7 +16,8 @@
     <string name="main_no_conv">No conversion</string>
     <string name="main_to_twP">Conv. to TW phrases</string>
     <string name="main_varchar">Chinese Variants</string>
-    <string name="main_worduse">Word Choice</string>
+    <string name="main_wordUse">Word Choice (Also converts variant)</string>
     <string name="main_type">Type</string>
     <string name="main_to_cnP">Conv. to CN phrases</string>
+    <string name="action_settings">Settings</string>
 </resources>

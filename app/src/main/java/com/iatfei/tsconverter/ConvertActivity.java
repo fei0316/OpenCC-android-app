@@ -25,14 +25,14 @@ public class ConvertActivity extends AppCompatActivity {
         else {
             CharSequence text = getIntent()
                     .getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
-            String fromtext = Objects.requireNonNull(text).toString();
-            String resulttext = Convert.openCCConv(fromtext, 1, getApplicationContext());
+            String fromText = Objects.requireNonNull(text).toString();
+            String resultText = Convert.openCCConv(fromText, 1, getApplicationContext());
 
-            Toast toast = Toast.makeText(getApplicationContext(), resulttext, Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), getIntent().getPackage(), Toast.LENGTH_LONG);
             toast.show();
 
             Intent intent = new Intent();
-            intent.putExtra(Intent.EXTRA_PROCESS_TEXT, resulttext);
+            intent.putExtra(Intent.EXTRA_PROCESS_TEXT, resultText);
             setResult(RESULT_OK, intent);
             finish();
         }
