@@ -4,7 +4,7 @@
     <string name="enter_text_prompt">Please enter text to be translated…</string>
     <string name="menu_trans_text">Chinese Convert</string>
     <string name="menu_readonly">Converted text has been copied to the clipboard</string>
-    <string name="translate_button">Convert</string>
+    <string name="convert_button">Convert</string>
     <string name="clear_button">Clear</string>
     <string name="main_simp_trad">Simp. to Trad.</string>
     <string name="main_trad_simp">Trad. to Simp.</string>
@@ -20,4 +20,19 @@
     <string name="main_type">Type</string>
     <string name="main_to_cnP">Conv. to CN phrases</string>
     <string name="action_settings">Settings</string>
+    <string name="menu_popup_title">Select conversion type…</string>
+    <string name="menu_popup_type_1">Simplified to Traditional</string>
+    <string name="menu_popup_type_2">Simp. to Trad. (TW variant)</string>
+    <string name="menu_popup_type_3">Simp. to Trad. (HK variant)</string>
+    <string name="menu_popup_type_4">Simp. to Trad. (TW variant and phrases)</string>
+    <string name="menu_popup_type_5">Traditional to Simplified</string>
+    <string name="menu_popup_type_6">Trad. (TW variant) to Simp.</string>
+    <string name="menu_popup_type_7">Trad. (HK variant) to Simp.</string>
+    <string name="menu_popup_type_8">Trad. (TW variant) to Simp. (CN phrases)</string>
+    <string name="menu_popup_type_9">Trad. to Trad. (TW variant)</string>
+    <string name="menu_popup_type_10">Trad. to Trad. (HK variant)</string>
+    <string name="menu_popup_type_S2T">Simplified Chinese to Traditional Chinese</string>
+    <string name="menu_popup_type_T2S">Traditional to Simplified Chinese</string>
+    <string name="menu_popup_type_T2T">Hong Kong-Taiwan variants conversion</string>
+    <string name="cancel_button">Cancel</string>
 </resources>

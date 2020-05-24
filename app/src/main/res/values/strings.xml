@@ -2,7 +2,7 @@
     <string name="app_name">TSConverter</string>
     <string name="action_settings">設定</string>
     <string name="enter_text_prompt">請輸入需轉換的文字：</string>
-    <string name="translate_button">轉換</string>
+    <string name="convert_button">轉換</string>
     <string name="clear_button">清除</string>
     <string name="menu_trans_text">繁簡轉換</string>
     <string name="menu_readonly">已轉換的文字已複製到剪貼簿</string>
@@ -19,4 +19,20 @@
     <string name="main_type">類型</string>
     <string name="main_varchar">異體標準</string>
     <string name="main_wordUse">用詞（同時轉換異體）</string>
+    <string name="menu_popup_title">請選擇轉換類型：</string>
+    <string name="menu_popup_type_1">簡體到繁體</string>
+    <string name="menu_popup_type_2">簡體到臺灣正體</string>
+    <string name="menu_popup_type_3">簡體到香港繁體</string>
+    <string name="menu_popup_type_4">簡體到臺灣正體（包括詞彙）</string>
+    <string name="menu_popup_type_5">繁體到簡體</string>
+    <string name="menu_popup_type_6">臺灣正體到簡體</string>
+    <string name="menu_popup_type_7">香港繁體到簡體</string>
+    <string name="menu_popup_type_8">臺灣正體到簡體（中國大陸詞彙）</string>
+    <string name="menu_popup_type_9">繁體轉換爲臺灣異體標準</string>
+    <string name="menu_popup_type_10">繁體轉換爲香港異體標準</string>
+    <string name="menu_popup_type_S2T">簡-繁轉換</string>
+    <string name="menu_popup_type_T2S">繁-簡轉換</string>
+    <string name="menu_popup_type_T2T">港臺異體轉換</string>
+    <string name="cancel_button">取消</string>
+
 </resources>
