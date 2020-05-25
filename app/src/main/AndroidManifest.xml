@@ -4,28 +4,34 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ConvertActivity"
             android:label="@string/menu_trans_text"
-            android:theme="@style/Theme.AppCompat.Dialog" >
+            android:theme="@style/Theme.AppCompat.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.PROCESS_TEXT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>

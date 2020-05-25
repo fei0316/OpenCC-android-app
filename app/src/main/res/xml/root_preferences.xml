@@ -1,0 +1,112 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/about_app"
+        app:iconSpaceReserved="false">
+
+    </PreferenceCategory>
+    <Preference
+        android:defaultValue="Default value"
+        android:key="edit_text_preference_1"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        app:iconSpaceReserved="false"
+        android:summary="@string/about_app_description"
+        android:title="@string/app_name" />
+    <Preference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="Default value"
+        android:key="edit_text_preference_2"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        app:iconSpaceReserved="false"
+        android:summary="..."
+        android:title="@string/about_text_version" />
+    <PreferenceCategory android:title="@string/about_development"
+        app:iconSpaceReserved="false">
+    </PreferenceCategory>
+    <Preference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="Default value"
+        android:key="edit_text_preference_5"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        app:iconSpaceReserved="false"
+        android:summary="@string/about_developed_by"
+        android:title="@string/about_title_developed" />
+    <Preference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="Default value"
+        android:key="edit_text_preference_4"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        app:iconSpaceReserved="false"
+        android:summary="@string/about_iatfei_link"
+        android:title="@string/about_mysite">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://iatfei.com" />
+    </Preference>
+    <Preference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="Default value"
+        android:key="edit_text_preference_8"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        app:iconSpaceReserved="false"
+        android:summary="@string/about_email"
+        android:title="@string/about_contact">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="mailto:kuan@iatfei.com" />
+    </Preference>
+    <Preference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="Default value"
+        android:key="edit_text_preference_3"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        app:iconSpaceReserved="false"
+        android:summary="@string/about_app_license_details"
+        android:title="@string/about_app_license" >
+        <intent android:action="android.intent.action.VIEW"
+            android:data="https://github.com/fei0316/snapstreak-alarm" />
+    </Preference>
+    <Preference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="Default value"
+        android:key="edit_text_preference_6"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        app:iconSpaceReserved="false"
+        android:title="@string/about_license" >
+    </Preference>
+    <PreferenceCategory android:title="@string/about_restart_title"
+        app:iconSpaceReserved="false">
+    </PreferenceCategory>
+    <Preference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="Default value"
+        android:key="edit_text_preference_7"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        app:iconSpaceReserved="false"
+        android:summary="@string/about_restart_content"
+        android:title="@string/about_restart" />
+    <Preference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="Default value"
+        android:key="edit_text_preference_9"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        app:iconSpaceReserved="false"
+        android:summary="@string/about_story_app_content"/>
+</PreferenceScreen>

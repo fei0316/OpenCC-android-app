@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TSConverter</string>
-    <string name="action_settings">设置</string>
+    <string name="action_about">关于</string>
     <string name="enter_text_prompt">请输入需转换的文本：</string>
     <string name="convert_button">转换</string>
     <string name="clear_button">清除</string>
@@ -35,4 +35,18 @@
     <string name="menu_popup_type_T2S">繁-简转换</string>
     <string name="menu_popup_type_T2T">港台异体转换</string>
     <string name="cancel_button">取消</string>
+    <string name="title_activity_about">About</string>
+    <string name="about_app_description">使用 OpenCC 的 Android 简繁转换器</string>
+    <string name="about_text_version">版本</string>
+    <string name="about_development" >开发</string>
+    <string name="about_developed_by" >由 Fei 在 2019 冠状病毒病疫情期间使用 Android Studio 开发。2020 年 5 月。</string>
+    <string name="about_title_developed" >开发</string>
+    <string name="about_mysite" >我的网站</string>
+    <string name="about_contact" >联系我</string>
+    <string name="about_app_license_details" >本软件以 GNU 通用公共许可证条款第三版发布（或更新版本）。你可以在此条款下重新发布和修改本软件。请点击以进入本程序的 GitHub 页面获得原代码和版权信息。</string>
+    <string name="about_app_license" >原代码</string>
+    <string name="about_license" >开放原代码授权</string>
+    <string name="about_app">关于此软件</string>
+    <string name="about_story_app_content">"For the peace between us. "</string>
+
 </resources>

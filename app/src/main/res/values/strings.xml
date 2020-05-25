@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TSConverter</string>
-    <string name="action_settings">設定</string>
+    <string name="action_about">關於</string>
     <string name="enter_text_prompt">請輸入需轉換的文字：</string>
     <string name="convert_button">轉換</string>
     <string name="clear_button">清除</string>
@@ -34,5 +34,23 @@
     <string name="menu_popup_type_T2S">繁-簡轉換</string>
     <string name="menu_popup_type_T2T">港臺異體轉換</string>
     <string name="cancel_button">取消</string>
+    <string name="title_activity_about">About</string>
+    <string name="about_app_description">使用 OpenCC 的 Android 簡繁轉換器</string>
+    <string name="about_text_version">版本</string>
+    <string name="about_development" >開發</string>
+    <string name="about_developed_by" >由 Fei 在 2019 冠狀病毒病疫情期間使用 Android Studio 開發。2020 年 5 月。</string>
+    <string name="about_title_developed" >開發</string>
+    <string name="about_iatfei_link" translatable="false">https://iatfei.com</string>
+    <string name="about_mysite" >我的網站</string>
+    <string name="about_email" translatable="false">kuan@iatfei.com</string>
+    <string name="about_contact" >聯絡我</string>
+    <string name="about_app_license_details" >本軟件以 GNU 通用公共許可證條款第三版發佈（或更新版本）。你可以在此條款下重新發佈和修改本軟件。請點選以進入本程式的 GitHub 頁面獲得原始碼和版權資訊。</string>
+    <string name="about_license" >開放原始碼授權</string>
+    <string name="about_restart_title" translatable="false">RE:START</string>
+    <string name="about_restart_content" translatable="false" >Those who care will come back; those who hate will leave.</string>
+    <string name="about_restart" translatable="false">RE:START #2</string>
+    <string name="about_story_app_content" >Be together. Not the same.</string>
+    <string name="about_app">關於此軟件</string>
+    <string name="about_app_license">原始碼</string>
 
 </resources>
