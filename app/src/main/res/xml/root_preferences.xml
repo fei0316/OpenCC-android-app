@@ -75,7 +75,7 @@
         android:summary="@string/about_app_license_details"
         android:title="@string/about_app_license" >
         <intent android:action="android.intent.action.VIEW"
-            android:data="https://github.com/fei0316/snapstreak-alarm" />
+            android:data="https://github.com/fei0316/OpenCC-android-app" />
     </Preference>
     <Preference
         android:layout_width="wrap_content"
