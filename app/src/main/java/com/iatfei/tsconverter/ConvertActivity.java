@@ -88,13 +88,12 @@ public class ConvertActivity extends AppCompatActivity {
                     Objects.requireNonNull(clipboard).setPrimaryClip(clip);
                     Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
                     toast.show();
-                    finish();
                 } else {
                     Intent intent = new Intent();
                     intent.putExtra(Intent.EXTRA_PROCESS_TEXT, resultText);
                     setResult(RESULT_OK, intent);
-                    finish();
                 }
+                finish();
 
 
             }

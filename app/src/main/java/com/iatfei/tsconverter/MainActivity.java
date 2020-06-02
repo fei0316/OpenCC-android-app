@@ -1,5 +1,6 @@
 package com.iatfei.tsconverter;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -154,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void aboutScreen() {
-
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
     }
 }

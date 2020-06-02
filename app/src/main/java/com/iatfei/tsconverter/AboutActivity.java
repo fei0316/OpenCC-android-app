@@ -34,7 +34,9 @@ public class AboutActivity extends AppCompatActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
-            String version = BuildConfig.VERSION_NAME + "-" + BuildConfig.FLAVOR + " v" + BuildConfig.VERSION_CODE;
+            String version = BuildConfig.VERSION_NAME +
+                    //"-" + BuildConfig.FLAVOR +
+                    " v" + BuildConfig.VERSION_CODE;
             Preference ver = findPreference("edit_text_preference_2");
             Objects.requireNonNull(ver).setSummary(version);
             Preference license = findPreference("edit_text_preference_6");

@@ -10,8 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OpenSourceActivity"
-            android:theme="@style/Theme.MaterialComponents"></activity>
+        <activity
+            android:name=".OpenSourceActivity"
+            android:theme="@style/Theme.MaterialComponents"
+            android:label="@string/about_license"
+            android:parentActivityName=".AboutActivity"/>
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about" />

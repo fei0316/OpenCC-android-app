@@ -42,7 +42,7 @@
     <string name="about_development" >Development</string>
     <string name="about_developed_by" >Fei Kuan on Android Studio, during COVID-19 pandemic in May 2020.</string>
     <string name="about_title_developed" >Developed by</string>
-    <string name="about_mysite" >Visit my site</string>
+    <string name="about_mysite">Visit my site</string>
     <string name="about_contact" >Contact me</string>
     <string name="about_app_license_details" >This application is licensed under the GNU General Public License Version 3 or later. You are free to redistribute and/or modify it under this license. Click to visit my GitHub page for source code and license details.</string>
     <string name="about_app_license" >Source Code</string>

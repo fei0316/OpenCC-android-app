@@ -41,7 +41,7 @@
     <string name="about_development" >开发</string>
     <string name="about_developed_by" >由 Fei 在 2019 冠状病毒病疫情期间使用 Android Studio 开发。2020 年 5 月。</string>
     <string name="about_title_developed" >开发</string>
-    <string name="about_mysite" >我的网站</string>
+    <string name="about_mysite">我的网站</string>
     <string name="about_contact" >联系我</string>
     <string name="about_app_license_details" >本软件以 GNU 通用公共许可证条款第三版发布（或更新版本）。你可以在此条款下重新发布和修改本软件。请点击以进入本程序的 GitHub 页面获得原代码和版权信息。</string>
     <string name="about_app_license" >原代码</string>
