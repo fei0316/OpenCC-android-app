@@ -24,7 +24,7 @@ For example, the character 「臺」 is used for 「臺灣」 while 「台」 is
 
 以「台/臺」舉例：
 
-| 標準           | Taiwan   |          |
+| 標準           | Taiwan   | Rooftop  |
 | -------------- | -------- | -------- |
 | 臺灣標準       | 臺灣     | 天台     |
 | 香港標準       | 台灣     | 天台     |
@@ -32,18 +32,18 @@ For example, the character 「臺」 is used for 「臺灣」 while 「台」 is
 
 ### Conversion Modes chart
 
-| #    | From        | To                        | Chinese Variant (異體)                                       | Word Use (用詞)                                     |
-| :--- | :---------- | :------------------------ | :----------------------------------------------------------- | :-------------------------------------------------- |
-| 1    | Simplified  | Traditional               | ❌ (no conversion)                                            | ❌ (no conversion)                                   |
-| 2    | Simplified  | Traditional               | Convert to Taiwan variant (臺灣正體標準)                     | ❌                                                   |
-| 3    | Simplified  | Traditional               | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) | ❌                                                   |
-| 4    | Simplified  | Traditional               | Convert to Taiwan variant (臺灣正體標準)                     | Conver to Taiwan phrases (臺灣常用詞彙)             |
-| 5    | Traditional | Simplified                | ❌                                                            | ❌                                                   |
-| 6    | Traditional | Simplified                | Convert from Taiwan variant (臺灣正體標準)                   | ❌                                                   |
-| 7    | Traditional | Simplified                | Convert from Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) | ❌                                                   |
-| 8    | Traditional | Simplified                | Convert from Taiwan variant (臺灣正體標準)                   | Conver to Mainland China phrases (中國大陸常用詞彙) |
-| 9    | Traditional | (variant conversion only) | Convert to Taiwan variant (臺灣正體標準)                     | ❌                                                   |
-| 10   | Traditional | (variant conversion only) | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) | ❌                                                   |
+|  ID   |    From     |            To             |                    Chinese Variant (異體)                    |                   Word Use (用詞)                   |
+| :--: | :---------: | :-----------------------: | :----------------------------------------------------------: | :-------------------------------------------------: |
+|  1   | Simplified  |        Traditional        |                      ❌ (no conversion)                       |                  ❌ (no conversion)                  |
+|  2   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
+|  3   | Simplified  |        Traditional        | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
+|  4   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |       Conver to Taiwan phrases (臺灣常用詞彙)       |
+|  5   | Traditional |        Simplified         |                              ❌                               |                          ❌                          |
+|  6   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          |                          ❌                          |
+|  7   | Traditional |        Simplified         | Convert from Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
+|  8   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          | Conver to Mainland China phrases (中國大陸常用詞彙) |
+|  9   | Traditional | (variant conversion only) |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
+|  10  | Traditional | (variant conversion only) | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
 
 ### Example
 
@@ -79,11 +79,24 @@ For example, the character 「臺」 is used for 「臺灣」 while 「台」 is
 這個使用者應該使用滑鼠點選這裡來檢視東湧的湧浪的圖片
 ```
 
-**Note:** 「涌/湧」 is an exception to the OpenCC's aim to separating as much as possible as the contributors based their research on old literary and dictionaries and ignored the special usecases in Cantonese-speaking region.
+**Note:** 「涌/湧」 is an exception to the OpenCC's aim to separating as much as possible, as the contributors based their research on old literary and dictionaries and ignored the special usecases in Cantonese-speaking region.
 
-註：「涌/湧」是 OpenCC 「能分則不合」的例外，請見 https://zhuanlan.zhihu.com/p/104314323。
+**註：**「涌/湧」是 OpenCC 「能分則不合」的例外，請見 https://zhuanlan.zhihu.com/p/104314323。
 
-#### Traditional to Chinese
+#### Traditional to Simplified
+
+##### Correct Simplified Chinese Result
+
+```
+我同学手中拿着一本有关自行车的名著
+```
+
+| Original Traditional Chinese                           | From OpenCC standard                               | From Taiwanese                             | From HK                                            | From Taiwanese (CN phrase)                 |
+| ------------------------------------------------------ | -------------------------------------------------- | ------------------------------------------ | -------------------------------------------------- | ------------------------------------------ |
+| 我同學手中拿**着**一本有關腳踏車的名**著** （HK style) | 我同学手中拿**着**一本有关脚踏车的名**著**         | 我同学手中拿**着**一本有关脚踏车的名**著** | 我同学手中拿**着**一本有关脚踏车的名**著**         | 我同学手中拿**着**一本有关自行车的名**著** |
+| 我同學手中拿**著**一本有關腳踏車的名**著** (TW style)  | 我同学手中拿**著**一本有关脚踏车的名**著** (wrong) | 我同学手中拿**着**一本有关脚踏车的名**著** | 我同学手中拿**著**一本有关脚踏车的名**著** (wrong) | 我同学手中拿**着**一本有关自行车的名**著** |
+
+Therefore, please always choose the origin text to the best of your knowledge and double check the result. Most discrepensies are small  however, as demonstrated.
 
 ## Todo
 
