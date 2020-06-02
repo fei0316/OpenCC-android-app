@@ -1,5 +1,24 @@
+<!--
+  ~ Copyright (c) 2020-2020 Fei Kuan.
+  ~
+  ~ This file is part of Chinese Converter
+  ~ (see <https://github.com/fei0316/OpenCC-android-app>).
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
 <resources>
-    <string name="app_name">TSConverter</string>
     <string name="action_about">關於</string>
     <string name="enter_text_prompt">請輸入需轉換的文字：</string>
     <string name="convert_button">轉換</string>
@@ -52,5 +71,6 @@
     <string name="about_story_app_content">Be together. Not the same.</string>
     <string name="about_app">關於此軟件</string>
     <string name="about_app_license">原始碼</string>
+    <string name="app_name">中文轉換</string>
 
 </resources>

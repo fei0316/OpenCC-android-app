@@ -14,6 +14,22 @@ Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/Open
 
 ## Conversion Modes
 
+### Conversion Modes chart
+
+|  ID   |    From     |            To             |                    Chinese Variant (異體)                    |                   Word Use (用詞)                   |
+| :--: | :---------: | :-----------------------: | :----------------------------------------------------------: | :-------------------------------------------------: |
+|  1   | Simplified  |        Traditional        |                      ❌ (no conversion)                       |                  ❌ (no conversion)                  |
+|  2   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
+|  3   | Simplified  |        Traditional        | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
+|  4   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |       Conver to Taiwan phrases (臺灣常用詞彙)       |
+|  5   | Traditional |        Simplified         |                              ❌                               |                          ❌                          |
+|  6   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          |                          ❌                          |
+|  7   | Traditional |        Simplified         | Convert from Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
+|  8   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          | Conver to Mainland China phrases (中國大陸常用詞彙) |
+|  9   | Traditional | (variant conversion only) |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
+|  10  | Traditional | (variant conversion only) | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
+
+
 ### Notes on OpenCC standard
 
 **Note:** "no conversion" for Chinese variants converts inputs into the OpenCC standard, and no particular governmental standards are followed. It is based the contributors' research, and aims to avoid situations where one character in a variant can be multiple characters in another variant by splitting up as much as possible. 
@@ -29,21 +45,6 @@ For example, the character 「臺」 is used for 「臺灣」 while 「台」 is
 | 臺灣標準       | 臺灣     | 天台     |
 | 香港標準       | 台灣     | 天台     |
 | **OpenCC標準** | **臺灣** | **天台** |
-
-### Conversion Modes chart
-
-|  ID   |    From     |            To             |                    Chinese Variant (異體)                    |                   Word Use (用詞)                   |
-| :--: | :---------: | :-----------------------: | :----------------------------------------------------------: | :-------------------------------------------------: |
-|  1   | Simplified  |        Traditional        |                      ❌ (no conversion)                       |                  ❌ (no conversion)                  |
-|  2   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
-|  3   | Simplified  |        Traditional        | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
-|  4   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |       Conver to Taiwan phrases (臺灣常用詞彙)       |
-|  5   | Traditional |        Simplified         |                              ❌                               |                          ❌                          |
-|  6   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          |                          ❌                          |
-|  7   | Traditional |        Simplified         | Convert from Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
-|  8   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          | Conver to Mainland China phrases (中國大陸常用詞彙) |
-|  9   | Traditional | (variant conversion only) |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
-|  10  | Traditional | (variant conversion only) | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
 
 ### Example
 
@@ -106,3 +107,31 @@ Therefore, please always choose the origin text to the best of your knowledge an
 - Prompt that OpenCC is not perfect and should double check the result
 - Japanese New Knaji support??
 - Default conversion mode?
+
+## Any issues?
+
+For problems related to conversion, please open an issue in OpenCC's [GitHub page](https://github.com/BYVoid/OpenCC).
+
+Otherwise, please open an issue here.
+
+## Licenses
+```
+Copyright (c) 2020 Fei Kuan.
+
+This file is part of Chinese Converter
+(see <https://github.com/fei0316/OpenCC-android-app>).
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+```
