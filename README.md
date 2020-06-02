@@ -108,6 +108,9 @@ Therefore, please always choose the origin text to the best of your knowledge an
 - Japanese New Knaji support??
 - Default conversion mode?
 
+## How to build
+Just clone the repository and open it in Android Studio. It *should* work...
+
 ## Any issues?
 
 For problems related to conversion, please open an issue in OpenCC's [GitHub page](https://github.com/BYVoid/OpenCC).
