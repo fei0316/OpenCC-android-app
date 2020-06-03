@@ -35,6 +35,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class MainActivity extends AppCompatActivity {
 
     private boolean userRadioChange = true;
@@ -45,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Button clear_button = findViewById(R.id.clear_button);
+        clear_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText et = findViewById(R.id.editText_convert);
+                et.setText("");
+            }
+        });
 
         Button conv_button = findViewById(R.id.convert_button);
         conv_button.setOnClickListener(new View.OnClickListener() {
