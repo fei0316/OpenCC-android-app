@@ -7,6 +7,8 @@ My third project! Developed during the COVID-19 pandemic.
 
 Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/OpenCC), and qichuan for the [Android OpenCC Library](https://github.com/qichuan/android-opencc).
 
+[Download from GitHub releases.](https://github.com/fei0316/OpenCC-android-app/releases)
+
 ## Features
 
 - 10 conversion modes (see below for details)
