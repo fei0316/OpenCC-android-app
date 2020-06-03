@@ -28,7 +28,7 @@
     <string name="clear_button">Clear</string>
     <string name="main_simp_trad">Simp. to Trad.</string>
     <string name="main_trad_simp">Trad. to Simp.</string>
-    <string name="main_tw_hk">TW-HK variant conv.</string>
+    <string name="main_tw_hk">Trad. variant conv.</string>
     <string name="main_orig_tw">Orig. is TW variant</string>
     <string name="main_orig_hk">Orig. is HK variant</string>
     <string name="main_to_tw">Conv. to TW variant</string>

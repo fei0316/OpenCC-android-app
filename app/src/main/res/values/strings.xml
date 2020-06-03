@@ -27,7 +27,7 @@
     <string name="menu_readonly">已轉換的文字已複製到剪貼簿</string>
     <string name="main_simp_trad">簡轉繁</string>
     <string name="main_trad_simp">繁轉簡</string>
-    <string name="main_tw_hk">港臺異體轉換</string>
+    <string name="main_tw_hk">繁體異體轉換</string>
     <string name="main_orig_tw">原文是臺灣標準</string>
     <string name="main_orig_hk">原文是香港標準</string>
     <string name="main_to_tw">轉換爲臺灣標準</string>

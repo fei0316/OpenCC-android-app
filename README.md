@@ -26,8 +26,8 @@ Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/Open
 |  6   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          |                          ❌                          |
 |  7   | Traditional |        Simplified         | Convert from Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
 |  8   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          | Conver to Mainland China phrases (中國大陸常用詞彙) |
-|  9   | Traditional | (variant conversion only) |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
-|  10  | Traditional | (variant conversion only) | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
+|  9   | OpenCC Traditional | Taiwan Traditional |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
+|  10  | OpenCC Traditional | Hong Kong Traditional | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
 
 
 ### Notes on OpenCC standard
@@ -98,6 +98,10 @@ For example, the character 「臺」 is used for 「臺灣」 while 「台」 is
 | 我同學手中拿**著**一本有關腳踏車的名**著** (TW style)  | 我同学手中拿**著**一本有关脚踏车的名**著** (wrong) | 我同学手中拿**着**一本有关脚踏车的名**著** | 我同学手中拿**著**一本有关脚踏车的名**著** (wrong) | 我同学手中拿**着**一本有关自行车的名**著** |
 
 Therefore, please always choose the origin text to the best of your knowledge and double check the result. Most discrepensies are small  however, as demonstrated.
+
+#### Traditional Variant Conversion
+
+
 
 ## Todo
 

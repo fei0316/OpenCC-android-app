@@ -29,7 +29,7 @@
     <string name="menu_readonly">已转换的文本已复制到剪贴板</string>
     <string name="main_simp_trad">简转繁</string>
     <string name="main_trad_simp">繁转简</string>
-    <string name="main_tw_hk">港台异体转换</string>
+    <string name="main_tw_hk">繁体异体转换</string>
     <string name="main_orig_tw">原文是台湾标准</string>
     <string name="main_orig_hk">原文是香港标准</string>
     <string name="main_to_tw">转换为台湾标准</string>
