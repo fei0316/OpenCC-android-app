@@ -42,7 +42,7 @@ class OpenSourceActivity : AppCompatActivity() {
                 .withAboutVersionShown(true)
                 .withLicenseShown(true)
                 .withAboutAppName(getString(R.string.app_name))
-                .withAboutDescription("I can't believe you clicked on this! Thank you for using my app!<br>Special thanks to BYVoid for developing OpenCC.<br><br>和平總是建基在理解之上。")
+                .withAboutDescription("I can't believe you clicked on this! Thank you for using my app!<br>Special thanks to BYVoid for developing OpenCC.<br><br>願世界和平。")
                 .supportFragment()
 
         supportFragmentManager.beginTransaction()

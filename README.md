@@ -21,11 +21,11 @@ Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/Open
 |  1   | Simplified  |        Traditional        |                      ❌ (no conversion)                       |                  ❌ (no conversion)                  |
 |  2   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
 |  3   | Simplified  |        Traditional        | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
-|  4   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |       Conver to Taiwan phrases (臺灣常用詞彙)       |
+|  4   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |       Convert to Taiwan phrases (臺灣常用詞彙)       |
 |  5   | Traditional |        Simplified         |                              ❌                               |                          ❌                          |
 |  6   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          |                          ❌                          |
 |  7   | Traditional |        Simplified         | Convert from Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
-|  8   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          | Conver to Mainland China phrases (中國大陸常用詞彙) |
+|  8   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          | Convert to Mainland China phrases (中國大陸常用詞彙) |
 |  9   | OpenCC Traditional | Taiwan Traditional |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
 |  10  | OpenCC Traditional | Hong Kong Traditional | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
 
@@ -80,7 +80,7 @@ For example, the character 「臺」 is used for 「臺灣」 while 「台」 is
 這個使用者應該使用滑鼠點選這裡來檢視東湧的湧浪的圖片
 ```
 
-**Note:** 「涌/湧」 is an exception to the OpenCC's aim to separating as much as possible, as the contributors based their research on old literary and dictionaries and ignored the special usecases in Cantonese-speaking region.
+**Note:** 「涌/湧」 is an exception to the OpenCC's aim to separating as much as possible, as the contributors based their research on old literary and dictionaries and ignored the special use case in Cantonese-speaking region.
 
 **註：**「涌/湧」是 OpenCC 「能分則不合」的例外，請見 https://zhuanlan.zhihu.com/p/104314323。
 
@@ -97,7 +97,7 @@ For example, the character 「臺」 is used for 「臺灣」 while 「台」 is
 | 我同學手中拿**着**一本有關腳踏車的名**著** （HK style) | 我同学手中拿**着**一本有关脚踏车的名**著**         | 我同学手中拿**着**一本有关脚踏车的名**著** | 我同学手中拿**着**一本有关脚踏车的名**著**         | 我同学手中拿**着**一本有关自行车的名**著** |
 | 我同學手中拿**著**一本有關腳踏車的名**著** (TW style)  | 我同学手中拿**著**一本有关脚踏车的名**著** (wrong) | 我同学手中拿**着**一本有关脚踏车的名**著** | 我同学手中拿**著**一本有关脚踏车的名**著** (wrong) | 我同学手中拿**着**一本有关自行车的名**著** |
 
-Therefore, please always choose the origin text to the best of your knowledge and double check the result. Most discrepensies are small  however, as demonstrated.
+Therefore, please always choose the origin text to the best of your knowledge and double check the result. Most discrepancies are small  however, as demonstrated.
 
 #### Traditional Variant Conversion
 
@@ -109,7 +109,7 @@ Therefore, please always choose the origin text to the best of your knowledge an
 - Dark Mode
 - Wait for qichuan to update the library for the new Hong Kong variant updates no longer based on 香港小學學習字詞表 (OpenCC pull request #418)
 - Prompt that OpenCC is not perfect and should double check the result
-- Japanese New Knaji support??
+- Japanese New Kanji support??
 - Default conversion mode?
 
 ## How to build
