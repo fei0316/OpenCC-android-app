@@ -10,37 +10,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".OpenSourceActivity"
-            android:theme="@style/Theme.MaterialComponents"
-            android:label="@string/about_license"
-            android:parentActivityName=".AboutActivity"/>
-        <activity
-            android:name=".AboutActivity"
-            android:label="@string/title_activity_about"
-            android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+        android:name=".AboutActivity"
+        android:label="@string/title_activity_about"
+        android:parentActivityName=".MainActivity"
+        android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".OpenSourceActivity"
+            android:theme="@style/AppThemeMaterial"
+            android:label="@string/about_license"
+            android:parentActivityName=".AboutActivity"/>
+
         <activity
             android:name=".ConvertActivity"
             android:label="@string/menu_trans_text"
-            android:theme="@style/Theme.AppCompat.Dialog">
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.PROCESS_TEXT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

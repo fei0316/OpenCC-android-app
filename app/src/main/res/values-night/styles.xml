@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppThemeMaterial" parent="Base.AppThemeMaterial">
+        <item name="android:statusBarColor">@color/darkModeStatusBar</item>
+    </style>
+    <style name="AppThemeMaterial.AppBar" parent="Base.AppThemeMaterial">
+    </style>
+</resources>

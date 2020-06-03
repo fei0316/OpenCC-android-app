@@ -22,6 +22,7 @@ package com.iatfei.tsconverter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.mikepenz.aboutlibraries.LibsBuilder
 
 class OpenSourceActivity : AppCompatActivity() {
@@ -30,7 +31,10 @@ class OpenSourceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_open_source)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar_opensource)
+        setSupportActionBar(toolbar)
+        val actionBar = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
 
         val fragment = LibsBuilder()
                 .withFields(R.string::class.java.fields) // in some cases it may be needed to provide the R class, if it can not be automatically resolved
