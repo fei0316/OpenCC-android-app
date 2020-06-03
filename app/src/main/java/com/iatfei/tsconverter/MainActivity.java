@@ -35,8 +35,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 public class MainActivity extends AppCompatActivity {
 
     private boolean userRadioChange = true;
