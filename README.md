@@ -103,7 +103,23 @@ Therefore, please always choose the origin text to the best of your knowledge an
 
 #### Traditional Variant Conversion
 
+##### Original (OpenCC standard)
 
+```
+我拿着有關臺灣的名著
+```
+
+##### Hong Kong Standard
+
+```
+我拿着有關台灣的名著
+```
+
+##### Taiwan Standard
+
+```
+我拿著有關臺灣的名著
+```
 
 ## Todo
 
