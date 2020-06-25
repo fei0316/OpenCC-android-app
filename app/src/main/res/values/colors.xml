@@ -24,4 +24,8 @@
     <color name="colorPrimaryDark">#002f6c</color>
     <color name="colorAccent">#4f83cc</color>
     <color name="darkModeStatusBar">#121212</color>
+    <color name="appIntroOne">#ffa000</color>
+    <color name="appIntroTwo">#c2185b</color>
+    <color name="appIntroThree">#00796b</color>
+    <color name="appIntroFour">#1976d2</color>
 </resources>

@@ -55,7 +55,7 @@
     <string name="menu_popup_type_T2S">繁-简转换</string>
     <string name="menu_popup_type_T2T">港台异体转换</string>
     <string name="cancel_button">取消</string>
-    <string name="title_activity_about">About</string>
+    <string name="title_activity_about">关于</string>
     <string name="about_app_description">使用 OpenCC 的 Android 简繁转换器</string>
     <string name="about_text_version">版本</string>
     <string name="about_development" >开发</string>
@@ -68,5 +68,12 @@
     <string name="about_license" >开放原代码授权</string>
     <string name="about_app">关于此软件</string>
     <string name="about_story_app_content">"For the peace between us. "</string>
+    <string name="main_variant_openccstandard">OpenCC 标准（推荐）</string>
+    <string name="appintro_title_2">建议...</string>
+    <string name="appintro_title_3">感谢使用！</string>
+    <string name="appintro_content_3">我的第二个软件。衷心感谢 BYVoid 在 OpenCC 开发付出的努力。没有 OpenCC 就不会有这软件的诞生。因语言的复杂性，软件无法完美转换简繁而可能会出现过度转换或没有转换的问题，请务必仔细检查。</string>
+    <string name="appintro_title_1">欢迎！</string>
+    <string name="appintro_content_1">支持简体及各地区的繁体异体之间相互转换，并同时支持地区用语。</string>
+    <string name="appintro_content_2">如没有指定地区异体字的需求，建议使用 OpenCC 标准。（除非打算同时转换地区用语）</string>
 
 </resources>

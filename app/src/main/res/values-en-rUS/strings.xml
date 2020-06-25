@@ -69,4 +69,11 @@
     <string name="about_license" >Open Source Licenses</string>
     <string name="about_app">About this App</string>
     <string name="about_story_app_content">Developed in celebration of what makes us different, yet together.</string>
+    <string name="main_variant_openccstandard">OpenCC standard (recommended)</string>
+    <string name="appintro_title_1">Welcome!</string>
+    <string name="appintro_content_1">Convert between the regional varieties of Traditional and Simplified Chinese ease, including support for variant characters and regional word use preferences!</string>
+    <string name="appintro_title_2">Recommendations...</string>
+    <string name="appintro_title_3">Thanks for using my app!</string>
+    <string name="appintro_content_3">This is my second app project, and it will not be possible without the amazing OpenCC project by BYVoid. Note that OpenCC is unable to convert perfectly due to the complicated nature of languages, and proofreading is still necessary.</string>
+    <string name="appintro_content_2">Use the OpenCC standard for variants if you just want a basic Traditional-Simplified conversion, unless you need to convert word usage as well. (In which vase you have to use Taiwan variant)</string>
 </resources>
