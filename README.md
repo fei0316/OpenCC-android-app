@@ -98,7 +98,7 @@ For example, the character 「臺」 is used for 「臺灣」 while 「台」 is
 
 | Original Traditional Chinese                           | From OpenCC standard                               | From Taiwanese                             | From HK                                            | From Taiwanese (CN phrase)                 |
 | ------------------------------------------------------ | -------------------------------------------------- | ------------------------------------------ | -------------------------------------------------- | ------------------------------------------ |
-| 我同學手中拿**着**一本有關腳踏車的名**著** （HK style) | 我同学手中拿**着**一本有关脚踏车的名**著**         | 我同学手中拿**着**一本有关脚踏车的名**著** | 我同学手中拿**着**一本有关脚踏车的名**著**         | 我同学手中拿**着**一本有关自行车的名**著** |
+| 我同學手中拿**着**一本有關腳踏車的名**著**  (HK style) | 我同学手中拿**着**一本有关脚踏车的名**著**         | 我同学手中拿**着**一本有关脚踏车的名**著** | 我同学手中拿**着**一本有关脚踏车的名**著**         | 我同学手中拿**着**一本有关自行车的名**著** |
 | 我同學手中拿**著**一本有關腳踏車的名**著** (TW style)  | 我同学手中拿**著**一本有关脚踏车的名**著** (wrong) | 我同学手中拿**着**一本有关脚踏车的名**著** | 我同学手中拿**著**一本有关脚踏车的名**著** (wrong) | 我同学手中拿**着**一本有关自行车的名**著** |
 
 Therefore, please always choose the origin text to the best of your knowledge and double check the result. Most discrepancies are small  however, as demonstrated.
@@ -140,9 +140,6 @@ Otherwise, please open an issue here.
 ## Licenses
 ```
 Copyright (c) 2020 Fei Kuan.
-
-This file is part of Chinese Converter
-(see <https://github.com/fei0316/OpenCC-android-app>).
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

@@ -66,6 +66,9 @@ public class ConvertActivity extends AppCompatActivity {
 
                 int sel;
                 switch (id) {
+                    case R.id.popupRadioType1:
+                        sel = 1;
+                        break;
                     case R.id.popupRadioType2:
                         sel = 2;
                         break;
@@ -94,24 +97,30 @@ public class ConvertActivity extends AppCompatActivity {
                         sel = 10;
                         break;
                     default:
-                        sel = 1;
+                        sel = 0;
                         break;
                 }
-                CharSequence text = getIntent()
-                        .getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
-                String fromText = Objects.requireNonNull(text).toString();
-                String resultText = Convert.openCCConv(fromText, sel, getApplicationContext());
 
-                if (readonly || cantReplace) {
-                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("ConvertedChinese", resultText);
-                    Objects.requireNonNull(clipboard).setPrimaryClip(clip);
-                    Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
-                    toast.show();
+                if (sel != 0) {
+                    CharSequence text = getIntent()
+                            .getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+                    String fromText = Objects.requireNonNull(text).toString();
+                    String resultText = Convert.openCCConv(fromText, sel, getApplicationContext());
+
+                    if (readonly || cantReplace) {
+                        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                        ClipData clip = ClipData.newPlainText("ConvertedChinese", resultText);
+                        Objects.requireNonNull(clipboard).setPrimaryClip(clip);
+                        Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
+                        toast.show();
+                    } else {
+                        Intent intent = new Intent();
+                        intent.putExtra(Intent.EXTRA_PROCESS_TEXT, resultText);
+                        setResult(RESULT_OK, intent);
+                    }
                 } else {
-                    Intent intent = new Intent();
-                    intent.putExtra(Intent.EXTRA_PROCESS_TEXT, resultText);
-                    setResult(RESULT_OK, intent);
+                    Toast toast = Toast.makeText(getApplicationContext(), "Error!!", Toast.LENGTH_LONG);
+                    toast.show();
                 }
                 finish();
 
