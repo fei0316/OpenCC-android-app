@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     String converted = Convert.openCCConv(text, type, getApplicationContext());
                     conv_text.setText(converted);
                 } else
-                    Toast.makeText(getApplicationContext(), "error!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error!!!", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -123,7 +123,10 @@ public class MainActivity extends AppCompatActivity {
                     var4.setEnabled(false);
                     var5.setEnabled(false);
                 }
-                if (userRadioChange) {
+                if (userRadioChange && checkedId == R.id.radioButtonType3) {
+                    rgVar.clearCheck();
+                    rgVar.check(R.id.radioButtonVar2);
+                } else if (userRadioChange){
                     rgVar.clearCheck();
                     rgVar.check(R.id.radioButtonVar1);
                 }

@@ -75,9 +75,11 @@
     <string name="main_variant_openccstandard">OpenCC 標準（建議）</string>
     <string name="appintro_title_1">歡迎！</string>
     <string name="appintro_title_2">建議...</string>
-    <string name="appintro_content_2">如果只需要普通的簡繁轉換而不需指定異體標準，建議使用 OpenCC 標準（除非需要轉換地區用詞）</string>
-    <string name="appintro_title_3">感謝使用！</string>
-    <string name="appintro_content_3">我的第二個軟件。衷心感謝 BYVoid 在 OpenCC 開發付出的努力。沒有 OpenCC 就不會有這軟件的誕生。因語言的複雜性，軟件無法完美轉換簡繁而可能會出現過度轉換或沒有轉換的問題，請務必仔細檢查。</string>
-    <string name="appintro_content_1">支援各地區繁體異體標準及簡體之間相互支援，並可選擇同時轉換地區用詞。</string>
+    <string name="appintro_content_2">如果只需要普通的簡繁轉換而沒有地區異體標準的需求，建議使用 OpenCC 標準（除非需要轉換地區用詞）</string>
+    <string name="appintro_title_4">感謝使用！</string>
+    <string name="appintro_content_4">我的第二個軟件。衷心感謝 BYVoid 在 OpenCC 開發付出的努力。沒有 OpenCC 就不會有這軟件的誕生。因語言的複雜性，軟件無法完美轉換簡繁而可能會出現過度轉換或沒有轉換的問題，請務必仔細檢查。</string>
+    <string name="appintro_content_1">本軟件可讓你在各地區的繁體標準及簡體之間相互轉換，並可選擇同時轉換地區用詞。</string>
+    <string name="appintro_title_3">在軟件中直接轉換！</string>
+    <string name="appintro_content_3">在任何軟件中選擇文字並選擇「繁簡轉換」選項即可在軟件中直接轉換並取代原有文字。</string>
 
 </resources>

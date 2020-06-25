@@ -10,6 +10,7 @@ class FirstStartupActivity : AppIntro() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isColorTransitionsEnabled = true
+        isWizardMode = true
 
         // Call addSlide passing your Fragments.
         // You can use AppIntroFragment to use a pre-built fragment
@@ -28,8 +29,14 @@ class FirstStartupActivity : AppIntro() {
         addSlide(AppIntroFragment.newInstance(
                 title = getString(R.string.appintro_title_3),
                 description = getString(R.string.appintro_content_3),
-                imageDrawable = R.drawable.ic_launcher_foreground,
+                imageDrawable = R.drawable.tutorial_textselection_1,
                 backgroundColor = getColor(R.color.appIntroFour)
+        ))
+        addSlide(AppIntroFragment.newInstance(
+                title = getString(R.string.appintro_title_4),
+                description = getString(R.string.appintro_content_4),
+                imageDrawable = R.drawable.ic_launcher_foreground,
+                backgroundColor = getColor(R.color.appIntroThree)
         ))
     }
 
