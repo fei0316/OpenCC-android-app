@@ -22,7 +22,7 @@ Note: this app might not work on x86 devices.
 
 |  ID   |    From     |            To             |                    Chinese Variant (異體)                    |                   Word Use (用詞)                   |
 | :--: | :---------: | :-----------------------: | :----------------------------------------------------------: | :-------------------------------------------------: |
-|  1   | Simplified  |        Traditional        |               OpenCC standard（OpenCC 標準）                 |                  ❌ (no conversion)                  |
+|  1   | Simplified  |        Traditional        |               OpenCC standard (OpenCC 標準)                 |                  ❌ (no conversion)                  |
 |  2   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
 |  3   | Simplified  |        Traditional        | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
 |  4   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |       Convert to Taiwan phrases (臺灣常用詞彙)       |
@@ -125,12 +125,8 @@ Therefore, please always choose the origin text to the best of your knowledge an
 
 ## Todo
 
-- First-use tutorial (especially for the selection feature)
-- Dark Mode
 - Wait for qichuan to update the library for the new Hong Kong variant updates no longer based on 香港小學學習字詞表 (OpenCC pull request #418)
-- Prompt that OpenCC is not perfect and should double check the result
-- Japanese New Kanji support??
-- Default conversion mode?
+- Japanese New Kanji support?
 
 ## How to build
 Just clone the repository and open it in Android Studio. It *should* work...
