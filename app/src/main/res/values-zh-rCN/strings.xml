@@ -59,7 +59,7 @@
     <string name="about_app_description">使用 OpenCC 的 Android 简繁转换器</string>
     <string name="about_text_version">版本</string>
     <string name="about_development" >开发</string>
-    <string name="about_developed_by" >由 Fei 在 2019 冠状病毒病疫情期间使用 Android Studio 开发。2020 年 5 月。</string>
+    <string name="about_developed_by" >由 Fei 在 2019 冠状病毒病疫情期间使用 Android Studio 开发，2020 年 5 月。</string>
     <string name="about_title_developed" >开发</string>
     <string name="about_mysite">我的网站</string>
     <string name="about_contact" >联系我</string>
@@ -69,7 +69,7 @@
     <string name="about_app">关于此软件</string>
     <string name="about_story_app_content">"For the peace between us. "</string>
     <string name="main_variant_openccstandard">OpenCC 标准（推荐）</string>
-    <string name="appintro_title_2">建议...</string>
+    <string name="appintro_title_2">建议…</string>
     <string name="appintro_title_4">感谢使用！</string>
     <string name="appintro_content_4">我的第二个软件。衷心感谢 BYVoid 在 OpenCC 开发付出的努力。没有 OpenCC 就不会有这软件的诞生。因语言的复杂性，软件无法完美转换简繁而可能会出现过度转换或没有转换的问题，请务必仔细检查。</string>
     <string name="appintro_title_1">欢迎！</string>
@@ -77,5 +77,6 @@
     <string name="appintro_content_2">如没有指定地区异体字的需求，建议使用 OpenCC 标准。（除非打算同时转换地区用语）</string>
     <string name="appintro_title_3">在软件中直接转换！</string>
     <string name="appintro_content_3">在任何软件中选择文本并选择「繁简转换」选项即可在软件中直接转换并取代原有文本。</string>
+    <string name="action_tutorial">教学</string>
 
 </resources>

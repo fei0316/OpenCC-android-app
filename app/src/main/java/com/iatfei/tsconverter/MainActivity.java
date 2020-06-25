@@ -50,9 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean previouslyStarted = prefs.getBoolean("previous_started", false);
-        if(!previouslyStarted) {
-            Intent intent = new Intent(this, FirstStartupActivity.class);
-            startActivity(intent);
+        if (!previouslyStarted) {
+            tutorialScreen();
         }
 
         Button clear_button = findViewById(R.id.clear_button);
@@ -88,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
                     conv_text.setText(converted);
                 } else
                     Toast.makeText(getApplicationContext(), "Error!!!", Toast.LENGTH_SHORT).show();
-
-
             }
         });
 
@@ -126,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 if (userRadioChange && checkedId == R.id.radioButtonType3) {
                     rgVar.clearCheck();
                     rgVar.check(R.id.radioButtonVar2);
-                } else if (userRadioChange){
+                } else if (userRadioChange) {
                     rgVar.clearCheck();
                     rgVar.check(R.id.radioButtonVar1);
                 }
@@ -190,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_about) {
             aboutScreen();
             return true;
+        } else if (id == R.id.action_tutorial) {
+            tutorialScreen();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -197,6 +197,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void aboutScreen() {
         Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    public void tutorialScreen() {
+        Intent intent = new Intent(this, FirstStartupActivity.class);
         startActivity(intent);
     }
 }
