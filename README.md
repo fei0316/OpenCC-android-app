@@ -22,7 +22,7 @@ Note: this app might not work on x86 devices.
 
 |  ID   |    From     |            To             |                    Chinese Variant (異體)                    |                   Word Use (用詞)                   |
 | :--: | :---------: | :-----------------------: | :----------------------------------------------------------: | :-------------------------------------------------: |
-|  1   | Simplified  |        Traditional        |                      ❌ (no conversion)                       |                  ❌ (no conversion)                  |
+|  1   | Simplified  |        Traditional        |               OpenCC standard（OpenCC 標準）                 |                  ❌ (no conversion)                  |
 |  2   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
 |  3   | Simplified  |        Traditional        | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
 |  4   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |       Convert to Taiwan phrases (臺灣常用詞彙)       |
@@ -40,7 +40,7 @@ Note: this app might not work on x86 devices.
 
 For example, the character 「臺」 is used for 「臺灣」 while 「台」 is used for 「天台」 in Taiwan standard, but in Hong Kong standard 「台」 is used for both. In this case, the OpenCC standard adopts the Taiwanese convention when translating from Simplified Chinese where 「台」 is always used for both.
 
-**注意：**「不轉換」異體的選項代表使用 OpenCC 標準而不依照任何政府標準。OpenCC 標準由貢獻者參照各領域的漢字異體用法得出，依照「能分則不合」的原則，避免一對多的問題。
+**注意：**「OpenCC 標準」的異體選項代表使用 OpenCC 標準而不依照任何政府標準。OpenCC 標準由貢獻者參照各領域的漢字異體用法得出，依照「能分則不合」的原則，避免一對多的問題。
 
 以「台/臺」舉例：
 
