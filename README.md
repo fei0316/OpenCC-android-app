@@ -9,6 +9,8 @@ Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/Open
 
 [Download from GitHub releases.](https://github.com/fei0316/OpenCC-android-app/releases)
 
+Note: this app might not work on x86 devices.
+
 ## Features
 
 - 10 conversion modes (see below for details)

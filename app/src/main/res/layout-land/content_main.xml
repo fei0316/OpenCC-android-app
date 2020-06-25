@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020-2020 Fei Kuan.
+  ~
+  ~ This file is part of Chinese Converter
+  ~ (see <https://github.com/fei0316/OpenCC-android-app>).
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="56dp"
+    tools:showIn="@layout/activity_main">
+
+    <EditText
+        android:id="@+id/editText_convert"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="top|start"
+        android:hint="@string/enter_text_prompt"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:maxLines="8"
+        android:minLines="8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
+    <Button
+        android:id="@+id/convert_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/convert_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_convert"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <Button
+        android:id="@+id/clear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_convert"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupType"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/main_type" />
+
+        <RadioButton
+            android:id="@+id/radioButtonType1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/main_simp_trad" />
+
+        <RadioButton
+            android:id="@+id/radioButtonType2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_trad_simp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonType3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_tw_hk" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroupVar"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/main_varchar" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/main_variant_openccstandard" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/main_to_tw" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/main_to_hk" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/main_orig_tw" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVar5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/main_orig_hk" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroupIdiom"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupType"
+        app:layout_constraintVertical_bias="0.13999999">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/main_wordUse" />
+
+        <RadioButton
+            android:id="@+id/radioButtonIdiom1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/main_no_conv" />
+
+        <RadioButton
+            android:id="@+id/radioButtonIdiom2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_to_twP" />
+
+        <RadioButton
+            android:id="@+id/radioButtonIdiom3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_to_cnP" />
+
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.73"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
