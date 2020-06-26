@@ -31,6 +31,7 @@ class FirstStartupActivity : AppIntro() {
         super.onCreate(savedInstanceState)
         isColorTransitionsEnabled = true
         isWizardMode = true
+        setImmersiveMode()
 
         // Call addSlide passing your Fragments.
         // You can use AppIntroFragment to use a pre-built fragment

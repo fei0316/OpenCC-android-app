@@ -50,4 +50,8 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <style name="NoActionbar" parent="AppIntroStyle">
+
+    </style>
+
 </resources>
