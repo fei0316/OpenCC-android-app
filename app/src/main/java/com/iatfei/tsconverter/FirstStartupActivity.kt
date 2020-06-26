@@ -30,7 +30,6 @@ class FirstStartupActivity : AppIntro() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isColorTransitionsEnabled = true
-        isWizardMode = true
         setImmersiveMode()
 
         // Call addSlide passing your Fragments.

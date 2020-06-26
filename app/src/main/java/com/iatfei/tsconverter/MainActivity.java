@@ -20,6 +20,9 @@
 
 package com.iatfei.tsconverter;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -36,6 +39,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,6 +90,11 @@ public class MainActivity extends AppCompatActivity {
                     String text = conv_text.getText().toString();
                     String converted = Convert.openCCConv(text, type, getApplicationContext());
                     conv_text.setText(converted);
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("ConvertedChinese", converted);
+                    Objects.requireNonNull(clipboard).setPrimaryClip(clip);
+                    Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
+                    toast.show();
                 } else
                     Toast.makeText(getApplicationContext(), "Error!!!", Toast.LENGTH_SHORT).show();
             }
