@@ -9,7 +9,7 @@ Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/Open
 
 [Download from GitHub releases.](https://github.com/fei0316/OpenCC-android-app/releases)
 
-Note: this app might not work on x86 devices.
+Known issue: the app might not work on older devices with less RAM (usually less than 1GB). Fix is on the way.
 
 ## Features
 
