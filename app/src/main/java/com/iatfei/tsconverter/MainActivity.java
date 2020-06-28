@@ -40,8 +40,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import java.util.Objects;
-
 public class MainActivity extends AppCompatActivity {
 
     private boolean userRadioChange = true;
@@ -92,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     conv_text.setText(converted);
                     ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                     ClipData clip = ClipData.newPlainText("ConvertedChinese", converted);
-                    Objects.requireNonNull(clipboard).setPrimaryClip(clip);
+                    clipboard.setPrimaryClip(clip);
                     Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
                     toast.show();
                 } else

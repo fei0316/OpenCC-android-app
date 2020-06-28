@@ -110,7 +110,7 @@ public class ConvertActivity extends AppCompatActivity {
                     if (readonly || cantReplace) {
                         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                         ClipData clip = ClipData.newPlainText("ConvertedChinese", resultText);
-                        Objects.requireNonNull(clipboard).setPrimaryClip(clip);
+                        clipboard.setPrimaryClip(clip);
                         Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
                         toast.show();
                     } else {

@@ -24,14 +24,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-
-import java.util.Objects;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -62,22 +61,32 @@ public class AboutActivity extends AppCompatActivity {
                     //"-" + BuildConfig.FLAVOR +
                     " v" + BuildConfig.VERSION_CODE;
             Preference ver = findPreference("edit_text_preference_2");
-            Objects.requireNonNull(ver).setSummary(version);
+            if (ver != null) {
+                ver.setSummary(version);
+            }
             Preference license = findPreference("edit_text_preference_6");
-            Objects.requireNonNull(license).setIntent(new Intent(getActivity(),OpenSourceActivity.class));
+            if (license != null) {
+                license.setIntent(new Intent(getActivity(),OpenSourceActivity.class));
+            }
 
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-            emailIntent.setType("*/*"); //todo:make sure it works on older versions
+            emailIntent.setData(Uri.parse("mailto:"));
             PackageManager packageManager = requireActivity().getPackageManager();
             if(emailIntent.resolveActivity(packageManager) == null){
                 Preference mail = findPreference("edit_text_preference_8");
-                Objects.requireNonNull(mail).setIntent(null);
+                if (mail != null) {
+                    Toast.makeText(getContext(), "R.string.shortcut_sent_toast", Toast.LENGTH_SHORT)
+                            .show();
+                    mail.setIntent(null);
+                }
             }
 
             Intent webpageIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.example.com"));
             if(webpageIntent.resolveActivity(packageManager) == null) {
                 Preference web = findPreference("edit_text_preference_4");
-                Objects.requireNonNull(web).setIntent(null);
+                if (web != null) {
+                    web.setIntent(null);
+                }
             }
         }
     }
