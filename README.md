@@ -13,7 +13,7 @@ Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/Open
         height=60/>
 </a>
 
-[Download from GitHub releases.](https://github.com/fei0316/OpenCC-android-app/releases)
+GitHub Releases: <a href='https://github.com/fei0316/OpenCC-android-app/releases'>https://github.com/fei0316/OpenCC-android-app/releases</a>
 
 ## Features
 
