@@ -8,8 +8,11 @@ My third project! Developed during the COVID-19 pandemic.
 Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/OpenCC), and qichuan for the [Android OpenCC Library](https://github.com/qichuan/android-opencc).
 
 [Download from GitHub releases.](https://github.com/fei0316/OpenCC-android-app/releases)
-
-Known issue: the app might not work on older devices with less RAM (usually less than 1GB). Fix is on the way.
+<a href='https://play.google.com/store/apps/details?id=com.iatfei.tsconverter'>
+   <img alt='Get it on Google Play'
+        src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'
+        height=60/>
+</a>
 
 ## Features
 
