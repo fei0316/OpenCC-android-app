@@ -12,7 +12,7 @@ Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/Open
         src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'
         height=60/>
 </a>
-<br><br>
+
 [Download from GitHub releases.](https://github.com/fei0316/OpenCC-android-app/releases)
 
 ## Features
