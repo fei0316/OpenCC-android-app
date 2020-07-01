@@ -7,12 +7,13 @@ My third project! Developed during the COVID-19 pandemic.
 
 Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/OpenCC), and qichuan for the [Android OpenCC Library](https://github.com/qichuan/android-opencc).
 
-[Download from GitHub releases.](https://github.com/fei0316/OpenCC-android-app/releases)
 <a href='https://play.google.com/store/apps/details?id=com.iatfei.tsconverter'>
    <img alt='Get it on Google Play'
         src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'
         height=60/>
 </a>
+<br><br>
+[Download from GitHub releases.](https://github.com/fei0316/OpenCC-android-app/releases)
 
 ## Features
 
