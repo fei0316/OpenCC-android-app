@@ -65,40 +65,28 @@ public class ConvertActivity extends AppCompatActivity {
                 int id = rgPopup.getCheckedRadioButtonId();
 
                 int sel;
-                switch (id) {
-                    case R.id.popupRadioType1:
-                        sel = 1;
-                        break;
-                    case R.id.popupRadioType2:
-                        sel = 2;
-                        break;
-                    case R.id.popupRadioType3:
-                        sel = 3;
-                        break;
-                    case R.id.popupRadioType4:
-                        sel = 4;
-                        break;
-                    case R.id.popupRadioType5:
-                        sel = 5;
-                        break;
-                    case R.id.popupRadioType6:
-                        sel = 6;
-                        break;
-                    case R.id.popupRadioType7:
-                        sel = 7;
-                        break;
-                    case R.id.popupRadioType8:
-                        sel = 8;
-                        break;
-                    case R.id.popupRadioType9:
-                        sel = 9;
-                        break;
-                    case R.id.popupRadioType10:
-                        sel = 10;
-                        break;
-                    default:
-                        sel = 0;
-                        break;
+                if (id == R.id.popupRadioType1) {
+                    sel = 1;
+                } else if (id == R.id.popupRadioType2) {
+                    sel = 2;
+                } else if (id == R.id.popupRadioType3) {
+                    sel = 3;
+                } else if (id == R.id.popupRadioType4) {
+                    sel = 4;
+                } else if (id == R.id.popupRadioType5) {
+                    sel = 5;
+                } else if (id == R.id.popupRadioType6) {
+                    sel = 6;
+                } else if (id == R.id.popupRadioType7) {
+                    sel = 7;
+                } else if (id == R.id.popupRadioType8) {
+                    sel = 8;
+                } else if (id == R.id.popupRadioType9) {
+                    sel = 9;
+                } else if (id == R.id.popupRadioType10) {
+                    sel = 10;
+                } else {
+                    sel = 0;
                 }
 
                 if (sel != 0) {

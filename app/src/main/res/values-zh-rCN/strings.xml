@@ -36,10 +36,10 @@
     <string name="main_to_hk">转换为香港标准</string>
     <string name="main_no_conv">不转换</string>
     <string name="main_to_twP">转换为台湾用词</string>
-    <string name="main_to_cnP">转换为中国大陆用词</string>
+    <string name="main_to_cnP">转换为大陆用词</string>
     <string name="main_type">类型</string>
     <string name="main_varchar">异体标准</string>
-    <string name="main_wordUse">用词（同时转换异体）</string>
+    <string name="main_wordUse">用词</string>
     <string name="menu_popup_title">请选择转换类型：</string>
     <string name="menu_popup_type_1">简体到 OpenCC 繁体（推荐）</string>
     <string name="menu_popup_type_2">简体到台湾正体</string>

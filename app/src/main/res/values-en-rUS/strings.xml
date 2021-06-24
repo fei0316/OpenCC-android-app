@@ -28,7 +28,7 @@
     <string name="clear_button">Clear</string>
     <string name="main_simp_trad">Simp. to Trad.</string>
     <string name="main_trad_simp">Trad. to Simp.</string>
-    <string name="main_tw_hk">Trad. variant conv.</string>
+    <string name="main_tw_hk">Convert between Trad. variants</string>
     <string name="main_orig_tw">Orig. is TW variant</string>
     <string name="main_orig_hk">Orig. is HK variant</string>
     <string name="main_to_tw">Conv. to TW variant</string>
@@ -36,7 +36,7 @@
     <string name="main_no_conv">No conversion</string>
     <string name="main_to_twP">Conv. to TW phrases</string>
     <string name="main_varchar">Chinese Variants</string>
-    <string name="main_wordUse">Word Choice (Also converts variant)</string>
+    <string name="main_wordUse">Word Choice</string>
     <string name="main_type">Type</string>
     <string name="main_to_cnP">Conv. to CN phrases</string>
     <string name="action_about">About</string>
@@ -54,6 +54,7 @@
     <string name="menu_popup_type_S2T">Simplified Chinese to Traditional Chinese</string>
     <string name="menu_popup_type_T2S">Traditional to Simplified Chinese</string>
     <string name="menu_popup_type_T2T">Hong Kong-Taiwan variants conversion</string>
+    <string name="main_variant_openccstandard">OpenCC standard (recommended)</string>
     <string name="cancel_button">Cancel</string>
     <string name="title_activity_about">About</string>
 
@@ -69,7 +70,6 @@
     <string name="about_license" >Open Source Licenses</string>
     <string name="about_app">About this App</string>
     <string name="about_story_app_content">Developed in celebration of what makes us different, yet together.</string>
-    <string name="main_variant_openccstandard">OpenCC standard (recommended)</string>
     <string name="appintro_title_1">Welcome!</string>
     <string name="appintro_content_1">Convert between the regional varieties of Traditional and Simplified Chinese ease, including support for regional word use preferences!</string>
     <string name="appintro_title_2">Recommendations…</string>
