@@ -32,6 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -63,10 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean previouslyStarted = prefs.getBoolean("previous_started", false);
+//        File lastDataFile = new File(this.getFilesDir() + "/openccdata/zFinished2");
+//        Log.d("bruh", lastDataFile.exists()+"bruh");
+        /*
         int openCCVer = prefs.getInt("opencc_ver", 0);
         if (openCCVer < 1) { //change this when updating
             copyNewOpenCC();
-        }
+        }*/
         if (!previouslyStarted) {
             tutorialScreen();
         }
@@ -227,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //basically a hack...
+    /*//basically a hack...
     private void copyNewOpenCC() {
         ChineseConverter.convert(" ", ConversionType.T2S, getApplicationContext());
         ChineseConverter.clearDictDataFolder(getApplicationContext());
@@ -286,6 +290,6 @@ public class MainActivity extends AppCompatActivity {
         while((read = in.read(buffer)) != -1){
             out.write(buffer, 0, read);
         }
-    }
+    }*/
 
 }

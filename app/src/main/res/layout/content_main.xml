@@ -83,7 +83,6 @@
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/convert_button"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/radioGroupIdiom"
         app:layout_constraintTop_toBottomOf="@+id/editText_convert"
         app:layout_constraintVertical_bias="0.0">
@@ -178,7 +177,6 @@
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupType"
         app:layout_constraintVertical_bias="0.0">
