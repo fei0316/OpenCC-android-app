@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "29.0.3"
+    buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "com.iatfei.tsconverter"
         minSdkVersion 23
@@ -33,7 +33,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'com.github.qichuan:android-opencc:1.2.0'
     implementation 'androidx.preference:preference-ktx:1.1.1'
-    implementation "com.mikepenz:aboutlibraries:8.8.6"
+    implementation "com.mikepenz:aboutlibraries:8.9.0"
     implementation "androidx.core:core-ktx:1.5.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.0"
     implementation "com.github.AppIntro:AppIntro:6.1.0"
