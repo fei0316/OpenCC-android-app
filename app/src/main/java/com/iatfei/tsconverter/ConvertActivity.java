@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2020 Fei Kuan.
+ * Copyright (c) 2020-2021 Fei Kuan.
  *
  * This file is part of Chinese Converter
  * (see <https://github.com/fei0316/OpenCC-android-app>).
@@ -27,7 +27,6 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -42,78 +41,70 @@ public class ConvertActivity extends AppCompatActivity {
         setContentView(R.layout.activity_convert);
 
         Button cancel_button = findViewById(R.id.button5);
-        cancel_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        cancel_button.setOnClickListener(v -> finish());
 
         Button conv_button = findViewById(R.id.button4);
-        conv_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean readonly = getIntent()
-                        .getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false);
-                boolean cantReplace;
-                String callingPackage = getCallingPackage();
-                if (callingPackage == null)
-                    callingPackage = "bruh";
-                cantReplace = callingPackage.equalsIgnoreCase("com.tencent.mm"); //simplified so it might look weird at first glance
+        conv_button.setOnClickListener(v -> {
+            boolean readonly = getIntent()
+                    .getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false);
+            boolean cantReplace;
+            String callingPackage = getCallingPackage();
+            if (callingPackage == null)
+                callingPackage = "bruh";
+            cantReplace = callingPackage.equalsIgnoreCase("com.tencent.mm"); //simplified so it might look weird at first glance
 
-                RadioGroup rgPopup = findViewById(R.id.radioGroup);
-                int id = rgPopup.getCheckedRadioButtonId();
+            RadioGroup rgPopup = findViewById(R.id.radioGroup);
+            int id = rgPopup.getCheckedRadioButtonId();
 
-                int sel;
-                if (id == R.id.popupRadioType1) {
-                    sel = 1;
-                } else if (id == R.id.popupRadioType2) {
-                    sel = 2;
-                } else if (id == R.id.popupRadioType3) {
-                    sel = 3;
-                } else if (id == R.id.popupRadioType4) {
-                    sel = 4;
-                } else if (id == R.id.popupRadioType5) {
-                    sel = 5;
-                } else if (id == R.id.popupRadioType6) {
-                    sel = 6;
-                } else if (id == R.id.popupRadioType7) {
-                    sel = 7;
-                } else if (id == R.id.popupRadioType8) {
-                    sel = 8;
-                } else if (id == R.id.popupRadioType9) {
-                    sel = 9;
-                } else if (id == R.id.popupRadioType10) {
-                    sel = 10;
-                } else {
-                    sel = 0;
-                }
-
-                if (sel != 0) {
-                    CharSequence text = getIntent()
-                            .getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
-                    String fromText = Objects.requireNonNull(text).toString();
-                    String resultText = Convert.openCCConv(fromText, sel, getApplicationContext());
-
-                    if (readonly || cantReplace) {
-                        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                        ClipData clip = ClipData.newPlainText("ConvertedChinese", resultText);
-                        clipboard.setPrimaryClip(clip);
-                        Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
-                        toast.show();
-                    } else {
-                        Intent intent = new Intent();
-                        intent.putExtra(Intent.EXTRA_PROCESS_TEXT, resultText);
-                        setResult(RESULT_OK, intent);
-                    }
-                } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Error!!", Toast.LENGTH_LONG);
-                    toast.show();
-                }
-                finish();
-
-
+            int sel;
+            if (id == R.id.popupRadioType1) {
+                sel = 1;
+            } else if (id == R.id.popupRadioType2) {
+                sel = 2;
+            } else if (id == R.id.popupRadioType3) {
+                sel = 3;
+            } else if (id == R.id.popupRadioType4) {
+                sel = 4;
+            } else if (id == R.id.popupRadioType5) {
+                sel = 5;
+            } else if (id == R.id.popupRadioType6) {
+                sel = 6;
+            } else if (id == R.id.popupRadioType7) {
+                sel = 7;
+            } else if (id == R.id.popupRadioType8) {
+                sel = 8;
+            } else if (id == R.id.popupRadioType9) {
+                sel = 9;
+            } else if (id == R.id.popupRadioType10) {
+                sel = 10;
+            } else {
+                sel = 0;
             }
+
+            if (sel != 0) {
+                CharSequence text = getIntent()
+                        .getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+                String fromText = Objects.requireNonNull(text).toString();
+                String resultText = Convert.openCCConv(fromText, sel, getApplicationContext());
+
+                if (readonly || cantReplace) {
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("ConvertedChinese", resultText);
+                    clipboard.setPrimaryClip(clip);
+                    Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                    Intent intent = new Intent();
+                    intent.putExtra(Intent.EXTRA_PROCESS_TEXT, resultText);
+                    setResult(RESULT_OK, intent);
+                }
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "Error!!", Toast.LENGTH_LONG);
+                toast.show();
+            }
+            finish();
+
+
         });
     }
 }

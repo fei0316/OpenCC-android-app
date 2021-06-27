@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2020 Fei Kuan.
+ * Copyright (c) 2020-2021 Fei Kuan.
  *
  * This file is part of Chinese Converter
  * (see <https://github.com/fei0316/OpenCC-android-app>).

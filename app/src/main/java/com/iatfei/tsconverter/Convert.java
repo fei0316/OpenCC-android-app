@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2020 Fei Kuan.
+ * Copyright (c) 2020-2021 Fei Kuan.
  *
  * This file is part of Chinese Converter
  * (see <https://github.com/fei0316/OpenCC-android-app>).
@@ -25,16 +25,7 @@ import android.content.Context;
 import com.zqc.opencc.android.lib.ChineseConverter;
 import com.zqc.opencc.android.lib.ConversionType;
 
-import static com.zqc.opencc.android.lib.ConversionType.HK2S;
-import static com.zqc.opencc.android.lib.ConversionType.S2HK;
-import static com.zqc.opencc.android.lib.ConversionType.S2T;
-import static com.zqc.opencc.android.lib.ConversionType.S2TW;
-import static com.zqc.opencc.android.lib.ConversionType.S2TWP;
-import static com.zqc.opencc.android.lib.ConversionType.T2HK;
-import static com.zqc.opencc.android.lib.ConversionType.T2S;
-import static com.zqc.opencc.android.lib.ConversionType.T2TW;
-import static com.zqc.opencc.android.lib.ConversionType.TW2S;
-import static com.zqc.opencc.android.lib.ConversionType.TW2SP;
+import static com.zqc.opencc.android.lib.ConversionType.*;
 
 class Convert {
 
