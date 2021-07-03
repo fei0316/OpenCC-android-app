@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -75,8 +74,6 @@ public class AboutActivity extends AppCompatActivity {
             if(emailIntent.resolveActivity(packageManager) == null){
                 Preference mail = findPreference("edit_text_preference_8");
                 if (mail != null) {
-                    Toast.makeText(getContext(), "R.string.shortcut_sent_toast", Toast.LENGTH_SHORT)
-                            .show();
                     mail.setIntent(null);
                 }
             }
@@ -84,8 +81,12 @@ public class AboutActivity extends AppCompatActivity {
             Intent webpageIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.example.com"));
             if(webpageIntent.resolveActivity(packageManager) == null) {
                 Preference web = findPreference("edit_text_preference_4");
+                Preference github = findPreference("edit_text_preference_3");
                 if (web != null) {
                     web.setIntent(null);
+                }
+                if (github != null) {
+                    github.setIntent(null);
                 }
             }
         }
