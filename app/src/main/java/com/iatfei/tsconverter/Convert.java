@@ -31,8 +31,7 @@ class Convert {
 
     static String openCCConv(String from, int type, Context context) {
         ConversionType convType = findType (type);
-        String converted = ChineseConverter.convert(from, convType, context);
-        return converted;
+        return ChineseConverter.convert(from, convType, context);
     }
 
     private static ConversionType findType(int type){

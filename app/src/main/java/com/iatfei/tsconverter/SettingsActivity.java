@@ -22,7 +22,6 @@ package com.iatfei.tsconverter;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,10 +30,9 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
-import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
-import java.util.List;
+import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -61,7 +59,7 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.settings);
 
-            final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+            final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getContext()));
             final SwitchPreference simpleSwitch = findPreference("switch_preference_1");
             final SwitchPreference autodetectSwitch = findPreference("switch_preference_2");
             final ListPreference lpTraditional = findPreference("list_preference_1");
@@ -88,58 +86,46 @@ public class SettingsActivity extends AppCompatActivity {
                 String simp_sel = getConvTypeText(simp);
                 lpTraditional.setSummary(trad_sel);
                 lpSimplified.setSummary(simp_sel);
-                simpleSwitch.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                    @Override
-                    public boolean onPreferenceChange(Preference preference, Object newValue) {
-                        boolean newVal = (Boolean) newValue;
-                        if (newVal) {
-                            lpTraditional.setEnabled(false);
-                            lpSimplified.setEnabled(false);
-                            autodetectSwitch.setEnabled(false);
-                        } else {
-                            autodetectSwitch.setEnabled(true);
-                            if (pref.getBoolean("switch_preference_2", true)) {
-                                lpTraditional.setEnabled(true);
-                                lpSimplified.setEnabled(true);
-                            } else {
-                                lpTraditional.setEnabled(false);
-                                lpSimplified.setEnabled(false);
-                            }
-                        }
-                        pref.edit().putBoolean("switch_preference_1", newVal).apply();
-                        return true;
-                    }
-                });
-                autodetectSwitch.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                    @Override
-                    public boolean onPreferenceChange(Preference preference, Object newValue) {
-                        boolean newVal = (Boolean) newValue;
-                        if (newVal) {
+                Objects.requireNonNull(simpleSwitch).setOnPreferenceChangeListener((preference, newValue) -> {
+                    boolean newVal = (Boolean) newValue;
+                    if (newVal) {
+                        lpTraditional.setEnabled(false);
+                        lpSimplified.setEnabled(false);
+                        autodetectSwitch.setEnabled(false);
+                    } else {
+                        autodetectSwitch.setEnabled(true);
+                        if (pref.getBoolean("switch_preference_2", true)) {
                             lpTraditional.setEnabled(true);
                             lpSimplified.setEnabled(true);
                         } else {
                             lpTraditional.setEnabled(false);
                             lpSimplified.setEnabled(false);
                         }
-                        pref.edit().putBoolean("switch_preference_2", newVal).apply();
-                        return true;
                     }
+                    pref.edit().putBoolean("switch_preference_1", newVal).apply();
+                    return true;
                 });
-                lpTraditional.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                    @Override
-                    public boolean onPreferenceChange(Preference preference, Object newValue) {
-                        String newVal = newValue.toString();
-                        lpTraditional.setSummary(getConvTypeText(newVal));
-                        return true;
+                autodetectSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
+                    boolean newVal = (Boolean) newValue;
+                    if (newVal) {
+                        lpTraditional.setEnabled(true);
+                        lpSimplified.setEnabled(true);
+                    } else {
+                        lpTraditional.setEnabled(false);
+                        lpSimplified.setEnabled(false);
                     }
+                    pref.edit().putBoolean("switch_preference_2", newVal).apply();
+                    return true;
                 });
-                lpSimplified.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                    @Override
-                    public boolean onPreferenceChange(Preference preference, Object newValue) {
-                        String newVal = newValue.toString();
-                        lpSimplified.setSummary(getConvTypeText(newVal));
-                        return true;
-                    }
+                lpTraditional.setOnPreferenceChangeListener((preference, newValue) -> {
+                    String newVal = newValue.toString();
+                    lpTraditional.setSummary(getConvTypeText(newVal));
+                    return true;
+                });
+                lpSimplified.setOnPreferenceChangeListener((preference, newValue) -> {
+                    String newVal = newValue.toString();
+                    lpSimplified.setSummary(getConvTypeText(newVal));
+                    return true;
                 });
             }
 

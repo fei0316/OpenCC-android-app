@@ -72,20 +72,19 @@
     <string name="about_app">About this App</string>
     <string name="about_story_app_content">Developed in celebration of what makes us different, yet together.</string>
     <string name="appintro_title_1">Welcome!</string>
-    <string name="appintro_content_1">Convert between the regional varieties of Traditional and Simplified Chinese ease, including support for regional word use preferences!</string>
+    <string name="appintro_content_1">Convert between the regional varieties of Traditional and Simplified Chinese with ease, with support for regional word use preferences!</string>
     <string name="appintro_title_2">Recommendations…</string>
     <string name="appintro_title_4">Thanks for using my app!</string>
     <string name="appintro_content_4">This is my second app project, and it will not be possible without the amazing OpenCC project by BYVoid. Note that OpenCC is unable to convert perfectly due to the complicated nature of languages, and proofreading is still necessary.</string>
-    <string name="appintro_content_2">Use the OpenCC standard for variants if you just want a basic Simplified-Traditional conversion, unless you need to convert word usage as well (where you have to use Taiwan variant).</string>
+    <string name="appintro_content_2">Easy Mode is recommended if you do not have specific requirements.</string>
     <string name="appintro_title_3">Convert directly in-app!</string>
-    <string name="appintro_content_3">Select text in-app and choose the \"Chinese Convert\" option to convert in place!</string>
+    <string name="appintro_content_3">Select text anywhere and choose \"Chinese Convert\" to convert in place! If this option is not present, choose \"Share\"  then \"Chinese Convert\"</string>
     <string name="action_tutorial">Tutorial</string>
     <string name="about_contributors">Contributors</string>
     <string name="about_contributors_content">Easy Mode suggestion and code contribution: Renn</string>
     <string name="menu_settings">Settings</string>
     <string name="settings_selmenu">Text selection menu</string>
     <string name="settings_simplemode_desc">When converting through text selection menu, autodetect Traditional/Simplified and convert using OpenCC Standard</string>
-    <string name="settings_advanced">Advanced Settings</string>
     <string name="settings_easymode">Easy Mode</string>
 
     <string-array name="trad_to_simp">
@@ -108,5 +107,5 @@
     <string name="setting_trad">When text is Traditional</string>
     <string name="settings_autodetect">Autodetect Trad./Simp.</string>
     <string name="settings_autodetect_desc">When using text selection menu, autodetect Traditional/Simplified and convert with preference below</string>
-    <string name="menu_autonotdetected">Selected text is not Chinese or does not contain any unique Traditional/Simplified chanracters, or an unknown error occured</string>
+    <string name="menu_autonotdetected">Selected text is not Chinese or does not contain any unique Traditional/Simplified chanracters, or an unknown error occurred</string>
 </resources>

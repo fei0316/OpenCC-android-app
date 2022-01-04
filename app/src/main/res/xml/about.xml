@@ -45,7 +45,7 @@
         app:iconSpaceReserved="false" />
     <PreferenceCategory
         android:title="@string/about_development"
-        app:iconSpaceReserved="false"></PreferenceCategory>
+        app:iconSpaceReserved="false" />
     <Preference
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -116,10 +116,10 @@
         android:selectAllOnFocus="true"
         android:singleLine="false"
         android:title="@string/about_license"
-        app:iconSpaceReserved="false"></Preference>
+        app:iconSpaceReserved="false" />
     <PreferenceCategory
         android:title="@string/about_restart_title"
-        app:iconSpaceReserved="false"></PreferenceCategory>
+        app:iconSpaceReserved="false" />
     <Preference
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -24,13 +24,13 @@ import android.content.Context
 import java.io.ObjectInputStream
 
 object SimpleConvert {
-    private var charMap = HashMap<Int, ChineseTypes>();
+    private var charMap = HashMap<Int, ChineseTypes>()
 
     private fun loadMap(c: Context) {
-        var objectInput = ObjectInputStream(c.getResources().openRawResource(R.raw.charmap));
-        var readFile = objectInput.readObject()
-        charMap = readFile as HashMap<Int, ChineseTypes>;
-        objectInput.close();
+        val objectInput = ObjectInputStream(c.resources.openRawResource(R.raw.charmap))
+        val readFile = objectInput.readObject()
+        charMap = readFile as HashMap<Int, ChineseTypes>
+        objectInput.close()
     }
 
     @JvmStatic
@@ -52,7 +52,7 @@ object SimpleConvert {
                         codePoint = Character.toCodePoint(str[i+1], str[i])
                     }
                 }
-                var tempResult = charMap.get(codePoint)
+                val tempResult = charMap[codePoint]
                 if (tempResult != null) {
                     return tempResult
                 }
