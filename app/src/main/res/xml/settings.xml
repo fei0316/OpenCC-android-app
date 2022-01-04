@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020-2022 Fei Kuan.
+  ~
+  ~ This file is part of Chinese Converter
+  ~ (see <https://github.com/fei0316/OpenCC-android-app>).
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_selmenu">
+
+    </PreferenceCategory>
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="switch_preference_1"
+        android:summary="@string/settings_simplemode_desc"
+        android:title="@string/settings_easymode" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="switch_preference_2"
+        android:summary="@string/settings_autodetect_desc"
+        android:title="@string/settings_autodetect" />
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/trad_to_simp"
+        android:entryValues="@array/trad_to_simp_vals"
+        android:key="list_preference_1"
+        android:title="@string/setting_trad" />
+    <ListPreference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="0"
+        android:entries="@array/simp_to_trad"
+        android:entryValues="@array/simp_to_trad_vals"
+        android:key="list_preference_2"
+        android:title="@string/settings_simp" />
+</PreferenceScreen>

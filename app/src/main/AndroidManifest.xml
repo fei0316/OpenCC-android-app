@@ -1,38 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2020-2021 Fei Kuan.
-  ~
-  ~ This file is part of Chinese Converter
-  ~ (see <https://github.com/fei0316/OpenCC-android-app>).
-  ~
-  ~ This program is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
-  ~
-  ~ This program is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iatfei.tsconverter">
 
     <queries>
-        <package android:name="com.snapchat.android" />
+
+        <!-- <intent> -->
+        <!-- <action android:name="android.intent.action.PROCESS_TEXT" /> -->
+        <!-- <data android:mimeType="text/plain" /> -->
+        <!-- </intent> -->
         <intent>
             <action android:name="android.intent.action.SENDTO" />
+
             <data android:scheme="mailto" />
         </intent>
         <intent>
             <action android:name="android.intent.action.VIEW" />
+
             <data android:scheme="http" />
         </intent>
-
     </queries>
 
     <application
@@ -43,46 +28,55 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-        android:name=".MainActivity"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme.NoActionBar">
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/menu_settings"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".FirstStartupActivity"
-            android:theme="@style/NoActionbar">
-
-        </activity>
-
+            android:theme="@style/NoActionbar" />
         <activity
-        android:name=".AboutActivity"
-        android:label="@string/title_activity_about"
-        android:parentActivityName=".MainActivity"
-        android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".OpenSourceActivity"
-            android:theme="@style/AppThemeMaterial"
             android:label="@string/about_license"
-            android:parentActivityName=".AboutActivity"/>
-
+            android:parentActivityName=".AboutActivity"
+            android:theme="@style/AppThemeMaterial" />
         <activity
             android:name=".ConvertActivity"
+            android:exported="true"
             android:label="@string/menu_trans_text"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog">
-            <intent-filter>
+            <intent-filter android:label="@string/menu_trans_text">
                 <action android:name="android.intent.action.PROCESS_TEXT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

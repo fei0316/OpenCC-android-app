@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2020-2022 Fei Kuan.
+  ~ Copyright (c) 2020-2021 Fei Kuan.
   ~
   ~ This file is part of Chinese Converter
   ~ (see <https://github.com/fei0316/OpenCC-android-app>).
@@ -24,14 +24,14 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_settings"
+        android:id="@+id/toolbar_about"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/AppTheme.AppBarOverlay"/>
 
     <FrameLayout
-        android:id="@+id/settings"
+        android:id="@+id/about"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

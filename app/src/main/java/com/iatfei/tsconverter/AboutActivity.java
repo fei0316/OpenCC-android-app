@@ -36,14 +36,14 @@ public class AboutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_about);
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.settings, new SettingsFragment())
+                .replace(R.id.about, new SettingsFragment())
                 .commit();
 
-        Toolbar toolbar = findViewById(R.id.toolbar_settings);
+        Toolbar toolbar = findViewById(R.id.toolbar_about);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -54,7 +54,7 @@ public class AboutActivity extends AppCompatActivity {
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            addPreferencesFromResource(R.xml.root_preferences);
+            addPreferencesFromResource(R.xml.about);
 
             String version = BuildConfig.VERSION_NAME +
                     //"-" + BuildConfig.FLAVOR +

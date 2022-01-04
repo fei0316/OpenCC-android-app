@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/aboutconfig/custom_author_mappings.prop" />
-    <file url="file://$PROJECT_DIR$/aboutconfig/custom_license_mappings.prop" />
-    <file url="file://$PROJECT_DIR$/aboutconfig/custom_license_year_mappings.prop" />
-    <file url="file://$PROJECT_DIR$/aboutconfig/custom_name_mappings.prop" />
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout-land/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout-land/activity_main_simple.xml" value="0.1" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout-land/content_main.xml" value="0.3953125" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout-land/content_main_simple.xml" value="0.3953125" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/activity_about.xml" value="0.29528985507246375" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/activity_convert.xml" value="0.5" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/activity_convert_simp.xml" value="0.2635416666666667" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/activity_convert_trad.xml" value="0.5" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/activity_launch.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/activity_main_simple.xml" value="0.33" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/activity_settings.xml" value="0.15" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/content_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/content_main_simple.xml" value="0.33" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/fragment_launch.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/settings_activity.xml" value="0.17806484295845998" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/layout/switch_item.xml" value="0.17806484295845998" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/menu/menu_main.xml" value="1.0" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/xml/root_preferences.xml" value="0.25" />
+        <entry key="..\:/Users/Fei Kuan/Documents/AndroidStudio/TSConverter/app/src/main/res/xml/settings.xml" value="0.36614583333333334" />
+      </map>
+    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

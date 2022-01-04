@@ -41,11 +41,12 @@
     <string name="main_to_cnP">Conv. to CN phrases</string>
     <string name="action_about">About</string>
     <string name="menu_popup_title">Select conversion type…</string>
-    <string name="menu_popup_type_1">Simp. to OpenCC Trad. (recommended)</string>
+    <string name="menu_popup_type_0">Ask every time</string>
+    <string name="menu_popup_type_1">Simp. to OpenCC Trad. (default)</string>
     <string name="menu_popup_type_2">Simp. to Trad. (TW variant)</string>
     <string name="menu_popup_type_3">Simp. to Trad. (HK variant)</string>
     <string name="menu_popup_type_4">Simp. to Trad. (TW variant and phrases)</string>
-    <string name="menu_popup_type_5">OpenCC Trad. to Simp. (recommended)</string>
+    <string name="menu_popup_type_5">OpenCC Trad. to Simp. (default)</string>
     <string name="menu_popup_type_6">Trad. (TW variant) to Simp.</string>
     <string name="menu_popup_type_7">Trad. (HK variant) to Simp.</string>
     <string name="menu_popup_type_8">Trad. (TW variant) to Simp. (CN phrases)</string>
@@ -79,4 +80,33 @@
     <string name="appintro_title_3">Convert directly in-app!</string>
     <string name="appintro_content_3">Select text in-app and choose the \"Chinese Convert\" option to convert in place!</string>
     <string name="action_tutorial">Tutorial</string>
+    <string name="about_contributors">Contributors</string>
+    <string name="about_contributors_content">Easy Mode suggestion and code contribution: Renn</string>
+    <string name="menu_settings">Settings</string>
+    <string name="settings_selmenu">Text selection menu</string>
+    <string name="settings_simplemode_desc">When converting through text selection menu, autodetect Traditional/Simplified and convert using OpenCC Standard</string>
+    <string name="settings_advanced">Advanced Settings</string>
+    <string name="settings_easymode">Easy Mode</string>
+
+    <string-array name="trad_to_simp">
+        <item>Ask every time</item>
+        <item>OpenCC Trad. to Simp. (default)</item>
+        <item>Trad. (TW variant) to Simp.</item>
+        <item>Trad. (HK variant) to Simp.</item>
+        <item>Trad. (TW variant) to Simp. (CN phrases)</item>
+        <item>OpenCC Trad. to Trad. (TW variant)</item>
+        <item>OpenCC Trad. to Trad. (HK variant)</item>
+    </string-array>
+    <string-array name="simp_to_trad">
+        <item>Ask every time</item>
+        <item>Simp. to OpenCC Trad. (default)</item>
+        <item>Simp. to Trad. (TW variant)</item>
+        <item>Simp. to Trad. (HK variant)</item>
+        <item>Simp. to Trad. (TW variant and phrases)</item>
+    </string-array>
+    <string name="settings_simp">When text is Simplified</string>
+    <string name="setting_trad">When text is Traditional</string>
+    <string name="settings_autodetect">Autodetect Trad./Simp.</string>
+    <string name="settings_autodetect_desc">When using text selection menu, autodetect Traditional/Simplified and convert with preference below</string>
+    <string name="menu_autonotdetected">Selected text is not Chinese or does not contain any unique Traditional/Simplified chanracters, or an unknown error occured</string>
 </resources>

@@ -41,11 +41,12 @@
     <string name="main_varchar">异体标准</string>
     <string name="main_wordUse">用词</string>
     <string name="menu_popup_title">请选择转换类型：</string>
-    <string name="menu_popup_type_1">简体到 OpenCC 繁体（推荐）</string>
+    <string name="menu_popup_type_0">（每次询问）</string>
+    <string name="menu_popup_type_1">简体到 OpenCC 繁体（默认）</string>
     <string name="menu_popup_type_2">简体到台湾正体</string>
     <string name="menu_popup_type_3">简体到香港繁体</string>
     <string name="menu_popup_type_4">简体到台湾正体（包括词汇）</string>
-    <string name="menu_popup_type_5">OpenCC 繁体到简体（推荐）</string>
+    <string name="menu_popup_type_5">OpenCC 繁体到简体（默认）</string>
     <string name="menu_popup_type_6">台湾正体到简体</string>
     <string name="menu_popup_type_7">香港繁体到简体</string>
     <string name="menu_popup_type_8">台湾正体到简体（中国大陆词汇）</string>
@@ -78,5 +79,32 @@
     <string name="appintro_title_3">在软件中直接转换！</string>
     <string name="appintro_content_3">在任何软件中选择文本并选择「繁简转换」选项即可在软件中直接转换并取代原有文本。</string>
     <string name="action_tutorial">教学</string>
-
+    <string name="about_contributors">贡献者</string>
+    <string name="about_contributors_content">简易模式提议及部分代码：Renn</string>
+    <string name="menu_settings">设置</string>
+    <string name="settings_selmenu">文本选择菜单</string>
+    <string name="settings_simplemode_desc">在文本选择菜单转换时，自动检测繁简并使用OpenCC标准转换</string>
+    <string name="settings_advanced">高级设定</string>
+    <string name="settings_easymode">简易模式</string>
+    <string-array name="trad_to_simp">
+        <item>（每次询问）</item>
+        <item>OpenCC 繁体到简体（默认）</item>
+        <item>台湾正体到简体</item>
+        <item>香港繁体到简体</item>
+        <item>台湾正体到简体（中国大陆词汇）</item>
+        <item>OpenCC 繁体转换为台湾异体</item>
+        <item>OpenCC 繁体转换为香港异体</item>
+    </string-array>
+    <string-array name="simp_to_trad">
+        <item>（每次询问）</item>
+        <item>简体到 OpenCC 繁体（默认）</item>
+        <item>简体到台湾正体</item>
+        <item>简体到香港繁体</item>
+        <item>简体到台湾正体（台湾词汇）</item>
+    </string-array>
+    <string name="settings_simp">文字侦测为简体中文时</string>
+    <string name="setting_trad">文字侦测为繁体中文时</string>
+    <string name="settings_autodetect">自动侦测繁简</string>
+    <string name="settings_autodetect_desc">在文本选择菜单转换时，自动检测繁简并使用以下模式转换</string>
+    <string name="menu_autonotdetected">选取的文本中没有繁/简獨有字符或不是中文，或发生不明错误</string>
 </resources>

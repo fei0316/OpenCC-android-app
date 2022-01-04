@@ -23,8 +23,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.iatfei.tsconverter.MainActivity">
     <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="92"
+        android:title="@string/menu_settings" />
+    <item
         android:id="@+id/action_tutorial"
-        android:orderInCategory="90"
+        android:orderInCategory="93"
         android:title="@string/action_tutorial"
         app:showAsAction="never" />
     <item

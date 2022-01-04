@@ -39,11 +39,12 @@
     <string name="main_varchar">異體標準</string>
     <string name="main_wordUse">用詞</string>
     <string name="menu_popup_title">請選擇轉換類型：</string>
-    <string name="menu_popup_type_1">簡體到 OpenCC 繁體（建議）</string>
+    <string name="menu_popup_type_0">（每次詢問）</string>
+    <string name="menu_popup_type_1">簡體到 OpenCC 繁體（預設）</string>
     <string name="menu_popup_type_2">簡體到臺灣正體</string>
     <string name="menu_popup_type_3">簡體到香港繁體</string>
     <string name="menu_popup_type_4">簡體到臺灣正體（包括詞彙）</string>
-    <string name="menu_popup_type_5">OpenCC 繁體到簡體（建議）</string>
+    <string name="menu_popup_type_5">OpenCC 繁體到簡體（預設）</string>
     <string name="menu_popup_type_6">臺灣正體到簡體</string>
     <string name="menu_popup_type_7">香港繁體到簡體</string>
     <string name="menu_popup_type_8">臺灣正體到簡體（中國大陸詞彙）</string>
@@ -82,5 +83,37 @@
     <string name="appintro_title_3">在軟件中直接轉換！</string>
     <string name="appintro_content_3">在任何軟件中選擇文字並選擇「繁簡轉換」選項即可在軟件中直接轉換並取代原有文字。</string>
     <string name="action_tutorial">教學</string>
+    <string name="about_contributors">貢獻者</string>
+    <string name="about_contributors_content">簡易模式提議及部分源碼：Renn</string>
+    <string name="menu_settings">設定</string>
+    <string name="settings_selmenu">長按文字功能表</string>
+    <string name="settings_simplemode_desc">在長按文字功能表選擇轉換時，自動偵測繁簡並使用OpenCC標準轉換</string>
+    <string name="settings_advanced">進階設定</string>
+    <string name="settings_easymode">簡易模式</string>
+
+    <string-array name="trad_to_simp">
+        <item>（每次詢問）</item>
+        <item>OpenCC 繁體到簡體（預設）</item>
+        <item>臺灣正體到簡體</item>
+        <item>香港繁體到簡體</item>
+        <item>臺灣正體到簡體（中國大陸詞彙）</item>
+        <item>OpenCC 繁體轉換爲臺灣異體</item>
+        <item>OpenCC 繁體轉換爲香港異體</item>
+    </string-array>
+    <string-array name="simp_to_trad">
+        <item>（每次詢問）</item>
+        <item>簡體到 OpenCC 繁體（預設）</item>
+        <item>簡體到臺灣正體</item>
+        <item>簡體到香港繁體</item>
+        <item>簡體到臺灣正體（臺灣詞彙）</item>
+    </string-array>
+    <string name="setting_trad">文字偵測為繁體中文時</string>
+    <string name="settings_simp">文字偵測爲簡體中文時</string>
+    <string name="settings_autodetect_desc">使用長按文字功能表時，自動偵測繁簡中文並按照以下模式轉換</string>
+    <string name="settings_autodetect">自動偵測繁簡</string>
+    <string name="menu_autonotdetected">選擇的文字中沒有繁/簡獨有字或者不是中文，或發生不明錯誤</string>
+    <string name="title_activity_launch">LaunchActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 
 </resources>
