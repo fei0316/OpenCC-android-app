@@ -27,7 +27,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.ListPreference;
-import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
@@ -59,7 +58,7 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.settings);
 
-            final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getContext()));
+            final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(requireContext());
             final SwitchPreference simpleSwitch = findPreference("switch_preference_1");
             final SwitchPreference autodetectSwitch = findPreference("switch_preference_2");
             final ListPreference lpTraditional = findPreference("list_preference_1");
