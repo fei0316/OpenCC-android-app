@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2021 Fei Kuan.
+ * Copyright (c) 2020-2022 Fei Kuan.
  *
  * This file is part of Chinese Converter
  * (see <https://github.com/fei0316/OpenCC-android-app>).
@@ -33,6 +33,7 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class ConvertActivity extends AppCompatActivity {
@@ -72,17 +73,65 @@ public class ConvertActivity extends AppCompatActivity {
 
         if (easyMode) {
             ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
-            switch (type) {
-                case TRADITIONAL_CHINESE:
-                    convAndSet(5, text, readonly, callingPackage);
-                    break;
-                case SIMPLIFIED_CHINESE:
-                    convAndSet(1, text, readonly, callingPackage);
-                    break;
-                default:
+            if (type == ChineseTypes.TRADITIONAL_CHINESE) {
+                convAndSet(5, text, readonly, callingPackage);
+                finish();
+            } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
+                convAndSet(1, text, readonly, callingPackage);
+                finish();
+            } else {
+                boolean isChinese = false;
+                final ArrayList<Character.UnicodeBlock> chinese = new ArrayList<>();
+                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS);
+                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A);
+                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B);
+                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C);
+                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D);
+
+                for (int i = 0; i < text.length(); i++) {
+                    int codePoint = 0xFFFF;
+                    if (i == text.length() - 1 && !Character.isHighSurrogate(text.charAt(i)) && !Character.isLowSurrogate(text.charAt(i))) {
+                        codePoint = Character.codePointAt(text, i);
+                    } else {
+                        if (!Character.isHighSurrogate(text.charAt(i)) && !Character.isLowSurrogate(text.charAt(i)) && !Character.isHighSurrogate(text.charAt(i+1)) && !Character.isLowSurrogate(text.charAt(i+1))) { //is not surrogate pair
+                            codePoint = Character.codePointAt(text, i);
+                        } else if (Character.isHighSurrogate(text.charAt(i)) && Character.isSurrogatePair(text.charAt(i), text.charAt(i+1))){ //is surrogate pair, High first
+                            codePoint = Character.toCodePoint(text.charAt(i), text.charAt(i+1));
+                        } else if (Character.isLowSurrogate(text.charAt(i)) && Character.isSurrogatePair(text.charAt(i+1), text.charAt(i))) { //is surrogate pair, Low first
+                            codePoint = Character.toCodePoint(text.charAt(i+1), text.charAt(i));
+                        }
+                    }
+                    if (chinese.contains(Character.UnicodeBlock.of(codePoint))) {
+                        isChinese = true;
+                        break;
+                    }
+                }
+                if (isChinese) {
+                    setContentView(R.layout.activity_convert_simple);
+
+                    Button cancel_button = findViewById(R.id.button5);
+                    cancel_button.setOnClickListener(v -> finish());
+
+                    Button conv_button = findViewById(R.id.button4);
+                    conv_button.setOnClickListener(v -> {
+                        RadioGroup rgPopup = findViewById(R.id.radioGroup);
+                        int id = rgPopup.getCheckedRadioButtonId();
+                        int sel;
+                        if (id == R.id.popupRadioType1) {
+                            sel = 5;
+                        } else if (id == R.id.popupRadioType2) {
+                            sel = 1;
+                        } else {
+                            sel = 0;
+                        }
+                        convAndSet(sel, text, readonly, callingPackage);
+                        finish();
+                    });
+                } else {
                     convAndSet(0, text, readonly, callingPackage);
+                    finish();
+                }
             }
-            finish();
         } else if (autodetect) {
             ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
             if (type == ChineseTypes.TRADITIONAL_CHINESE) {

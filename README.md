@@ -1,11 +1,12 @@
 # Android OpenCC (Android 開放中文轉換)
-An implementation of OpenCC for Android for the conversion between different variants of Chinese.
+An implementation of OpenCC for Android for the conversion between different variants of Chinese, with auto detection & conversion.
 
-爲 Android 使用者開發的 OpenCC 中文轉換器。
+爲 Android 使用者開發的 OpenCC 中文轉換器。支援自動轉換。
 
 My third project! Developed during the COVID-19 pandemic.
 
 Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/OpenCC), and qichuan for the [Android OpenCC Library](https://github.com/qichuan/android-opencc).
+Special thanks to Renn for code contribution.
 
 <a href='https://play.google.com/store/apps/details?id=com.iatfei.tsconverter'>
    <img alt='Get it on Google Play'
@@ -17,6 +18,7 @@ GitHub Releases: <a href='https://github.com/fei0316/OpenCC-android-app/releases
 
 ## Features
 
+- Automatically detect Traditional or Simplified Chinese to convert automatically (Easy Mode)
 - 10 conversion modes (see below for details)
 - Convert directly by selecting text in text field, selecting the option in menu, and replaces with converted text automatically.
 
@@ -134,6 +136,13 @@ Therefore, please always choose the origin text to the best of your knowledge an
 
 ## How to build
 Just clone the repository and open it in Android Studio. It *should* work...
+### Notes on Easy Mode autodetection
+The charmap.bin in res/raw is generated with code in util. It takes in data from OpenCC's GitHub page and compile a Serialized HashMap. Use Kotlin compiler to compile these two files and then run it to get the bin file. Change package name as needed.
+This part of the code is not as clean as I wanted it to be, so pull requests are welcome!
+```
+./kotlinc ../dict-gen.kt ./ChineseTypes.class -include-runtime -d dict-gen.jar
+java -jar ./dict-gen.jar
+```
 
 ## Any issues?
 
@@ -143,7 +152,7 @@ Otherwise, please open an issue here.
 
 ## Licenses
 ```
-Copyright (c) 2020 Fei Kuan.
+Copyright (c) 2020-2022 Fei Kuan.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

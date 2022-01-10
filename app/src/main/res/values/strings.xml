@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2020-2021 Fei Kuan.
+  ~ Copyright (c) 2020-2022 Fei Kuan.
   ~
   ~ This file is part of Chinese Converter
   ~ (see <https://github.com/fei0316/OpenCC-android-app>).
@@ -111,5 +111,6 @@
     <string name="settings_autodetect_desc">使用長按文字功能表時，自動偵測繁簡中文並按照以下模式轉換</string>
     <string name="settings_autodetect">自動偵測繁簡</string>
     <string name="menu_autonotdetected">選擇的文字中沒有繁/簡獨有字或者不是中文，或發生不明錯誤</string>
+    <string name="menu_cantdetect">無法偵測繁簡，請手動選擇：</string>
 
 </resources>

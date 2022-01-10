@@ -18,6 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+* Special thanks to Renn on GitHub who contributed to this piece of code.
+* Copyright (c) 2021 Renn. Released under GNU GPL v3+.
+*/
+
 package com.iatfei.tsconverter
 
 enum class ChineseTypes {

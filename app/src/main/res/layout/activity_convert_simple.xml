@@ -25,7 +25,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:label="@string/menu_popup_title"
-    android:minHeight="350dp"
+    android:minHeight="300dp"
     tools:context=".ConvertActivity">
 
 
@@ -44,52 +44,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/menu_popup_type_T2S" />
+            android:text="@string/menu_cantdetect" />
 
         <RadioButton
-            android:id="@+id/popupRadioType5"
+            android:id="@+id/popupRadioType1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/menu_popup_type_5" />
+            android:checked="true"
+            android:text="@string/main_trad_simp" />
 
         <RadioButton
-            android:id="@+id/popupRadioType6"
+            android:id="@+id/popupRadioType2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/menu_popup_type_6" />
+            android:text="@string/main_simp_trad" />
 
-        <RadioButton
-            android:id="@+id/popupRadioType7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_popup_type_7" />
-
-        <RadioButton
-            android:id="@+id/popupRadioType8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_popup_type_8" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/menu_popup_type_T2T" />
-
-        <RadioButton
-            android:id="@+id/popupRadioType9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_popup_type_9" />
-
-        <RadioButton
-            android:id="@+id/popupRadioType10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_popup_type_10" />
-    </RadioGroup>
+         </RadioGroup>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (c) 2020-2021 Fei Kuan.
+  ~ Copyright (c) 2020-2022 Fei Kuan.
   ~
   ~ This file is part of Chinese Converter
   ~ (see <https://github.com/fei0316/OpenCC-android-app>).
@@ -106,4 +106,5 @@
     <string name="settings_autodetect">自动侦测繁简</string>
     <string name="settings_autodetect_desc">在文本选择菜单转换时，自动检测繁简并使用以下模式转换</string>
     <string name="menu_autonotdetected">选取的文本中没有繁/简獨有字符或不是中文，或发生不明错误</string>
+    <string name="menu_cantdetect">无法侦测繁简，请手动选择：</string>
 </resources>

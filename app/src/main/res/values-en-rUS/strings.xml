@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (c) 2020-2021 Fei Kuan.
+  ~ Copyright (c) 2020-2022 Fei Kuan.
   ~
   ~ This file is part of Chinese Converter
   ~ (see <https://github.com/fei0316/OpenCC-android-app>).
@@ -108,4 +108,5 @@
     <string name="settings_autodetect">Autodetect Trad./Simp.</string>
     <string name="settings_autodetect_desc">When using text selection menu, autodetect Traditional/Simplified and convert with preference below</string>
     <string name="menu_autonotdetected">Selected text is not Chinese or does not contain any unique Traditional/Simplified chanracters, or an unknown error occurred</string>
+    <string name="menu_cantdetect">Traditional/Simplified detection failed, please choose manually:</string>
 </resources>
