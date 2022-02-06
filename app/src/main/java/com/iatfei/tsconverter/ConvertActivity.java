@@ -76,36 +76,12 @@ public class ConvertActivity extends AppCompatActivity {
             if (type == ChineseTypes.TRADITIONAL_CHINESE) {
                 convAndSet(5, text, readonly, callingPackage);
                 finish();
-            } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
+            }
+            else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
                 convAndSet(1, text, readonly, callingPackage);
                 finish();
             } else {
-                boolean isChinese = false;
-                final ArrayList<Character.UnicodeBlock> chinese = new ArrayList<>();
-                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS);
-                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A);
-                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B);
-                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C);
-                chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D);
-
-                for (int i = 0; i < text.length(); i++) {
-                    int codePoint = 0xFFFF;
-                    if (i == text.length() - 1 && !Character.isHighSurrogate(text.charAt(i)) && !Character.isLowSurrogate(text.charAt(i))) {
-                        codePoint = Character.codePointAt(text, i);
-                    } else {
-                        if (!Character.isHighSurrogate(text.charAt(i)) && !Character.isLowSurrogate(text.charAt(i)) && !Character.isHighSurrogate(text.charAt(i+1)) && !Character.isLowSurrogate(text.charAt(i+1))) { //is not surrogate pair
-                            codePoint = Character.codePointAt(text, i);
-                        } else if (Character.isHighSurrogate(text.charAt(i)) && Character.isSurrogatePair(text.charAt(i), text.charAt(i+1))){ //is surrogate pair, High first
-                            codePoint = Character.toCodePoint(text.charAt(i), text.charAt(i+1));
-                        } else if (Character.isLowSurrogate(text.charAt(i)) && Character.isSurrogatePair(text.charAt(i+1), text.charAt(i))) { //is surrogate pair, Low first
-                            codePoint = Character.toCodePoint(text.charAt(i+1), text.charAt(i));
-                        }
-                    }
-                    if (chinese.contains(Character.UnicodeBlock.of(codePoint))) {
-                        isChinese = true;
-                        break;
-                    }
-                }
+                boolean isChinese = isItChinese(text);
                 if (isChinese) {
                     setContentView(R.layout.activity_convert_simple);
 
@@ -201,8 +177,73 @@ public class ConvertActivity extends AppCompatActivity {
                     finish();
                 }
             } else {
-                convAndSet(0, text, readonly, callingPackage);
-                finish();
+                boolean isChinese = isItChinese(text);
+                if (isChinese) {
+                    int tradMode = Integer.parseInt(pref.getString("list_preference_1", "0"));
+                    int simpMode = Integer.parseInt(pref.getString("list_preference_2", "0"));
+                    if (tradMode == 0 || simpMode == 0) {
+                        setContentView(R.layout.activity_convert);
+
+                        Button cancel_button = findViewById(R.id.button5);
+                        cancel_button.setOnClickListener(v -> finish());
+
+                        Button conv_button = findViewById(R.id.button4);
+                        conv_button.setOnClickListener(v -> {
+                            int sel;
+                            RadioGroup rgPopup = findViewById(R.id.radioGroup);
+                            int id = rgPopup.getCheckedRadioButtonId();
+                            if (id == R.id.popupRadioType1) {
+                                sel = 1;
+                            } else if (id == R.id.popupRadioType2) {
+                                sel = 2;
+                            } else if (id == R.id.popupRadioType3) {
+                                sel = 3;
+                            } else if (id == R.id.popupRadioType4) {
+                                sel = 4;
+                            } else if (id == R.id.popupRadioType5) {
+                                sel = 5;
+                            } else if (id == R.id.popupRadioType6) {
+                                sel = 6;
+                            } else if (id == R.id.popupRadioType7) {
+                                sel = 7;
+                            } else if (id == R.id.popupRadioType8) {
+                                sel = 8;
+                            } else if (id == R.id.popupRadioType9) {
+                                sel = 9;
+                            } else if (id == R.id.popupRadioType10) {
+                                sel = 10;
+                            } else {
+                                sel = 0;
+                            }
+                            convAndSet(sel, text, readonly, callingPackage);
+                            finish();
+                        });
+                    } else {
+                        setContentView(R.layout.activity_convert_simple);
+
+                        Button cancel_button = findViewById(R.id.button5);
+                        cancel_button.setOnClickListener(v -> finish());
+
+                        Button conv_button = findViewById(R.id.button4);
+                        conv_button.setOnClickListener(v -> {
+                            RadioGroup rgPopup = findViewById(R.id.radioGroup);
+                            int id = rgPopup.getCheckedRadioButtonId();
+                            if (id == R.id.popupRadioType1) {
+                                convAndSet(tradMode, text, readonly, callingPackage);
+                                finish();
+                            } else if (id == R.id.popupRadioType2) {
+                                convAndSet(simpMode, text, readonly, callingPackage);
+                                finish();
+                            } else {
+                                convAndSet(0, text, readonly, callingPackage);
+                                finish();
+                            }
+                        });
+                    }
+                } else {
+                    convAndSet(0, text, readonly, callingPackage);
+                    finish();
+                }
             }
         } else {
             setContentView(R.layout.activity_convert);
@@ -242,6 +283,36 @@ public class ConvertActivity extends AppCompatActivity {
                 finish();
             });
         }
+    }
+
+    private boolean isItChinese(CharSequence text) {
+        boolean isChinese = false;
+        final ArrayList<Character.UnicodeBlock> chinese = new ArrayList<>();
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS);
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A);
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B);
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C);
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D);
+
+        for (int i = 0; i < text.length(); i++) {
+            int codePoint = 0xFFFF;
+            if (i == text.length() - 1 && !Character.isHighSurrogate(text.charAt(i)) && !Character.isLowSurrogate(text.charAt(i))) {
+                codePoint = Character.codePointAt(text, i);
+            } else {
+                if (!Character.isHighSurrogate(text.charAt(i)) && !Character.isLowSurrogate(text.charAt(i)) && !Character.isHighSurrogate(text.charAt(i+1)) && !Character.isLowSurrogate(text.charAt(i+1))) { //is not surrogate pair
+                    codePoint = Character.codePointAt(text, i);
+                } else if (Character.isHighSurrogate(text.charAt(i)) && Character.isSurrogatePair(text.charAt(i), text.charAt(i+1))){ //is surrogate pair, High first
+                    codePoint = Character.toCodePoint(text.charAt(i), text.charAt(i+1));
+                } else if (Character.isLowSurrogate(text.charAt(i)) && Character.isSurrogatePair(text.charAt(i+1), text.charAt(i))) { //is surrogate pair, Low first
+                    codePoint = Character.toCodePoint(text.charAt(i+1), text.charAt(i));
+                }
+            }
+            if (chinese.contains(Character.UnicodeBlock.of(codePoint))) {
+                isChinese = true;
+                break;
+            }
+        }
+        return isChinese;
     }
 
     private void convAndSet(int sel, CharSequence text, boolean readonly, String callingPackage) {

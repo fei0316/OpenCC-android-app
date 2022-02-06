@@ -78,7 +78,7 @@
     <string name="appintro_content_4">This is my second app project, and it will not be possible without the amazing OpenCC project by BYVoid. Note that OpenCC is unable to convert perfectly due to the complicated nature of languages, and proofreading is still necessary.</string>
     <string name="appintro_content_2">Easy Mode is recommended if you do not have specific requirements.</string>
     <string name="appintro_title_3">Convert directly in-app!</string>
-    <string name="appintro_content_3">Select text anywhere and choose \"Chinese Convert\" to convert in place! If this option is not present, choose \"Share\"  then \"Chinese Convert\"</string>
+    <string name="appintro_content_3">Select text anywhere and choose \"Chinese Convert\" to convert in place! If this option is not present, choose \"Share\"  then \"Chinese Convert\".</string>
     <string name="action_tutorial">Tutorial</string>
     <string name="about_contributors">Contributors</string>
     <string name="about_contributors_content">Easy Mode suggestion and code contribution: Renn</string>

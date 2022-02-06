@@ -81,7 +81,7 @@
     <string name="appintro_content_4">我的第二個軟件。衷心感謝 BYVoid 在 OpenCC 開發付出的努力。沒有 OpenCC 就不會有這軟件的誕生。因語言的複雜性，軟件無法完美轉換簡繁而可能會出現過度轉換或沒有轉換的問題，請務必仔細檢查。</string>
     <string name="appintro_content_1">輕鬆地在各地區的繁體標準及簡體之間相互轉換，並可選擇同時轉換地區用詞。</string>
     <string name="appintro_title_3">在軟件中直接轉換！</string>
-    <string name="appintro_content_3">在任何軟件中選擇文字並選擇「繁簡轉換」即可在軟件中直接轉換並取代原有文字。看不到此選項？請按「分享」後選擇「繁簡轉換」</string>
+    <string name="appintro_content_3">在任何軟件中選擇文字並選擇「繁簡轉換」即可在軟件中直接轉換並取代原有文字。看不到此選項？請按「分享」後選擇「繁簡轉換」。</string>
     <string name="action_tutorial">教學</string>
     <string name="about_contributors">貢獻者</string>
     <string name="about_contributors_content">簡易模式提議及部分源碼：Renn</string>
