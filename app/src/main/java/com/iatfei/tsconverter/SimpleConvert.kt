@@ -43,23 +43,14 @@ object SimpleConvert {
         if (charMap.size < 2) {
             loadMap(c)
         }
-        var codePoint = 0xFFFF
         if (str != null) {
             for (i in str.indices) {
-                if (i == str.length - 1 && !str[i].isHighSurrogate() && !str[i].isLowSurrogate()) {
-                    codePoint = str[i].code
-                } else {
-                    if (!str[i].isHighSurrogate() && !str[i].isLowSurrogate() && !str[i+1].isHighSurrogate() && !str[i+1].isLowSurrogate()) { //is not surrogate pair
-                        codePoint = str[i].code
-                    } else if (str[i].isHighSurrogate() && Character.isSurrogatePair(str[i], str[i+1])){ //is surrogate pair, High first
-                        codePoint = Character.toCodePoint(str[i], str[i+1])
-                    } else if (str[i].isLowSurrogate() && Character.isSurrogatePair(str[i+1], str[i])) { //is surrogate pair, Low first
-                        codePoint = Character.toCodePoint(str[i+1], str[i])
+                var tempCodePoint = Character.codePointAt(str, i)
+                if (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF) {
+                    val tempResult = charMap[tempCodePoint]
+                    if (tempResult != null) {
+                        return tempResult
                     }
-                }
-                val tempResult = charMap[codePoint]
-                if (tempResult != null) {
-                    return tempResult
                 }
             }
         }

@@ -286,7 +286,6 @@ public class ConvertActivity extends AppCompatActivity {
     }
 
     private boolean isItChinese(CharSequence text) {
-        boolean isChinese = false;
         final ArrayList<Character.UnicodeBlock> chinese = new ArrayList<>();
         chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS);
         chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A);
@@ -295,24 +294,11 @@ public class ConvertActivity extends AppCompatActivity {
         chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D);
 
         for (int i = 0; i < text.length(); i++) {
-            int codePoint = 0xFFFF;
-            if (i == text.length() - 1 && !Character.isHighSurrogate(text.charAt(i)) && !Character.isLowSurrogate(text.charAt(i))) {
-                codePoint = Character.codePointAt(text, i);
-            } else {
-                if (!Character.isHighSurrogate(text.charAt(i)) && !Character.isLowSurrogate(text.charAt(i)) && !Character.isHighSurrogate(text.charAt(i+1)) && !Character.isLowSurrogate(text.charAt(i+1))) { //is not surrogate pair
-                    codePoint = Character.codePointAt(text, i);
-                } else if (Character.isHighSurrogate(text.charAt(i)) && Character.isSurrogatePair(text.charAt(i), text.charAt(i+1))){ //is surrogate pair, High first
-                    codePoint = Character.toCodePoint(text.charAt(i), text.charAt(i+1));
-                } else if (Character.isLowSurrogate(text.charAt(i)) && Character.isSurrogatePair(text.charAt(i+1), text.charAt(i))) { //is surrogate pair, Low first
-                    codePoint = Character.toCodePoint(text.charAt(i+1), text.charAt(i));
-                }
-            }
-            if (chinese.contains(Character.UnicodeBlock.of(codePoint))) {
-                isChinese = true;
-                break;
+            if (chinese.contains(Character.UnicodeBlock.of(Character.codePointAt(text, i)))) {
+                return true;
             }
         }
-        return isChinese;
+        return false;
     }
 
     private void convAndSet(int sel, CharSequence text, boolean readonly, String callingPackage) {
