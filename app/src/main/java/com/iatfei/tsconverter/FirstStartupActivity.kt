@@ -32,30 +32,41 @@ class FirstStartupActivity : AppIntro() {
         isColorTransitionsEnabled = true
         setImmersiveMode()
 
-        // Call addSlide passing your Fragments.
-        // You can use AppIntroFragment to use a pre-built fragment
+        // todo: make someone design some graphics for this
         addSlide(AppIntroFragment.newInstance(
                 title = getString(R.string.appintro_title_1),
                 description = getString(R.string.appintro_content_1),
-                imageDrawable = R.drawable.ic_launcher_foreground,
+                imageDrawable = R.drawable.ic_applogo_intro,
                 backgroundColor = getColor(R.color.appIntroOne)
         ))
         addSlide(AppIntroFragment.newInstance(
                 title = getString(R.string.appintro_title_2),
                 description = getString(R.string.appintro_content_2),
-                imageDrawable = R.drawable.ic_launcher_foreground,
+                imageDrawable = R.drawable.ic_baseline_info_24,
                 backgroundColor = getColor(R.color.appIntroTwo)
         ))
         addSlide(AppIntroFragment.newInstance(
-                title = getString(R.string.appintro_title_3),
-                description = getString(R.string.appintro_content_3),
+                title = getString(R.string.appintro_title_3_1),
+                description = getString(R.string.appintro_content_3_1),
                 imageDrawable = R.drawable.tutorial_textselection_1,
                 backgroundColor = getColor(R.color.appIntroFour)
         ))
         addSlide(AppIntroFragment.newInstance(
+            title = getString(R.string.appintro_title_3_2),
+            description = getString(R.string.appintro_content_3_2),
+            imageDrawable = R.drawable.tutorial_textselection_2,
+            backgroundColor = getColor(R.color.appIntroFour)
+        ))
+        addSlide(AppIntroFragment.newInstance(
+            title = getString(R.string.appintro_title_3_3),
+            description = getString(R.string.appintro_content_3_3),
+            imageDrawable = R.drawable.tutorial_textselection_3,
+            backgroundColor = getColor(R.color.appIntroFour)
+        ))
+        addSlide(AppIntroFragment.newInstance(
                 title = getString(R.string.appintro_title_4),
                 description = getString(R.string.appintro_content_4),
-                imageDrawable = R.drawable.ic_launcher_foreground,
+                imageDrawable = R.drawable.ic_applogo_intro,
                 backgroundColor = getColor(R.color.appIntroThree)
         ))
     }
@@ -65,7 +76,7 @@ class FirstStartupActivity : AppIntro() {
 
         val prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(baseContext)
         val edit: Editor = prefs.edit()
-        edit.putBoolean("previous_started", true)
+        edit.putInt("previous_started_ver", BuildConfig.VERSION_CODE)
         edit.apply()
         finish()
     }
@@ -75,7 +86,7 @@ class FirstStartupActivity : AppIntro() {
 
         val prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(baseContext)
         val edit: Editor = prefs.edit()
-        edit.putBoolean("previous_started", true)
+        edit.putInt("previous_started_ver", BuildConfig.VERSION_CODE)
         edit.apply()
         finish()
     }

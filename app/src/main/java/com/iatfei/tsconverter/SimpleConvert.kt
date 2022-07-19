@@ -45,7 +45,7 @@ object SimpleConvert {
         }
         if (str != null) {
             for (i in str.indices) {
-                var tempCodePoint = Character.codePointAt(str, i)
+                val tempCodePoint = Character.codePointAt(str, i)
                 if (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF) {
                     val tempResult = charMap[tempCodePoint]
                     if (tempResult != null) {

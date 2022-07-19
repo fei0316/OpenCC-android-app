@@ -25,7 +25,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:label="@string/menu_popup_title"
-    tools:context=".ConvertActivity">
+    tools:context=".ConvertPopupActivity">
 
 
     <RadioGroup

@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -36,49 +37,80 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class ConvertActivity extends AppCompatActivity {
+public class ConvertPopupActivity extends AppCompatActivity {
+
+    boolean tileClipboardAccessRequested = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         Intent intent = getIntent();
         String action = intent.getAction();
         String intentType = intent.getType();
-        boolean readonlyTemp = true;
-        String callingPackageTemp = null;
-        CharSequence textTemp = "";
 
         if (Intent.ACTION_SEND.equals(action) && intentType != null) {
+            CharSequence textTemp = "";
             if ("text/plain".equals(intentType)) {
                 String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
                 if (sharedText != null) {
                     textTemp = sharedText;
                 }
             }
+            convHelper(true, textTemp);
+        } else if (intent.getBooleanExtra("fromTile", false)) {
+            Log.e("FUCK", "SHIT");
+            setContentView(R.layout.activity_convert_empty);
+            tileClipboardAccessRequested = true;
         } else {
-            readonlyTemp = getIntent()
-                    .getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false);
-            callingPackageTemp = getCallingPackage();
-            textTemp = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+            convHelper(getIntent().getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false),
+                    getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT));
         }
+    }
 
-        boolean readonly = readonlyTemp;
-        String callingPackage = callingPackageTemp;
-        CharSequence text = textTemp;
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            if (tileClipboardAccessRequested) {
+                ClipboardManager clipBoard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+                convHelper(true,
+                        clipBoard.getPrimaryClip().getItemAt(0).getText().toString());
+            }
+            tileClipboardAccessRequested = false;
+            moveTaskToBack(true);
+        }
+    }
 
+
+    private boolean isItChinese(CharSequence text) {
+        final ArrayList<Character.UnicodeBlock> chinese = new ArrayList<>();
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS);
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A);
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B);
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C);
+        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D);
+
+        for (int i = 0; i < text.length(); i++) {
+            if (chinese.contains(Character.UnicodeBlock.of(Character.codePointAt(text, i)))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void convHelper (boolean readonly, CharSequence text) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         boolean easyMode = pref.getBoolean("switch_preference_1", true);
         boolean autodetect = pref.getBoolean("switch_preference_2", true);
 
         if (easyMode) {
             ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
             if (type == ChineseTypes.TRADITIONAL_CHINESE) {
-                convAndSet(5, text, readonly, callingPackage);
+                convAndSet(5, text, readonly);
                 finish();
             }
             else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
-                convAndSet(1, text, readonly, callingPackage);
+                convAndSet(1, text, readonly);
                 finish();
             } else {
                 boolean isChinese = isItChinese(text);
@@ -100,11 +132,11 @@ public class ConvertActivity extends AppCompatActivity {
                         } else {
                             sel = 0;
                         }
-                        convAndSet(sel, text, readonly, callingPackage);
+                        convAndSet(sel, text, readonly);
                         finish();
                     });
                 } else {
-                    convAndSet(0, text, readonly, callingPackage);
+                    convAndSet(0, text, readonly);
                     finish();
                 }
             }
@@ -138,11 +170,11 @@ public class ConvertActivity extends AppCompatActivity {
                         } else {
                             sel = 0;
                         }
-                        convAndSet(sel, text, readonly, callingPackage);
+                        convAndSet(sel, text, readonly);
                         finish();
                     });
                 } else {
-                    convAndSet(tradMode, text, readonly, callingPackage);
+                    convAndSet(tradMode, text, readonly);
                     finish();
                 }
             } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
@@ -169,11 +201,11 @@ public class ConvertActivity extends AppCompatActivity {
                         } else {
                             sel = 0;
                         }
-                        convAndSet(sel, text, readonly, callingPackage);
+                        convAndSet(sel, text, readonly);
                         finish();
                     });
                 } else {
-                    convAndSet(simpMode, text, readonly, callingPackage);
+                    convAndSet(simpMode, text, readonly);
                     finish();
                 }
             } else {
@@ -215,7 +247,7 @@ public class ConvertActivity extends AppCompatActivity {
                             } else {
                                 sel = 0;
                             }
-                            convAndSet(sel, text, readonly, callingPackage);
+                            convAndSet(sel, text, readonly);
                             finish();
                         });
                     } else {
@@ -229,19 +261,19 @@ public class ConvertActivity extends AppCompatActivity {
                             RadioGroup rgPopup = findViewById(R.id.radioGroup);
                             int id = rgPopup.getCheckedRadioButtonId();
                             if (id == R.id.popupRadioType1) {
-                                convAndSet(tradMode, text, readonly, callingPackage);
+                                convAndSet(tradMode, text, readonly);
                                 finish();
                             } else if (id == R.id.popupRadioType2) {
-                                convAndSet(simpMode, text, readonly, callingPackage);
+                                convAndSet(simpMode, text, readonly);
                                 finish();
                             } else {
-                                convAndSet(0, text, readonly, callingPackage);
+                                convAndSet(0, text, readonly);
                                 finish();
                             }
                         });
                     }
                 } else {
-                    convAndSet(0, text, readonly, callingPackage);
+                    convAndSet(0, text, readonly);
                     finish();
                 }
             }
@@ -279,38 +311,18 @@ public class ConvertActivity extends AppCompatActivity {
                 } else {
                     sel = 0;
                 }
-                convAndSet(sel, text, readonly, callingPackage);
+                convAndSet(sel, text, readonly);
                 finish();
             });
         }
     }
 
-    private boolean isItChinese(CharSequence text) {
-        final ArrayList<Character.UnicodeBlock> chinese = new ArrayList<>();
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS);
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A);
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B);
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C);
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D);
-
-        for (int i = 0; i < text.length(); i++) {
-            if (chinese.contains(Character.UnicodeBlock.of(Character.codePointAt(text, i)))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private void convAndSet(int sel, CharSequence text, boolean readonly, String callingPackage) {
-        if (callingPackage == null)
-            callingPackage = "bruh";
-        boolean cantReplace = callingPackage.equalsIgnoreCase("com.tencent.mm"); //simplified so it might look weird at first glance
-
+    private void convAndSet(int sel, CharSequence text, boolean readonly) {
         if (sel != 0) {
             String fromText = Objects.requireNonNull(text).toString();
-            String resultText = Convert.openCCConv(fromText, sel, getApplicationContext());
+            String resultText = ConvertUtils.openCCConv(fromText, sel, getApplicationContext());
 
-            if (readonly || cantReplace) {
+            if (readonly) {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("ConvertedChinese", resultText);
                 clipboard.setPrimaryClip(clip);

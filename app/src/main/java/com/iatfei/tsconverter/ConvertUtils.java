@@ -27,7 +27,7 @@ import com.zqc.opencc.android.lib.ConversionType;
 
 import static com.zqc.opencc.android.lib.ConversionType.*;
 
-class Convert {
+class ConvertUtils {
 
     static String openCCConv(String from, int type, Context context) {
         ConversionType convType = findType (type);

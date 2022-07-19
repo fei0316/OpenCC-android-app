@@ -76,14 +76,18 @@
     <string name="appintro_title_1">欢迎！</string>
     <string name="appintro_content_1">轻松地在简体及各地区的繁体标准之间相互转换，并同时支持地区用语。</string>
     <string name="appintro_content_2">如没有指定地区异体字的需求，建议使用简易模式。</string>
-    <string name="appintro_title_3">在软件中直接转换！</string>
-    <string name="appintro_content_3">在任何软件中选择文本并选择「繁简转换」即可在软件中直接转换并取代原有文本。看不到此选项？请按「分享」后选择「繁简转换」。</string>
+    <string name="appintro_title_3_1">在软件中直接转换！（一）</string>
+    <string name="appintro_title_3_2">在软件中直接转换！（二）</string>
+    <string name="appintro_title_3_3">在软件中直接转换！（三）</string>
+    <string name="appintro_content_3_1">在软件中选取文本并点击「繁简转换」即可在软件中直接转换并取代原有文本。</string>
+    <string name="appintro_content_3_2">选取文本后看不到转换的选项？请點擊「分享」后选择「繁简转换」。</string>
+    <string name="appintro_content_3_3">你也可以将本软件的快速设置图块加入到快速设置面板。拷贝任何文本后并选择「繁简转换」图块，即会将转换后文本放在剪贴板。</string>
     <string name="action_tutorial">教学</string>
     <string name="about_contributors">贡献者</string>
     <string name="about_contributors_content">简易模式提议及部分代码：Renn</string>
     <string name="menu_settings">设置</string>
-    <string name="settings_selmenu">文本选择菜单</string>
-    <string name="settings_simplemode_desc">在文本选择菜单转换时，自动检测繁简并使用OpenCC标准转换</string>
+    <string name="settings_selmenu">文本选取菜单</string>
+    <string name="settings_simplemode_desc">在文本选取菜单转换时，自动检测繁简并使用OpenCC标准转换</string>
     <string name="settings_easymode">简易模式</string>
     <string-array name="trad_to_simp">
         <item>（每次询问）</item>
@@ -104,7 +108,7 @@
     <string name="settings_simp">文字侦测为简体中文时</string>
     <string name="setting_trad">文字侦测为繁体中文时</string>
     <string name="settings_autodetect">自动侦测繁简</string>
-    <string name="settings_autodetect_desc">在文本选择菜单转换时，自动检测繁简并使用以下模式转换</string>
+    <string name="settings_autodetect_desc">在文本选取菜单转换时，自动检测繁简并使用以下模式转换</string>
     <string name="menu_autonotdetected">选取的文本中没有繁/简獨有字符或不是中文，或发生不明错误</string>
     <string name="menu_cantdetect">无法侦测繁简，请手动选择：</string>
 </resources>

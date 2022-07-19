@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        boolean previouslyStarted = prefs.getBoolean("previous_started", false);
-        if (!previouslyStarted) {
+        int previousStartedVer = prefs.getInt("previous_started_ver", 0);
+        if (previousStartedVer < 12) {
             tutorialScreen();
         }
 
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             if (simple) {
                 easyConv(et);
             } else {
-                int type = Convert.radioToType(type1.isChecked(), type2.isChecked(), type3.isChecked(), var1.isChecked(), var2.isChecked(), var3.isChecked(), var4.isChecked(), var5.isChecked(), noWord.isChecked(), twWord.isChecked(), cnWord.isChecked());
+                int type = ConvertUtils.radioToType(type1.isChecked(), type2.isChecked(), type3.isChecked(), var1.isChecked(), var2.isChecked(), var3.isChecked(), var4.isChecked(), var5.isChecked(), noWord.isChecked(), twWord.isChecked(), cnWord.isChecked());
                 advConv(et, type);
             }
         });
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                         twWord, cnWord, rgType, type1, type2, type3);
             } else {
                 conv_button.setOnClickListener(vv -> {
-                    int type = Convert.radioToType(type1.isChecked(), type2.isChecked(), type3.isChecked(), var1.isChecked(), var2.isChecked(), var3.isChecked(), var4.isChecked(), var5.isChecked(), noWord.isChecked(), twWord.isChecked(), cnWord.isChecked());
+                    int type = ConvertUtils.radioToType(type1.isChecked(), type2.isChecked(), type3.isChecked(), var1.isChecked(), var2.isChecked(), var3.isChecked(), var4.isChecked(), var5.isChecked(), noWord.isChecked(), twWord.isChecked(), cnWord.isChecked());
                     advConv(et, type);
                 });
                 simpleResetRadio(false, rgVar, var1, var2, var3, var4, var5, rgIdiom, noWord,
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         String text = et.getText().toString();
         ChineseTypes zhType = SimpleConvert.checkString(text, getBaseContext());
         if (zhType == ChineseTypes.TRADITIONAL_CHINESE) {
-            String converted = Convert.openCCConv(text, 5, getApplicationContext());
+            String converted = ConvertUtils.openCCConv(text, 5, getApplicationContext());
             et.setText(converted);
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clip = ClipData.newPlainText("ConvertedChinese", converted);
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
             toast.show();
         } else if (zhType == ChineseTypes.SIMPLIFIED_CHINESE) {
-            String converted = Convert.openCCConv(text, 1, getApplicationContext());
+            String converted = ConvertUtils.openCCConv(text, 1, getApplicationContext());
             et.setText(converted);
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clip = ClipData.newPlainText("ConvertedChinese", converted);
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
     private void advConv (EditText et, int type) {
         if (type >= 1 && type <= 10) {
             String text = et.getText().toString();
-            String converted = Convert.openCCConv(text, type, getApplicationContext());
+            String converted = ConvertUtils.openCCConv(text, type, getApplicationContext());
             et.setText(converted);
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clip = ClipData.newPlainText("ConvertedChinese", converted);
