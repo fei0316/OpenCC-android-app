@@ -49,7 +49,7 @@ public class ConvTileService extends TileService {
     public void onClick() {
         Intent intent = new Intent(this, ConvertPopupActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("fromTile", true);
+        intent.putExtra(Constant.TILE_CONVERT_INTENT_EXTRA, true);
         startActivityAndCollapse(intent);
     }
 }

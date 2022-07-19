@@ -76,7 +76,7 @@ class FirstStartupActivity : AppIntro() {
 
         val prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(baseContext)
         val edit: Editor = prefs.edit()
-        edit.putInt("previous_started_ver", BuildConfig.VERSION_CODE)
+        edit.putInt(Constant.PREF_PREVIOUS_STARTED_VERSION, BuildConfig.VERSION_CODE)
         edit.apply()
         finish()
     }
@@ -86,7 +86,7 @@ class FirstStartupActivity : AppIntro() {
 
         val prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(baseContext)
         val edit: Editor = prefs.edit()
-        edit.putInt("previous_started_ver", BuildConfig.VERSION_CODE)
+        edit.putInt(Constant.PREF_PREVIOUS_STARTED_VERSION, BuildConfig.VERSION_CODE)
         edit.apply()
         finish()
     }

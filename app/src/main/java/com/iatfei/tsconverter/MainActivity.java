@@ -52,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void makeMainActivity () {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean simple = prefs.getBoolean("main_simplemode", true);
+        boolean simple = prefs.getBoolean(Constant.PREF_MAIN_EASY_MODE, true);
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        int previousStartedVer = prefs.getInt("previous_started_ver", 0);
-        if (previousStartedVer < 12) {
+        int previousStartedVer = prefs.getInt(Constant.PREF_PREVIOUS_STARTED_VERSION, 0);
+        if (previousStartedVer < Constant.APPINTRO_LAST_UPDATE_VERSIONCODE) {
             tutorialScreen();
         }
 
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             String converted = ConvertUtils.openCCConv(text, 5, getApplicationContext());
             et.setText(converted);
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("ConvertedChinese", converted);
+            ClipData clip = ClipData.newPlainText(Constant.CLIPBOARD_LABEL, converted);
             clipboard.setPrimaryClip(clip);
             Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
             toast.show();
@@ -172,14 +172,14 @@ public class MainActivity extends AppCompatActivity {
             String converted = ConvertUtils.openCCConv(text, 1, getApplicationContext());
             et.setText(converted);
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("ConvertedChinese", converted);
+            ClipData clip = ClipData.newPlainText(Constant.CLIPBOARD_LABEL, converted);
             clipboard.setPrimaryClip(clip);
             Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
             toast.show();
         } else {
             Toast.makeText(getApplicationContext(), getString(R.string.menu_autonotdetected), Toast.LENGTH_SHORT).show();
         }
-        PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().putBoolean("main_simplemode", true).apply();
+        PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().putBoolean(Constant.PREF_MAIN_EASY_MODE, true).apply();
     }
 
     private void advConv (EditText et, int type) {
@@ -188,13 +188,13 @@ public class MainActivity extends AppCompatActivity {
             String converted = ConvertUtils.openCCConv(text, type, getApplicationContext());
             et.setText(converted);
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("ConvertedChinese", converted);
+            ClipData clip = ClipData.newPlainText(Constant.CLIPBOARD_LABEL, converted);
             clipboard.setPrimaryClip(clip);
             Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
             toast.show();
         } else
             Toast.makeText(getApplicationContext(), "Error!!!", Toast.LENGTH_SHORT).show();
-        PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().putBoolean("main_simplemode", false).apply();
+        PreferenceManager.getDefaultSharedPreferences(getBaseContext()).edit().putBoolean(Constant.PREF_MAIN_EASY_MODE, false).apply();
     }
 
     private void simpleResetRadio (boolean simple, RadioGroup rgVar, RadioButton var1, RadioButton var2,

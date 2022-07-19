@@ -29,7 +29,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -58,8 +57,7 @@ public class ConvertPopupActivity extends AppCompatActivity {
                 }
             }
             convHelper(true, textTemp);
-        } else if (intent.getBooleanExtra("fromTile", false)) {
-            Log.e("FUCK", "SHIT");
+        } else if (intent.getBooleanExtra(Constant.TILE_CONVERT_INTENT_EXTRA, false)) {
             setContentView(R.layout.activity_convert_empty);
             tileClipboardAccessRequested = true;
         } else {
@@ -100,8 +98,8 @@ public class ConvertPopupActivity extends AppCompatActivity {
 
     private void convHelper (boolean readonly, CharSequence text) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        boolean easyMode = pref.getBoolean("switch_preference_1", true);
-        boolean autodetect = pref.getBoolean("switch_preference_2", true);
+        boolean easyMode = pref.getBoolean(Constant.PREF_SETTINGS_EASY_MODE, true);
+        boolean autodetect = pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true);
 
         if (easyMode) {
             ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
@@ -143,7 +141,7 @@ public class ConvertPopupActivity extends AppCompatActivity {
         } else if (autodetect) {
             ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
             if (type == ChineseTypes.TRADITIONAL_CHINESE) {
-                int tradMode = Integer.parseInt(pref.getString("list_preference_1", "0"));
+                int tradMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_TRAD_MODE, "0"));
                 if (tradMode == 0) {
                     setContentView(R.layout.activity_convert_trad);
 
@@ -178,7 +176,7 @@ public class ConvertPopupActivity extends AppCompatActivity {
                     finish();
                 }
             } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
-                int simpMode = Integer.parseInt(pref.getString("list_preference_2", "0"));
+                int simpMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_SIMP_MODE, "0"));
                 if (simpMode == 0) {
                     setContentView(R.layout.activity_convert_simp);
 
@@ -211,8 +209,8 @@ public class ConvertPopupActivity extends AppCompatActivity {
             } else {
                 boolean isChinese = isItChinese(text);
                 if (isChinese) {
-                    int tradMode = Integer.parseInt(pref.getString("list_preference_1", "0"));
-                    int simpMode = Integer.parseInt(pref.getString("list_preference_2", "0"));
+                    int tradMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_TRAD_MODE, "0"));
+                    int simpMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_SIMP_MODE, "0"));
                     if (tradMode == 0 || simpMode == 0) {
                         setContentView(R.layout.activity_convert);
 
@@ -324,7 +322,7 @@ public class ConvertPopupActivity extends AppCompatActivity {
 
             if (readonly) {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("ConvertedChinese", resultText);
+                ClipData clip = ClipData.newPlainText(Constant.CLIPBOARD_LABEL, resultText);
                 clipboard.setPrimaryClip(clip);
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
                 toast.show();

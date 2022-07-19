@@ -59,19 +59,19 @@ public class SettingsActivity extends AppCompatActivity {
             addPreferencesFromResource(R.xml.settings);
 
             final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(requireContext());
-            final SwitchPreference simpleSwitch = findPreference("switch_preference_1");
-            final SwitchPreference autodetectSwitch = findPreference("switch_preference_2");
-            final ListPreference lpTraditional = findPreference("list_preference_1");
-            final ListPreference lpSimplified = findPreference("list_preference_2");
+            final SwitchPreference simpleSwitch = findPreference(Constant.PREF_SETTINGS_EASY_MODE);
+            final SwitchPreference autodetectSwitch = findPreference(Constant.PREF_SETTINGS_AUTODETECT_MODE);
+            final ListPreference lpTraditional = findPreference(Constant.PREF_SETTINGS_TRAD_MODE);
+            final ListPreference lpSimplified = findPreference(Constant.PREF_SETTINGS_SIMP_MODE);
 
             if (autodetectSwitch != null && lpTraditional != null && lpSimplified != null) {
-                if (pref.getBoolean("switch_preference_1", true)) {
+                if (pref.getBoolean(Constant.PREF_SETTINGS_EASY_MODE, true)) {
                     lpTraditional.setEnabled(false);
                     lpSimplified.setEnabled(false);
                     autodetectSwitch.setEnabled(false);
                 } else {
                     autodetectSwitch.setEnabled(true);
-                    if (pref.getBoolean("switch_preference_2", true)) {
+                    if (pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true)) {
                         lpTraditional.setEnabled(true);
                         lpSimplified.setEnabled(true);
                     } else {
@@ -79,8 +79,8 @@ public class SettingsActivity extends AppCompatActivity {
                         lpSimplified.setEnabled(false);
                     }
                 }
-                String trad = pref.getString("list_preference_1", "0");
-                String simp = pref.getString("list_preference_2", "0");
+                String trad = pref.getString(Constant.PREF_SETTINGS_TRAD_MODE, "0");
+                String simp = pref.getString(Constant.PREF_SETTINGS_SIMP_MODE, "0");
                 String trad_sel = getConvTypeText(trad);
                 String simp_sel = getConvTypeText(simp);
                 lpTraditional.setSummary(trad_sel);
@@ -93,7 +93,7 @@ public class SettingsActivity extends AppCompatActivity {
                         autodetectSwitch.setEnabled(false);
                     } else {
                         autodetectSwitch.setEnabled(true);
-                        if (pref.getBoolean("switch_preference_2", true)) {
+                        if (pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true)) {
                             lpTraditional.setEnabled(true);
                             lpSimplified.setEnabled(true);
                         } else {
@@ -101,7 +101,7 @@ public class SettingsActivity extends AppCompatActivity {
                             lpSimplified.setEnabled(false);
                         }
                     }
-                    pref.edit().putBoolean("switch_preference_1", newVal).apply();
+                    pref.edit().putBoolean(Constant.PREF_SETTINGS_EASY_MODE, newVal).apply();
                     return true;
                 });
                 autodetectSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
@@ -113,7 +113,7 @@ public class SettingsActivity extends AppCompatActivity {
                         lpTraditional.setEnabled(false);
                         lpSimplified.setEnabled(false);
                     }
-                    pref.edit().putBoolean("switch_preference_2", newVal).apply();
+                    pref.edit().putBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, newVal).apply();
                     return true;
                 });
                 lpTraditional.setOnPreferenceChangeListener((preference, newValue) -> {
