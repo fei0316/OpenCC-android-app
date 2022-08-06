@@ -4,13 +4,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
     buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "com.iatfei.tsconverter"
         minSdkVersion 23
-        targetSdkVersion 30
-        versionCode 13
+        targetSdkVersion 32
+        versionCode 14
         versionName "2.1.1"
         manifestPlaceholders.appName = "@string/app_name"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

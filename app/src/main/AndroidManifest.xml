@@ -60,7 +60,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -84,21 +83,18 @@
             android:theme="@style/Theme.AppCompat.DayNight.Dialog">
             <intent-filter android:label="@string/menu_trans_text">
                 <action android:name="android.intent.action.PROCESS_TEXT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <service
             android:name=".ConvTileService"
+            android:exported="true"
             android:label="@string/menu_trans_text"
             android:icon="@drawable/ic_baseline_refresh_24"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
