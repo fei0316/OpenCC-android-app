@@ -58,8 +58,8 @@ public class ConvertPopupActivity extends AppCompatActivity {
             }
             convHelper(true, textTemp);
         } else if (intent.getBooleanExtra(Constant.TILE_CONVERT_INTENT_EXTRA, false)) {
-            setContentView(R.layout.activity_convert_empty);
             tileClipboardAccessRequested = true;
+            setContentView(R.layout.activity_convert_empty);
         } else {
             convHelper(getIntent().getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false),
                     getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT));
@@ -70,12 +70,22 @@ public class ConvertPopupActivity extends AppCompatActivity {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
             if (tileClipboardAccessRequested) {
+                tileClipboardAccessRequested = false;
                 ClipboardManager clipBoard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-                convHelper(true,
-                        clipBoard.getPrimaryClip().getItemAt(0).getText().toString());
+                ClipData clipData = clipBoard.getPrimaryClip();
+                if (clipData == null) {
+                    convAndSet(0, "", true);
+                } else {
+                    CharSequence cs = clipData.getItemAt(0).getText();
+                    if (cs == null) {
+                        convAndSet(0, "", true);
+                    } else {
+                        String clipboardText = cs.toString();
+                        convHelper(true, clipboardText);
+                    }
+                }
+                moveTaskToBack(true);
             }
-            tileClipboardAccessRequested = false;
-            moveTaskToBack(true);
         }
     }
 
