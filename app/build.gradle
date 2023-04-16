@@ -4,12 +4,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "com.iatfei.tsconverter"
         minSdkVersion 23
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 14
         versionName "2.1.1"
         manifestPlaceholders.appName = "@string/app_name"
@@ -46,7 +46,6 @@ dependencies {
     implementation 'androidx.preference:preference-ktx:1.2.0'
     implementation "com.mikepenz:aboutlibraries:8.9.4"
     implementation "androidx.core:core-ktx:1.10.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10"
     implementation "com.github.AppIntro:AppIntro:6.1.0"
     implementation 'androidx.preference:preference-ktx:1.2.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
@@ -55,6 +54,14 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 //    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.0'
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
 }
 
 aboutLibraries {
