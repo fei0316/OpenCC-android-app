@@ -25,6 +25,9 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
+import android.graphics.fonts.Font;
+import android.graphics.fonts.FontFamily;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -155,6 +158,20 @@ public class MainActivity extends AppCompatActivity {
                         twWord, cnWord, rgType, type1, type2, type3);
             }
         });
+
+        // Set Main TextView Font to Plangothic
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+            try {
+                FontFamily plangothicP1 = new FontFamily.Builder(new Font.Builder(getResources(), R.font.plangothic_p1).build()).build();
+                FontFamily plangothicP2 = new FontFamily.Builder(new Font.Builder(getResources(), R.font.plangothic_p2).build()).build();
+                Typeface plangothic = new Typeface.CustomFallbackBuilder(plangothicP1).addCustomFallback(plangothicP2).setSystemFallback("sans-serif").build();
+                et.setTypeface(plangothic);
+            } catch (Exception e) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Plangothic Load Failed! "+e, Toast.LENGTH_SHORT);
+                toast.show();
+            }
+
+        }
     }
 
     private void easyConv (EditText et) {
