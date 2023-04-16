@@ -57,7 +57,6 @@ class ConvertUtils {
             default:
                 return S2T;
         }
-
     }
 
     static int radioToType (boolean t1, boolean t2, boolean t3, boolean v1, boolean v2, boolean v3, boolean v4, boolean v5, boolean i1, boolean i2, boolean i3){

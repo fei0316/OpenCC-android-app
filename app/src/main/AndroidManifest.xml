@@ -19,8 +19,7 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.iatfei.tsconverter">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <queries>
 
