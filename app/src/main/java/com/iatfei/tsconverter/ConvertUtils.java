@@ -31,55 +31,60 @@ class ConvertUtils {
 
     static String openCCConv(String from, int type, Context context) {
         ConversionType convType = findType (type);
+        if (convType == null) {
+            return from;
+        }
         return ChineseConverter.convert(from, convType, context);
     }
 
     private static ConversionType findType(int type){
         switch (type) {
-            case 2:
+            case Constant.S2T:
+                return S2T;
+            case Constant.S2TW:
                 return S2TW;
-            case 3:
+            case Constant.S2HK:
                 return S2HK;
-            case 4:
+            case Constant.S2TWP:
                 return S2TWP;
-            case 5:
+            case Constant.T2S:
                 return T2S;
-            case 6:
+            case Constant.TW2S:
                 return TW2S;
-            case 7:
+            case Constant.HK2S:
                 return HK2S;
-            case 8:
+            case Constant.TW2SP:
                 return TW2SP;
-            case 9:
+            case Constant.T2TW:
                 return T2TW;
-            case 10:
+            case Constant.T2HK:
                 return T2HK;
             default:
-                return S2T;
+                return null;
         }
     }
 
     static int radioToType (boolean t1, boolean t2, boolean t3, boolean v1, boolean v2, boolean v3, boolean v4, boolean v5, boolean i1, boolean i2, boolean i3){
         if (i1 && v1 && t1)
-            return 1;
+            return Constant.S2T;
         if (i1 && v2 && t1)
-            return 2;
+            return Constant.S2TW;
         if (i1 && v3 && t1)
-            return 3;
+            return Constant.S2HK;
         if (i2 && v2 && t1)
-            return 4;
+            return Constant.S2TWP;
         if (i1 && v1 && t2)
-            return 5;
+            return Constant.T2S;
         if (i1 && v4 && t2)
-            return 6;
+            return Constant.TW2S;
         if (i1 && v5 && t2)
-            return 7;
+            return Constant.HK2S;
         if (i3 && v4 && t2)
-            return 8;
+            return Constant.TW2SP;
         if (i1 && v2 && t3)
-            return 9;
+            return Constant.T2TW;
         if (i1 && v3 && t3)
-            return 10;
+            return Constant.T2HK;
         return -1;
     }
 }

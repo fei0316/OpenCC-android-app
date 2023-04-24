@@ -33,11 +33,14 @@
     <string name="main_to_tw">轉換爲臺灣標準</string>
     <string name="main_to_hk">轉換爲香港標準</string>
     <string name="main_no_conv">不轉換</string>
-    <string name="main_to_twP">轉換爲臺灣用詞</string>
-    <string name="main_to_cnP">轉換爲中國大陸用詞</string>
+    <string name="main_to_twP">臺灣用詞</string>
+    <string name="main_to_cnP">中國大陸用詞</string>
     <string name="main_type">類型</string>
     <string name="main_varchar">異體標準</string>
     <string name="main_wordUse">用詞</string>
+    <string name="menu_toast_unknown_error">發生了未知錯誤！</string>
+    <string name="menu_toast_no_filemanager">找不到檔案管理器！</string>
+    <string name="menu_toast_file_readwrite_error">讀寫檔案錯誤！</string>
     <string name="menu_popup_title">請選擇轉換類型：</string>
     <string name="menu_popup_type_0">（每次詢問）</string>
     <string name="menu_popup_type_1">簡體到 OpenCC 繁體（預設）</string>
@@ -53,6 +56,10 @@
     <string name="menu_popup_type_S2T">簡-繁轉換</string>
     <string name="menu_popup_type_T2S">繁-簡轉換</string>
     <string name="menu_popup_type_T2T">港臺異體轉換</string>
+
+    <string name="main_sel_file">檔案</string>
+    <string name="main_conv_to_file">儲存檔案</string>
+
     <string name="cancel_button">取消</string>
     <string name="title_activity_about">關於</string>
     <string name="about_app_description">使用 OpenCC 的 Android 簡繁轉換器</string>
@@ -73,7 +80,7 @@
     <string name="about_app">關於此軟件</string>
     <string name="about_app_license">原始碼</string>
     <string name="app_name">中文轉換</string>
-    <string name="main_variant_openccstandard">OpenCC 標準（建議）</string>
+    <string name="main_variant_openccstandard">OpenCC（建議）</string>
     <string name="appintro_title_1">歡迎！</string>
     <string name="appintro_title_2">建議…</string>
     <string name="appintro_title_3_1">在軟件中直接轉換！（一）</string>
@@ -114,7 +121,9 @@
     <string name="settings_simp">文字偵測爲簡體中文時</string>
     <string name="settings_autodetect_desc">使用長按文字功能表時，自動偵測繁簡中文並按照以下模式轉換</string>
     <string name="settings_autodetect">自動偵測繁簡</string>
-    <string name="menu_autonotdetected">選擇的文字中沒有繁/簡獨有字或者不是中文，或發生不明錯誤</string>
+    <string name="menu_autonotdetected">選擇的文字中沒有繁/簡獨有字或者不是中文</string>
     <string name="menu_cantdetect">無法偵測繁簡，請手動選擇：</string>
+
+
 
 </resources>

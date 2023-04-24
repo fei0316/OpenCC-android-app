@@ -21,7 +21,7 @@
 
 <resources>
     <string name="app_name">Chinese Converter</string>
-    <string name="enter_text_prompt">Please enter text to be translated…</string>
+    <string name="enter_text_prompt">Enter text here…</string>
     <string name="menu_trans_text">Chinese Convert</string>
     <string name="menu_readonly">Converted text has been copied to the clipboard</string>
     <string name="convert_button">Convert</string>
@@ -29,16 +29,16 @@
     <string name="main_simp_trad">Simp. to Trad.</string>
     <string name="main_trad_simp">Trad. to Simp.</string>
     <string name="main_tw_hk">Convert between Trad. variants</string>
-    <string name="main_orig_tw">Orig. is TW variant</string>
-    <string name="main_orig_hk">Orig. is HK variant</string>
-    <string name="main_to_tw">Conv. to TW variant</string>
-    <string name="main_to_hk">Conv. to HK variant</string>
+    <string name="main_orig_tw">From Taiwanese</string>
+    <string name="main_orig_hk">From Hong Kong</string>
+    <string name="main_to_tw">To Taiwanese</string>
+    <string name="main_to_hk">To Hong Kong</string>
     <string name="main_no_conv">No conversion</string>
-    <string name="main_to_twP">Conv. to TW phrases</string>
-    <string name="main_varchar">Chinese Variants</string>
-    <string name="main_wordUse">Word Choice</string>
+    <string name="main_to_twP">Taiwanese</string>
+    <string name="main_varchar">Variant Characters</string>
+    <string name="main_wordUse">Vocabulary</string>
     <string name="main_type">Type</string>
-    <string name="main_to_cnP">Conv. to CN phrases</string>
+    <string name="main_to_cnP">Mainland Chinese</string>
     <string name="action_about">About</string>
     <string name="menu_popup_title">Select conversion type…</string>
     <string name="menu_popup_type_0">Ask every time</string>
@@ -55,9 +55,17 @@
     <string name="menu_popup_type_S2T">Simplified Chinese to Traditional Chinese</string>
     <string name="menu_popup_type_T2S">Traditional to Simplified Chinese</string>
     <string name="menu_popup_type_T2T">Hong Kong-Taiwan variants conversion</string>
-    <string name="main_variant_openccstandard">OpenCC standard (recommended)</string>
+    <string name="main_variant_openccstandard">OpenCC (recommended)</string>
+
+    <string name="menu_toast_unknown_error">An unknown error occurred.</string>
+    <string name="menu_toast_no_filemanager">No file manager found!</string>
+    <string name="menu_toast_file_readwrite_error">File I/O error!</string>
+
     <string name="cancel_button">Cancel</string>
     <string name="title_activity_about">About</string>
+
+    <string name="main_sel_file">File</string>
+    <string name="main_conv_to_file">Save File</string>
 
     <string name="about_app_description">OpenCC Simplified-Traditional Chinese converter for Android</string>
     <string name="about_text_version">Version</string>
@@ -111,6 +119,6 @@
     <string name="setting_trad">When text is Traditional</string>
     <string name="settings_autodetect">Autodetect Trad./Simp.</string>
     <string name="settings_autodetect_desc">When using text selection menu, autodetect Traditional/Simplified and convert with preference below</string>
-    <string name="menu_autonotdetected">Selected text is not Chinese or does not contain any unique Traditional/Simplified chanracters, or an unknown error occurred</string>
+    <string name="menu_autonotdetected">Text is not Chinese or can be either Traditional or Simplified</string>
     <string name="menu_cantdetect">Traditional/Simplified detection failed, please choose manually:</string>
 </resources>

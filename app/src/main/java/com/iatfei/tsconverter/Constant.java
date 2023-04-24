@@ -32,4 +32,15 @@ public class Constant {
     public static final String TILE_CONVERT_INTENT_EXTRA = "fromTile";
 
     public static final String CLIPBOARD_LABEL = "ConvertedChinese";
+
+    public static final int S2T = 1;
+    public static final int S2TW = 2;
+    public static final int S2HK = 3;
+    public static final int S2TWP = 4;
+    public static final int T2S = 5;
+    public static final int TW2S = 6;
+    public static final int HK2S = 7;
+    public static final int TW2SP = 8;
+    public static final int T2TW = 9;
+    public static final int T2HK = 10;
 }

@@ -47,6 +47,7 @@ object SimpleConvert {
             for (i in str.indices) {
                 val tempCodePoint = Character.codePointAt(str, i)
                 if (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF) {
+                    //todo:support surrogate pair as well, and this if is not necessary either way
                     val tempResult = charMap[tempCodePoint]
                     if (tempResult != null) {
                         return tempResult

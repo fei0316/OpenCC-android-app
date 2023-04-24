@@ -35,8 +35,8 @@
     <string name="main_to_tw">转换为台湾标准</string>
     <string name="main_to_hk">转换为香港标准</string>
     <string name="main_no_conv">不转换</string>
-    <string name="main_to_twP">转换为台湾用词</string>
-    <string name="main_to_cnP">转换为中国大陆用词</string>
+    <string name="main_to_twP">台湾用词</string>
+    <string name="main_to_cnP">中国大陆用词</string>
     <string name="main_type">类型</string>
     <string name="main_varchar">异体标准</string>
     <string name="main_wordUse">用词</string>
@@ -55,6 +55,14 @@
     <string name="menu_popup_type_S2T">简-繁转换</string>
     <string name="menu_popup_type_T2S">繁-简转换</string>
     <string name="menu_popup_type_T2T">港台异体转换</string>
+
+    <string name="menu_toast_unknown_error">发生了未知错误！</string>
+    <string name="menu_toast_no_filemanager">找不到文件管理器！</string>
+    <string name="menu_toast_file_readwrite_error">读写文档错误！</string>
+
+    <string name="main_sel_file">转换文档</string>
+    <string name="main_conv_to_file">存档</string>
+
     <string name="cancel_button">取消</string>
     <string name="title_activity_about">关于</string>
     <string name="about_app_description">使用 OpenCC 的 Android 简繁转换器</string>
@@ -69,7 +77,7 @@
     <string name="about_license" >开放原代码授权</string>
     <string name="about_app">关于此软件</string>
     <string name="about_story_app_content">"For the peace between us. "</string>
-    <string name="main_variant_openccstandard">OpenCC 标准（推荐）</string>
+    <string name="main_variant_openccstandard">OpenCC（推荐）</string>
     <string name="appintro_title_2">建议…</string>
     <string name="appintro_title_4">感谢使用！</string>
     <string name="appintro_content_4">我的第二个软件。衷心感谢 BYVoid 在 OpenCC 开发付出的努力。没有 OpenCC 就不会有这软件的诞生。因语言的复杂性，软件无法完美转换简繁而可能会出现过度转换或没有转换的问题，请务必仔细检查。</string>
@@ -109,6 +117,6 @@
     <string name="setting_trad">文字侦测为繁体中文时</string>
     <string name="settings_autodetect">自动侦测繁简</string>
     <string name="settings_autodetect_desc">在文本选取菜单转换时，自动检测繁简并使用以下模式转换</string>
-    <string name="menu_autonotdetected">选取的文本中没有繁/简獨有字符或不是中文，或发生不明错误</string>
+    <string name="menu_autonotdetected">选取的文本中没有繁/简獨有字符或不是中文</string>
     <string name="menu_cantdetect">无法侦测繁简，请手动选择：</string>
 </resources>

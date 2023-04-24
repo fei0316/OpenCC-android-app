@@ -49,6 +49,7 @@ public class ConvertPopupActivity extends AppCompatActivity {
         String intentType = intent.getType();
 
         if (Intent.ACTION_SEND.equals(action) && intentType != null) {
+            // reached here through share action
             CharSequence textTemp = "";
             if ("text/plain".equals(intentType)) {
                 String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
@@ -56,39 +57,39 @@ public class ConvertPopupActivity extends AppCompatActivity {
                     textTemp = sharedText;
                 }
             }
-            convHelper(true, textTemp);
+            convHelper(true, false, textTemp);
         } else if (intent.getBooleanExtra(Constant.TILE_CONVERT_INTENT_EXTRA, false)) {
+            // reached here through tile
+            // open empty activity to trigger onWindowFocusChanged
             tileClipboardAccessRequested = true;
             setContentView(R.layout.activity_convert_empty);
         } else {
+            // reached here through text selection menu
             convHelper(getIntent().getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false),
-                    getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT));
+                    false, getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT));
         }
     }
 
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
+        // get clipboard data once in activity, then call convHelper like others
         if (hasFocus) {
             if (tileClipboardAccessRequested) {
                 tileClipboardAccessRequested = false;
                 ClipboardManager clipBoard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
                 ClipData clipData = clipBoard.getPrimaryClip();
                 if (clipData == null) {
-                    convAndSet(0, "", true);
-                } else {
-                    CharSequence cs = clipData.getItemAt(0).getText();
-                    if (cs == null) {
-                        convAndSet(0, "", true);
-                    } else {
-                        String clipboardText = cs.toString();
-                        convHelper(true, clipboardText);
-                    }
+                    return;
                 }
-                moveTaskToBack(true);
+                CharSequence cs = clipData.getItemAt(0).getText();
+                if (cs == null) {
+                    return;
+                }
+                String clipboardText = cs.toString();
+                convHelper(true, true, clipboardText);
             }
         }
     }
-
 
     private boolean isItChinese(CharSequence text) {
         final ArrayList<Character.UnicodeBlock> chinese = new ArrayList<>();
@@ -106,223 +107,212 @@ public class ConvertPopupActivity extends AppCompatActivity {
         return false;
     }
 
-    private void convHelper (boolean readonly, CharSequence text) {
+    private void convHelper (boolean readonly, boolean quitAfterConv, CharSequence text) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         boolean easyMode = pref.getBoolean(Constant.PREF_SETTINGS_EASY_MODE, true);
         boolean autodetect = pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true);
+        int tradMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_TRAD_MODE, "0"));
+        int simpMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_SIMP_MODE, "0"));
 
         if (easyMode) {
+            // easy mode: if detected trad/simp, convert with OpenCC; if not, ask for trad/simp then convert with OpenCC
             ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
             if (type == ChineseTypes.TRADITIONAL_CHINESE) {
-                convAndSet(5, text, readonly);
+                convAndSet(Constant.T2S, text, readonly);
                 finish();
-            }
-            else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
-                convAndSet(1, text, readonly);
-                finish();
-            } else {
-                boolean isChinese = isItChinese(text);
-                if (isChinese) {
-                    setContentView(R.layout.activity_convert_simple);
-
-                    Button cancel_button = findViewById(R.id.button5);
-                    cancel_button.setOnClickListener(v -> finish());
-
-                    Button conv_button = findViewById(R.id.button4);
-                    conv_button.setOnClickListener(v -> {
-                        RadioGroup rgPopup = findViewById(R.id.radioGroup);
-                        int id = rgPopup.getCheckedRadioButtonId();
-                        int sel;
-                        if (id == R.id.popupRadioType1) {
-                            sel = 5;
-                        } else if (id == R.id.popupRadioType2) {
-                            sel = 1;
-                        } else {
-                            sel = 0;
-                        }
-                        convAndSet(sel, text, readonly);
-                        finish();
-                    });
-                } else {
-                    convAndSet(0, text, readonly);
-                    finish();
+                if (quitAfterConv) {
+                    moveTaskToBack(true);
                 }
+            } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
+                convAndSet(Constant.S2T, text, readonly);
+                finish();
+                if (quitAfterConv) {
+                    moveTaskToBack(true);
+                }
+            } else {
+                tradSimpPopup(Constant.T2S, Constant.S2T, text, readonly, quitAfterConv);
             }
         } else if (autodetect) {
+            // auto detect mode: if detected trad/simp, convert directly if conversion preference chosen,
+            //                                          otherwise present all trad or all simp options
+            //                   if not detected, ask if text is simp or trad if conversion preference chosen,
+            //                                    otherwise present every possible options
             ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
             if (type == ChineseTypes.TRADITIONAL_CHINESE) {
-                int tradMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_TRAD_MODE, "0"));
                 if (tradMode == 0) {
-                    setContentView(R.layout.activity_convert_trad);
-
-                    Button cancel_button = findViewById(R.id.button5);
-                    cancel_button.setOnClickListener(v -> finish());
-
-                    Button conv_button = findViewById(R.id.button4);
-                    conv_button.setOnClickListener(v -> {
-                        RadioGroup rgPopup = findViewById(R.id.radioGroup);
-                        int id = rgPopup.getCheckedRadioButtonId();
-                        int sel;
-                        if (id == R.id.popupRadioType5) {
-                            sel = 5;
-                        } else if (id == R.id.popupRadioType6) {
-                            sel = 6;
-                        } else if (id == R.id.popupRadioType7) {
-                            sel = 7;
-                        } else if (id == R.id.popupRadioType8) {
-                            sel = 8;
-                        } else if (id == R.id.popupRadioType9) {
-                            sel = 9;
-                        } else if (id == R.id.popupRadioType10) {
-                            sel = 10;
-                        } else {
-                            sel = 0;
-                        }
-                        convAndSet(sel, text, readonly);
-                        finish();
-                    });
+                    tradPopup(text, readonly, quitAfterConv);
                 } else {
                     convAndSet(tradMode, text, readonly);
                     finish();
+                    if (quitAfterConv) {
+                        moveTaskToBack(true);
+                    }
                 }
             } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
-                int simpMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_SIMP_MODE, "0"));
                 if (simpMode == 0) {
-                    setContentView(R.layout.activity_convert_simp);
-
-                    Button cancel_button = findViewById(R.id.button5);
-                    cancel_button.setOnClickListener(v -> finish());
-
-                    Button conv_button = findViewById(R.id.button4);
-                    conv_button.setOnClickListener(v -> {
-                        RadioGroup rgPopup = findViewById(R.id.radioGroup);
-                        int id = rgPopup.getCheckedRadioButtonId();
-                        int sel;
-                        if (id == R.id.popupRadioType1) {
-                            sel = 1;
-                        } else if (id == R.id.popupRadioType2) {
-                            sel = 2;
-                        } else if (id == R.id.popupRadioType3) {
-                            sel = 3;
-                        } else if (id == R.id.popupRadioType4) {
-                            sel = 4;
-                        } else {
-                            sel = 0;
-                        }
-                        convAndSet(sel, text, readonly);
-                        finish();
-                    });
+                    simpPopup(text, readonly, quitAfterConv);
                 } else {
                     convAndSet(simpMode, text, readonly);
                     finish();
+                    if (quitAfterConv) {
+                        moveTaskToBack(true);
+                    }
                 }
             } else {
-                boolean isChinese = isItChinese(text);
-                if (isChinese) {
-                    int tradMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_TRAD_MODE, "0"));
-                    int simpMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_SIMP_MODE, "0"));
-                    if (tradMode == 0 || simpMode == 0) {
-                        setContentView(R.layout.activity_convert);
-
-                        Button cancel_button = findViewById(R.id.button5);
-                        cancel_button.setOnClickListener(v -> finish());
-
-                        Button conv_button = findViewById(R.id.button4);
-                        conv_button.setOnClickListener(v -> {
-                            int sel;
-                            RadioGroup rgPopup = findViewById(R.id.radioGroup);
-                            int id = rgPopup.getCheckedRadioButtonId();
-                            if (id == R.id.popupRadioType1) {
-                                sel = 1;
-                            } else if (id == R.id.popupRadioType2) {
-                                sel = 2;
-                            } else if (id == R.id.popupRadioType3) {
-                                sel = 3;
-                            } else if (id == R.id.popupRadioType4) {
-                                sel = 4;
-                            } else if (id == R.id.popupRadioType5) {
-                                sel = 5;
-                            } else if (id == R.id.popupRadioType6) {
-                                sel = 6;
-                            } else if (id == R.id.popupRadioType7) {
-                                sel = 7;
-                            } else if (id == R.id.popupRadioType8) {
-                                sel = 8;
-                            } else if (id == R.id.popupRadioType9) {
-                                sel = 9;
-                            } else if (id == R.id.popupRadioType10) {
-                                sel = 10;
-                            } else {
-                                sel = 0;
-                            }
-                            convAndSet(sel, text, readonly);
-                            finish();
-                        });
-                    } else {
-                        setContentView(R.layout.activity_convert_simple);
-
-                        Button cancel_button = findViewById(R.id.button5);
-                        cancel_button.setOnClickListener(v -> finish());
-
-                        Button conv_button = findViewById(R.id.button4);
-                        conv_button.setOnClickListener(v -> {
-                            RadioGroup rgPopup = findViewById(R.id.radioGroup);
-                            int id = rgPopup.getCheckedRadioButtonId();
-                            if (id == R.id.popupRadioType1) {
-                                convAndSet(tradMode, text, readonly);
-                                finish();
-                            } else if (id == R.id.popupRadioType2) {
-                                convAndSet(simpMode, text, readonly);
-                                finish();
-                            } else {
-                                convAndSet(0, text, readonly);
-                                finish();
-                            }
-                        });
-                    }
+                if (tradMode == 0 || simpMode == 0) {
+                    allOptionsPopup(text, readonly, quitAfterConv);
                 } else {
-                    convAndSet(0, text, readonly);
-                    finish();
+                    tradSimpPopup(tradMode, simpMode, text, readonly, quitAfterConv);
                 }
             }
-        } else {
-            setContentView(R.layout.activity_convert);
-
-            Button cancel_button = findViewById(R.id.button5);
-            cancel_button.setOnClickListener(v -> finish());
-
-            Button conv_button = findViewById(R.id.button4);
-            conv_button.setOnClickListener(v -> {
-                int sel;
-                RadioGroup rgPopup = findViewById(R.id.radioGroup);
-                int id = rgPopup.getCheckedRadioButtonId();
-                if (id == R.id.popupRadioType1) {
-                    sel = 1;
-                } else if (id == R.id.popupRadioType2) {
-                    sel = 2;
-                } else if (id == R.id.popupRadioType3) {
-                    sel = 3;
-                } else if (id == R.id.popupRadioType4) {
-                    sel = 4;
-                } else if (id == R.id.popupRadioType5) {
-                    sel = 5;
-                } else if (id == R.id.popupRadioType6) {
-                    sel = 6;
-                } else if (id == R.id.popupRadioType7) {
-                    sel = 7;
-                } else if (id == R.id.popupRadioType8) {
-                    sel = 8;
-                } else if (id == R.id.popupRadioType9) {
-                    sel = 9;
-                } else if (id == R.id.popupRadioType10) {
-                    sel = 10;
-                } else {
-                    sel = 0;
-                }
-                convAndSet(sel, text, readonly);
-                finish();
-            });
         }
+        else {
+            // fully manual mode: show all options
+            allOptionsPopup(text, readonly, quitAfterConv);
+        }
+    }
+
+    private void tradSimpPopup (int tradType, int simpType, CharSequence text, boolean readonly, boolean quitAfterConv) {
+        // popup when user selection of traditional or simplified text is required
+        setContentView(R.layout.activity_convert_simple);
+        popupSetCancelListener(quitAfterConv);
+
+        Button conv_button = findViewById(R.id.button4);
+        conv_button.setOnClickListener(v -> {
+            RadioGroup rgPopup = findViewById(R.id.radioGroup);
+            int id = rgPopup.getCheckedRadioButtonId();
+            int sel;
+            if (id == R.id.popupRadioType1) {
+                sel = tradType;    // traditional
+            } else if (id == R.id.popupRadioType2) {
+                sel = simpType;    // simplified
+            } else {
+                sel = 0;
+            }
+            convAndSet(sel, text, readonly);
+            finish();
+            if (quitAfterConv) {
+                moveTaskToBack(true);
+            }
+        });
+    }
+
+    private void tradPopup (CharSequence text, boolean readonly, boolean quitAfterConv) {
+        // popup with only traditional options
+        setContentView(R.layout.activity_convert_trad);
+        popupSetCancelListener(quitAfterConv);
+
+        Button conv_button = findViewById(R.id.button4);
+        conv_button.setOnClickListener(v -> {
+            RadioGroup rgPopup = findViewById(R.id.radioGroup);
+            int id = rgPopup.getCheckedRadioButtonId();
+            int sel;
+            if (id == R.id.popupRadioType5) {
+                sel = Constant.T2S;
+            } else if (id == R.id.popupRadioType6) {
+                sel = Constant.TW2S;
+            } else if (id == R.id.popupRadioType7) {
+                sel = Constant.HK2S;
+            } else if (id == R.id.popupRadioType8) {
+                sel = Constant.TW2SP;
+            } else if (id == R.id.popupRadioType9) {
+                sel = Constant.T2TW;
+            } else if (id == R.id.popupRadioType10) {
+                sel = Constant.T2HK;
+            } else {
+                sel = 0;
+            }
+            convAndSet(sel, text, readonly);
+            finish();
+            if (quitAfterConv) {
+                moveTaskToBack(true);
+            }
+        });
+    }
+
+    private void simpPopup (CharSequence text, boolean readonly, boolean quitAfterConv) {
+        // popup with only simplified options
+        setContentView(R.layout.activity_convert_simp);
+        popupSetCancelListener(quitAfterConv);
+
+        Button conv_button = findViewById(R.id.button4);
+        conv_button.setOnClickListener(v -> {
+            RadioGroup rgPopup = findViewById(R.id.radioGroup);
+            int id = rgPopup.getCheckedRadioButtonId();
+            int sel;
+            if (id == R.id.popupRadioType1) {
+                sel = Constant.S2T;
+            } else if (id == R.id.popupRadioType2) {
+                sel = Constant.S2TW;
+            } else if (id == R.id.popupRadioType3) {
+                sel = Constant.S2HK;
+            } else if (id == R.id.popupRadioType4) {
+                sel = Constant.S2TWP;
+            } else {
+                sel = 0;
+            }
+            convAndSet(sel, text, readonly);
+            finish();
+            if (quitAfterConv) {
+                moveTaskToBack(true);
+            }
+        });
+    }
+
+    private void allOptionsPopup (CharSequence text, boolean readonly, boolean quitAfterConv) {
+        // popup with every single possible options
+        setContentView(R.layout.activity_convert);
+        popupSetCancelListener(quitAfterConv);
+
+        Button conv_button = findViewById(R.id.button4);
+        conv_button.setOnClickListener(v -> {
+            int sel;
+            RadioGroup rgPopup = findViewById(R.id.radioGroup);
+            int id = rgPopup.getCheckedRadioButtonId();
+            if (id == R.id.popupRadioType1) {
+                sel = Constant.S2T;
+            } else if (id == R.id.popupRadioType2) {
+                sel = Constant.S2TW;
+            } else if (id == R.id.popupRadioType3) {
+                sel = Constant.S2HK;
+            } else if (id == R.id.popupRadioType4) {
+                sel = Constant.S2TWP;
+            } else if (id == R.id.popupRadioType5) {
+                sel = Constant.T2S;
+            } else if (id == R.id.popupRadioType6) {
+                sel = Constant.TW2S;
+            } else if (id == R.id.popupRadioType7) {
+                sel = Constant.HK2S;
+            } else if (id == R.id.popupRadioType8) {
+                sel = Constant.TW2SP;
+            } else if (id == R.id.popupRadioType9) {
+                sel = Constant.T2TW;
+            } else if (id == R.id.popupRadioType10) {
+                sel = Constant.T2HK;
+            } else {
+                sel = 0;
+            }
+            convAndSet(sel, text, readonly);
+            finish();
+            if (quitAfterConv) {
+                moveTaskToBack(true);
+            }
+        });
+    }
+
+    private void showConversionError () {
+        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.menu_autonotdetected), Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    private void popupSetCancelListener (boolean quitAfterConv) {
+        Button cancel_button = findViewById(R.id.button5);
+        cancel_button.setOnClickListener(v -> {
+            finish();
+            if (quitAfterConv) {
+                moveTaskToBack(true);
+            }
+        });
     }
 
     private void convAndSet(int sel, CharSequence text, boolean readonly) {
@@ -331,19 +321,21 @@ public class ConvertPopupActivity extends AppCompatActivity {
             String resultText = ConvertUtils.openCCConv(fromText, sel, getApplicationContext());
 
             if (readonly) {
+                // copy converted to clipboard
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText(Constant.CLIPBOARD_LABEL, resultText);
                 clipboard.setPrimaryClip(clip);
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
                 toast.show();
             } else {
+                // replace text directly
+                //todo:bugreport from email not working
                 Intent intent = new Intent();
                 intent.putExtra(Intent.EXTRA_PROCESS_TEXT, resultText);
                 setResult(RESULT_OK, intent);
             }
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.menu_autonotdetected), Toast.LENGTH_LONG);
-            toast.show();
+            showConversionError();
         }
     }
 }
