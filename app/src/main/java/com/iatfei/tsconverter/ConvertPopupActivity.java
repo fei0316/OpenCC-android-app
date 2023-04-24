@@ -33,7 +33,6 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class ConvertPopupActivity extends AppCompatActivity {
@@ -89,22 +88,6 @@ public class ConvertPopupActivity extends AppCompatActivity {
                 convHelper(true, true, clipboardText);
             }
         }
-    }
-
-    private boolean isItChinese(CharSequence text) {
-        final ArrayList<Character.UnicodeBlock> chinese = new ArrayList<>();
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS);
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A);
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B);
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C);
-        chinese.add(Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D);
-
-        for (int i = 0; i < text.length(); i++) {
-            if (chinese.contains(Character.UnicodeBlock.of(Character.codePointAt(text, i)))) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private void convHelper (boolean readonly, boolean quitAfterConv, CharSequence text) {

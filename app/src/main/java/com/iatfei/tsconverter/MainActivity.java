@@ -315,7 +315,7 @@ public class MainActivity extends AppCompatActivity {
     private void easyConvToClipboard(EditText et) {
         String text = et.getText().toString();
         int convType = easyConvGetConvertType(text);
-        if (convType >= 1 && convType <= 10) {
+        if (convType < 1 || convType > 10) {
             Toast.makeText(getApplicationContext(), getString(R.string.menu_autonotdetected), Toast.LENGTH_SHORT).show();
             return;
         }

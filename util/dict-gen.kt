@@ -1,3 +1,28 @@
+/*
+ * Copyright (c) 2020-2022 Fei Kuan.
+ *
+ * This file is part of Chinese Converter
+ * (see <https://github.com/fei0316/OpenCC-android-app>).
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+* Special thanks to Renn on GitHub who contributed to this piece of code.
+* Copyright (c) 2021 Renn. Released under GNU GPL v3+.
+*/
+
 package com.iatfei.tsconverter
 
 import java.io.FileOutputStream;
@@ -17,18 +42,9 @@ fun buildMap() {
         var scanner = Scanner(TS_CHAR_URL.openStream())
         while(scanner.hasNext()) {
             var chars = scanner.nextLine().trim().split('\t')
-            if(!chars[1].contains(chars[0])) {
-				if (chars[0].length == 1) { //not surrogate pair
-					charMap.put(chars[0][0].code, ChineseTypes.TRADITIONAL_CHINESE)
-				} else if (chars[0].length == 2) {
-					if (chars[0][0].isHighSurrogate() && Character.isSurrogatePair(chars[0][0], chars[0][1])){ //is surrogate pair, High first
-						charMap.put(Character.toCodePoint(chars[0][0], chars[0][1]), ChineseTypes.TRADITIONAL_CHINESE)
-					} else if (chars[0][0].isLowSurrogate() && Character.isSurrogatePair(chars[0][1], chars[0][0])) { //is surrogate pair, Low first
-						charMap.put(Character.toCodePoint(chars[0][1], chars[0][0]), ChineseTypes.TRADITIONAL_CHINESE)
-					}
-				}
-				
-				
+            if(!chars[1].contains(chars[0])) {		// check if this is an uniquely Traditional character
+				System.out.println(chars + chars[0].codePointAt(0) + "trad")
+				charMap.put(chars[0].codePointAt(0), ChineseTypes.TRADITIONAL_CHINESE);
             }
         }
     } catch (e: IOException) {
@@ -39,23 +55,15 @@ fun buildMap() {
         var scanner = Scanner(ST_CHAR_URL.openStream())
         while(scanner.hasNext()) {
             var chars = scanner.nextLine().trim().split('\t')
-            if(!chars[1].contains(chars[0])) {
+            if(!chars[1].contains(chars[0])) {		// check if this is an uniquely Simplified character
 				var codePoint = 0xFFFF
-				if (chars[0].length == 1) { //is not surrogate pair
-					codePoint = chars[0][0].code
-				} else if (chars[0].length == 2) {
-					if (chars[0][0].isHighSurrogate() && Character.isSurrogatePair(chars[0][0], chars[0][1])){ //is surrogate pair, High first
-						codePoint = Character.toCodePoint(chars[0][0], chars[0][1])
-					} else if (chars[0][0].isLowSurrogate() && Character.isSurrogatePair(chars[0][1], chars[0][0])) { //is surrogate pair, Low first
-						codePoint = Character.toCodePoint(chars[0][1], chars[0][0])
-					}
-				}
+				codePoint = chars[0].codePointAt(0);
 				if (codePoint != 0xFFFF) {
 					if(charMap.get(codePoint) != null) {
 						println("BOTH TRADITIONAL AND SIMPLIFIED???!!!!")
 						charMap.remove(codePoint)
-					}
-					else {
+					} else {
+						System.out.println(chars + chars[0].codePointAt(0) + "simp")
 						charMap.put(codePoint, ChineseTypes.SIMPLIFIED_CHINESE)
 					}
 				}
@@ -68,7 +76,7 @@ fun buildMap() {
 
 fun main(args: Array<String>) {
 	buildMap()
-	var myFileOutStream = FileOutputStream("/mnt/c/Users/Fei Kuan/Downloads/kotlin-compiler-1.6.10/kotlinc/bin/OpenCC-SimpTradMap-20220101.bin");
+	var myFileOutStream = FileOutputStream("/mnt/d/Downloads/kotlin-compiler-1.8.20/kotlinc/bin/OpenCC-SimpTradMap-20230423.bin");
 
 	var myObjectOutStream = ObjectOutputStream(myFileOutStream);
 	myObjectOutStream.writeObject(charMap)

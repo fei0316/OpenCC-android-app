@@ -26,7 +26,9 @@
 package com.iatfei.tsconverter
 
 import android.content.Context
+import android.os.Build
 import java.io.ObjectInputStream
+import java.lang.StringBuilder
 
 object SimpleConvert {
     private var charMap = HashMap<Int, ChineseTypes>()
@@ -40,14 +42,26 @@ object SimpleConvert {
 
     @JvmStatic
     fun checkString(str: String, c: Context): ChineseTypes {
+        // Idea: find the first unique Simplified/Traditional character (i.e. that character only exists in Traditional/Simplified)
+        // Approach: The HashMap contains all Unicode code points of unique Trad/Simp characters and whether it's Trad or Simp,
+        //              just search through the map.
         if (charMap.size < 2) {
+            // if charMap is empty, load it
             loadMap(c)
         }
-        if (str != null) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            val codePoints = StringBuilder(str).codePoints()
+            for (codePoint in codePoints) {
+                val tempResult = charMap[codePoint]
+                if (tempResult != null) {
+                    return tempResult
+                }
+            }
+        } else {
+            // old approach which does not support surrogates (beyond BMP)
             for (i in str.indices) {
                 val tempCodePoint = Character.codePointAt(str, i)
                 if (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF) {
-                    //todo:support surrogate pair as well, and this if is not necessary either way
                     val tempResult = charMap[tempCodePoint]
                     if (tempResult != null) {
                         return tempResult
