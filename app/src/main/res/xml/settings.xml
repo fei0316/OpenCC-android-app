@@ -20,31 +20,44 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/settings_selmenu">
-
+    <PreferenceCategory android:title="@string/tts_settings_category">
+        <ListPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="TW"
+            android:entries="@array/tts_settings_languages"
+            android:entryValues="@array/tts_settings_languages_vals"
+            android:key="list_preference_tts_lang"
+            android:summary="%s"
+            android:title="@string/tts_settings_language" />
     </PreferenceCategory>
-    <SwitchPreference
-        android:defaultValue="true"
-        android:key="switch_preference_1"
-        android:summary="@string/settings_simplemode_desc"
-        android:title="@string/settings_easymode" />
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="switch_preference_2"
-        android:summary="@string/settings_autodetect_desc"
-        android:title="@string/settings_autodetect" />
-    <ListPreference
-        android:defaultValue="0"
-        android:entries="@array/trad_to_simp"
-        android:entryValues="@array/trad_to_simp_vals"
-        android:key="list_preference_1"
-        android:title="@string/setting_trad" />
-    <ListPreference
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:defaultValue="0"
-        android:entries="@array/simp_to_trad"
-        android:entryValues="@array/simp_to_trad_vals"
-        android:key="list_preference_2"
-        android:title="@string/settings_simp" />
+
+    <PreferenceCategory android:title="@string/settings_selmenu">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="switch_preference_1"
+            android:summary="@string/settings_simplemode_desc"
+            android:title="@string/settings_easymode" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="switch_preference_2"
+            android:summary="@string/settings_autodetect_desc"
+            android:title="@string/settings_autodetect" />
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/trad_to_simp"
+            android:entryValues="@array/trad_to_simp_vals"
+            android:key="list_preference_1"
+            android:summary="%s"
+            android:title="@string/setting_trad" />
+        <ListPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="0"
+            android:entries="@array/simp_to_trad"
+            android:entryValues="@array/simp_to_trad_vals"
+            android:key="list_preference_2"
+            android:summary="%s"
+            android:title="@string/settings_simp" />
+    </PreferenceCategory>
 </PreferenceScreen>

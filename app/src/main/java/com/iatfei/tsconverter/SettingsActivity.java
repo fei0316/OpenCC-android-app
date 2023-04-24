@@ -31,8 +31,6 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
 
-import java.util.Objects;
-
 public class SettingsActivity extends AppCompatActivity {
 
     @Override
@@ -58,104 +56,33 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.settings);
 
+            // finding preferences and setting initial values
             final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(requireContext());
             final SwitchPreference simpleSwitch = findPreference(Constant.PREF_SETTINGS_EASY_MODE);
             final SwitchPreference autodetectSwitch = findPreference(Constant.PREF_SETTINGS_AUTODETECT_MODE);
             final ListPreference lpTraditional = findPreference(Constant.PREF_SETTINGS_TRAD_MODE);
             final ListPreference lpSimplified = findPreference(Constant.PREF_SETTINGS_SIMP_MODE);
 
-            if (autodetectSwitch != null && lpTraditional != null && lpSimplified != null) {
-                if (pref.getBoolean(Constant.PREF_SETTINGS_EASY_MODE, true)) {
-                    lpTraditional.setEnabled(false);
-                    lpSimplified.setEnabled(false);
-                    autodetectSwitch.setEnabled(false);
-                } else {
-                    autodetectSwitch.setEnabled(true);
-                    if (pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true)) {
-                        lpTraditional.setEnabled(true);
-                        lpSimplified.setEnabled(true);
-                    } else {
-                        lpTraditional.setEnabled(false);
-                        lpSimplified.setEnabled(false);
-                    }
-                }
-                String trad = pref.getString(Constant.PREF_SETTINGS_TRAD_MODE, "0");
-                String simp = pref.getString(Constant.PREF_SETTINGS_SIMP_MODE, "0");
-                String trad_sel = getConvTypeText(trad);
-                String simp_sel = getConvTypeText(simp);
-                lpTraditional.setSummary(trad_sel);
-                lpSimplified.setSummary(simp_sel);
-                Objects.requireNonNull(simpleSwitch).setOnPreferenceChangeListener((preference, newValue) -> {
-                    boolean newVal = (Boolean) newValue;
-                    if (newVal) {
-                        lpTraditional.setEnabled(false);
-                        lpSimplified.setEnabled(false);
-                        autodetectSwitch.setEnabled(false);
-                    } else {
-                        autodetectSwitch.setEnabled(true);
-                        if (pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true)) {
-                            lpTraditional.setEnabled(true);
-                            lpSimplified.setEnabled(true);
-                        } else {
-                            lpTraditional.setEnabled(false);
-                            lpSimplified.setEnabled(false);
-                        }
-                    }
-                    pref.edit().putBoolean(Constant.PREF_SETTINGS_EASY_MODE, newVal).apply();
+            if (autodetectSwitch != null && lpTraditional != null && lpSimplified != null && simpleSwitch != null) {
+                boolean easyMode = pref.getBoolean(Constant.PREF_SETTINGS_EASY_MODE, true);
+                boolean autoDetect = pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true);
+                autodetectSwitch.setEnabled(!easyMode);
+                lpTraditional.setEnabled(!easyMode && autoDetect);
+                lpSimplified.setEnabled(!easyMode && autoDetect);
+                simpleSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
+                    boolean autoDetect2 = pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true);
+                    boolean newValEasy = (Boolean) newValue;
+                    autodetectSwitch.setEnabled(!newValEasy);
+                    lpTraditional.setEnabled(!newValEasy && autoDetect2);
+                    lpSimplified.setEnabled(!newValEasy && autoDetect2);
                     return true;
                 });
                 autodetectSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
                     boolean newVal = (Boolean) newValue;
-                    if (newVal) {
-                        lpTraditional.setEnabled(true);
-                        lpSimplified.setEnabled(true);
-                    } else {
-                        lpTraditional.setEnabled(false);
-                        lpSimplified.setEnabled(false);
-                    }
-                    pref.edit().putBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, newVal).apply();
+                    lpTraditional.setEnabled(newVal);
+                    lpSimplified.setEnabled(newVal);
                     return true;
                 });
-                lpTraditional.setOnPreferenceChangeListener((preference, newValue) -> {
-                    String newVal = newValue.toString();
-                    lpTraditional.setSummary(getConvTypeText(newVal));
-                    return true;
-                });
-                lpSimplified.setOnPreferenceChangeListener((preference, newValue) -> {
-                    String newVal = newValue.toString();
-                    lpSimplified.setSummary(getConvTypeText(newVal));
-                    return true;
-                });
-            }
-
-
-
-        }
-
-        private String getConvTypeText(String selection) {
-            switch (selection) {
-                case "1":
-                    return getString(R.string.menu_popup_type_1);
-                case "2":
-                    return getString(R.string.menu_popup_type_2);
-                case "3":
-                    return getString(R.string.menu_popup_type_3);
-                case "4":
-                    return getString(R.string.menu_popup_type_4);
-                case "5":
-                    return getString(R.string.menu_popup_type_5);
-                case "6":
-                    return getString(R.string.menu_popup_type_6);
-                case "7":
-                    return getString(R.string.menu_popup_type_7);
-                case "8":
-                    return getString(R.string.menu_popup_type_8);
-                case "9":
-                    return getString(R.string.menu_popup_type_9);
-                case "10":
-                    return getString(R.string.menu_popup_type_10);
-                default:
-                    return getString(R.string.menu_popup_type_0);
             }
         }
     }

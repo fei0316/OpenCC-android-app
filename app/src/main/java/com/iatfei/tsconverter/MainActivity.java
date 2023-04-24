@@ -42,6 +42,8 @@ import androidx.preference.PreferenceManager;
 
 import android.provider.DocumentsContract;
 import android.provider.OpenableColumns;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -57,6 +59,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -66,10 +69,11 @@ import kotlin.text.Charsets;
 
 public class MainActivity extends AppCompatActivity {
 
-    final AtomicBoolean fileOpened = new AtomicBoolean(false);
-    Uri lastUri;
+    private final AtomicBoolean fileOpened = new AtomicBoolean(false);
+    private Uri lastUri;
     private boolean userRadioChange = true;
-    final AtomicBoolean simple = new AtomicBoolean(true);  // simple = Easy Mode
+    private final AtomicBoolean simple = new AtomicBoolean(true);  // simple = Easy Mode
+    private TextToSpeech tts = null;
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
@@ -102,7 +106,26 @@ public class MainActivity extends AppCompatActivity {
             fileOpened.set(fileOpenedLocal);
             et.setEnabled(!fileOpenedLocal);
         }
+
         makeMainActivity();
+    }
+
+    @Override
+    protected void onPause() {
+        if (tts != null) {
+            tts.shutdown();
+            tts = null;
+        }
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (tts != null) {
+            tts.shutdown();
+            tts = null;
+        }
+        super.onDestroy();
     }
 
     private void makeMainActivity() {
@@ -360,6 +383,12 @@ public class MainActivity extends AppCompatActivity {
                                   RadioGroup rgIdiom, RadioButton noWord, RadioButton twWord,
                                   RadioButton cnWord, RadioGroup rgType, RadioButton type1,
                                   RadioButton type2, RadioButton type3) {
+        noWord.setEnabled(!simple);
+        cnWord.setEnabled(!simple);
+        twWord.setEnabled(!simple);
+        type1.setEnabled(!simple);
+        type2.setEnabled(!simple);
+        type3.setEnabled(!simple);
         if (simple) {
             // just disable everything
             var1.setEnabled(false);
@@ -367,20 +396,8 @@ public class MainActivity extends AppCompatActivity {
             var3.setEnabled(false);
             var4.setEnabled(false);
             var5.setEnabled(false);
-            noWord.setEnabled(false);
-            cnWord.setEnabled(false);
-            twWord.setEnabled(false);
-            type1.setEnabled(false);
-            type2.setEnabled(false);
-            type3.setEnabled(false);
         } else {
             // enable conversion type and vocabulary radios, let code figure out which variant radio to enable
-            noWord.setEnabled(true);
-            cnWord.setEnabled(true);
-            twWord.setEnabled(true);
-            type1.setEnabled(true);
-            type2.setEnabled(true);
-            type3.setEnabled(true);
             radioButtonSetup(false, rgVar, var1, var2, var3, var4, var5,
                     rgIdiom, noWord, twWord, cnWord, rgType, type1, type2, type3);
         }
@@ -477,6 +494,15 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_settings) {
             settingsScreen();
             return true;
+        } else if (id == R.id.action_tts) {
+            if (tts == null) {
+                initTts(item);
+            } else if (tts.isSpeaking()) {
+                stopTts();
+            } else {
+                doTts();
+            }
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -496,8 +522,70 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void doTts() {
+        EditText et = findViewById(R.id.editText_convert);
+        String text = et.getText().toString();
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, Constant.TTS_UTTERANCE_ID);
+    }
+
+    private void stopTts() {
+        tts.stop();
+    }
+
+    private void initTts(MenuItem ttsMenuItem) {
+        tts = new TextToSpeech(getApplicationContext(), status -> {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            String ttsCountry = prefs.getString(Constant.PREF_SETTINGS_TTS_LANGUAGE, "TW");
+            if(status == TextToSpeech.SUCCESS) {
+                tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                    @Override
+                    public void onStart(String utteranceId) {
+                        if (utteranceId.equals(Constant.TTS_UTTERANCE_ID)) {
+                            ttsMenuItem.setTitle(R.string.tts_stop);
+                        }
+                    }
+
+                    @Override
+                    public void onDone(String utteranceId) {
+                        if (utteranceId.equals(Constant.TTS_UTTERANCE_ID)) {
+                            ttsMenuItem.setTitle(R.string.tts_play);
+                        }
+                    }
+
+                    @Override
+                    public void onStop(String utteranceId, boolean interrupted) {
+                        if (utteranceId.equals(Constant.TTS_UTTERANCE_ID)) {
+                            ttsMenuItem.setTitle(R.string.tts_play);
+                        }
+                    }
+
+                    @Override
+                    public void onError(String utteranceId) {
+                    }
+                });
+                int setLangResult;
+                /* Notes: In an ideal world we can just use "zh" "TW"/"HK"/"CN" to select respective language/dialect.
+                   In real-world testing it looks like "zh" "HK" is not supported on some devices but "yue" does. */
+                // Logic: Attempt to use standard "zh" "TW"/"HK"/"CN". If not supported, use "yue" for HK and "zh" for others.
+                setLangResult = tts.setLanguage(new Locale("zh", ttsCountry));
+                if (setLangResult != TextToSpeech.LANG_COUNTRY_AVAILABLE) {
+                    if (ttsCountry.equals("HK")) {
+                        setLangResult = tts.setLanguage(new Locale("yue"));
+                    } else {
+                        setLangResult = tts.setLanguage(new Locale("zh"));
+                    }
+                    if (setLangResult != TextToSpeech.LANG_AVAILABLE) {
+                        Toast.makeText(getApplicationContext(), getString(R.string.tts_error_nolanguage),
+                            Toast.LENGTH_SHORT).show();
+                    }
+                }
+                doTts();
+            }
+        });
+    }
+
     // from Praveen from https://stackoverflow.com/questions/70795185/android-how-to-get-file-name
-    public String getFileNameFromUri(Context context, Uri uri) {
+    private String getFileNameFromUri(Context context, Uri uri) {
         String fileName;
         Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
         cursor.moveToFirst();

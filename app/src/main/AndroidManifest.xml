@@ -22,11 +22,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <queries>
-
-        <!-- <intent> -->
-        <!-- <action android:name="android.intent.action.PROCESS_TEXT" /> -->
-        <!-- <data android:mimeType="text/plain" /> -->
-        <!-- </intent> -->
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
         <intent>
             <action android:name="android.intent.action.SENDTO" />
 
@@ -34,7 +32,6 @@
         </intent>
         <intent>
             <action android:name="android.intent.action.VIEW" />
-
             <data android:scheme="http" />
         </intent>
     </queries>

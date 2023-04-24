@@ -28,10 +28,13 @@ public class Constant {
     public static final String PREF_SETTINGS_AUTODETECT_MODE = "switch_preference_2";
     public static final String PREF_SETTINGS_TRAD_MODE = "list_preference_1";
     public static final String PREF_SETTINGS_SIMP_MODE = "list_preference_2";
+    public static final String PREF_SETTINGS_TTS_LANGUAGE = "list_preference_tts_lang";
 
     public static final String TILE_CONVERT_INTENT_EXTRA = "fromTile";
 
     public static final String CLIPBOARD_LABEL = "ConvertedChinese";
+
+    public static final String TTS_UTTERANCE_ID = "com.iatfei.tsconvert:MainActivity.editText_convert";
 
     public static final int S2T = 1;
     public static final int S2TW = 2;

@@ -119,4 +119,16 @@
     <string name="settings_autodetect_desc">在文本选取菜单转换时，自动检测繁简并使用以下模式转换</string>
     <string name="menu_autonotdetected">选取的文本中没有繁/简獨有字符或不是中文</string>
     <string name="menu_cantdetect">无法侦测繁简，请手动选择：</string>
+
+    <string name="tts_play">开始朗读</string>
+    <string name="tts_stop">停止朗读</string>
+    <string name="tts_playpause">开始/停止朗读</string>
+    <string name="tts_settings_category">朗读设定</string>
+    <string name="tts_settings_language">朗读语言</string>
+    <string name="tts_error_nolanguage">朗读失败，请检查文字转语音设定</string>
+    <string-array name="tts_settings_languages">
+        <item>国语（台湾）</item>
+        <item>粤语（香港）</item>
+        <item>普通话（中国）</item>
+    </string-array>
 </resources>

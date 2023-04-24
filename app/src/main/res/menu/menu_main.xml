@@ -23,6 +23,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.iatfei.tsconverter.MainActivity">
     <item
+        android:id="@+id/action_tts"
+        android:orderInCategory="80"
+        android:title="@string/tts_play" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="92"
         android:title="@string/menu_settings" />

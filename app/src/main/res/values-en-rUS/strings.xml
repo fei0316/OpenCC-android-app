@@ -29,12 +29,12 @@
     <string name="main_simp_trad">Simp. to Trad.</string>
     <string name="main_trad_simp">Trad. to Simp.</string>
     <string name="main_tw_hk">Convert between Trad. variants</string>
-    <string name="main_orig_tw">From Taiwanese</string>
+    <string name="main_orig_tw">From Taiwan</string>
     <string name="main_orig_hk">From Hong Kong</string>
-    <string name="main_to_tw">To Taiwanese</string>
+    <string name="main_to_tw">To Taiwan</string>
     <string name="main_to_hk">To Hong Kong</string>
     <string name="main_no_conv">No conversion</string>
-    <string name="main_to_twP">Taiwanese</string>
+    <string name="main_to_twP">Taiwan</string>
     <string name="main_varchar">Variant Characters</string>
     <string name="main_wordUse">Vocabulary</string>
     <string name="main_type">Type</string>
@@ -121,4 +121,16 @@
     <string name="settings_autodetect_desc">When using text selection menu, autodetect Traditional/Simplified and convert with preference below</string>
     <string name="menu_autonotdetected">Text is not Chinese or can be either Traditional or Simplified</string>
     <string name="menu_cantdetect">Traditional/Simplified detection failed, please choose manually:</string>
+
+    <string name="tts_play">Start Reading Aloud</string>
+    <string name="tts_stop">Stop Reading Aloud</string>
+    <string name="tts_playpause">Start/Stop Reading Aloud</string>
+    <string name="tts_settings_category">Text-to-Speech Settings</string>
+    <string name="tts_settings_language">Language</string>
+    <string name="tts_error_nolanguage">Read Aloud failed. Please check device Text-to-Speech settings.</string>
+    <string-array name="tts_settings_languages">
+        <item>Mandarin (Taiwan)</item>
+        <item>Cantonese (Hong Kong)</item>
+        <item>Mandarin (China)</item>
+    </string-array>
 </resources>
