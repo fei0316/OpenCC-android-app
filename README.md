@@ -14,6 +14,12 @@ Special thanks to Renn for code contribution.
         height=60/>
 </a>
 
+<a href='https://apt.izzysoft.de/fdroid/index/apk/com.iatfei.tsconverter'>
+   <img alt='Get it on IzzyOnDroid'
+        src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
+        height=60/>
+</a>
+      
 GitHub Releases: <a href='https://github.com/fei0316/OpenCC-android-app/releases'>https://github.com/fei0316/OpenCC-android-app/releases</a>
 
 ## Features
@@ -92,7 +98,7 @@ For example, the character 「臺」 is used for 「臺灣」 while 「台」 is
 
 **Note:** 「涌/湧」 is an exception to the OpenCC's aim to separating as much as possible, as the contributors based their research on old literary and dictionaries and ignored the special use case in Cantonese-speaking region.
 
-**註：**「涌/湧」是 OpenCC 「能分則不合」的例外，請見 https://zhuanlan.zhihu.com/p/104314323。
+**註：**「涌/湧」是 OpenCC 「能分則不合」的例外，請見 https://zhuanlan.zhihu.com/p/104314323
 
 #### Traditional to Simplified
 
