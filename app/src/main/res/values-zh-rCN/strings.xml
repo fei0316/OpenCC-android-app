@@ -126,6 +126,7 @@
     <string name="tts_settings_category">朗读设定</string>
     <string name="tts_settings_language">朗读语言</string>
     <string name="tts_error_nolanguage">朗读失败，请检查文字转语音设定</string>
+    <string name="tts_error_generic">朗读失败</string>
     <string-array name="tts_settings_languages">
         <item>国语（台湾）</item>
         <item>粤语（香港）</item>

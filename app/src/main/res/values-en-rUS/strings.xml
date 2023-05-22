@@ -125,9 +125,10 @@
     <string name="tts_play">Start Reading Aloud</string>
     <string name="tts_stop">Stop Reading Aloud</string>
     <string name="tts_playpause">Start/Stop Reading Aloud</string>
-    <string name="tts_settings_category">Text-to-Speech Settings</string>
+    <string name="tts_settings_category">Text-to-speech Settings</string>
     <string name="tts_settings_language">Language</string>
-    <string name="tts_error_nolanguage">Read Aloud failed. Please check device Text-to-Speech settings.</string>
+    <string name="tts_error_nolanguage">Read Aloud failed. Please check device Text-to-speech settings.</string>
+    <string name="tts_error_generic">Read Aloud failed.</string>
     <string-array name="tts_settings_languages">
         <item>Mandarin (Taiwan)</item>
         <item>Cantonese (Hong Kong)</item>

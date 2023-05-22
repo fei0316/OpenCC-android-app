@@ -63,6 +63,7 @@ class FirstStartupActivity : AppIntro() {
             imageDrawable = R.drawable.tutorial_textselection_3,
             backgroundColor = getColor(R.color.appIntroFour)
         ))
+        //todo:add warning on no warranty
         addSlide(AppIntroFragment.newInstance(
                 title = getString(R.string.appintro_title_4),
                 description = getString(R.string.appintro_content_4),

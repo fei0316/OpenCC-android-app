@@ -27,7 +27,6 @@
         </intent>
         <intent>
             <action android:name="android.intent.action.SENDTO" />
-
             <data android:scheme="mailto" />
         </intent>
         <intent>
@@ -53,6 +52,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTop"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -75,17 +75,16 @@
         <activity
             android:name=".ConvertPopupActivity"
             android:exported="true"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+            android:noHistory="true"
             android:label="@string/menu_trans_text"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog">
             <intent-filter android:label="@string/menu_trans_text">
                 <action android:name="android.intent.action.PROCESS_TEXT" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
+                <data android:mimeType="text/*" />
             </intent-filter>
         </activity>
         <service
@@ -98,7 +97,5 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
-
     </application>
-
 </manifest>

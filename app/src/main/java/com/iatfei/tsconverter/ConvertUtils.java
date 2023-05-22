@@ -21,6 +21,9 @@
 package com.iatfei.tsconverter;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.OpenableColumns;
 
 import com.zqc.opencc.android.lib.ChineseConverter;
 import com.zqc.opencc.android.lib.ConversionType;
@@ -86,5 +89,15 @@ class ConvertUtils {
         if (i1 && v3 && t3)
             return Constant.T2HK;
         return -1;
+    }
+
+    // from Praveen from https://stackoverflow.com/questions/70795185/android-how-to-get-file-name
+    static String getFileNameFromUri(Context context, Uri uri) {
+        String fileName;
+        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        fileName = cursor.getString(cursor.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME));
+        cursor.close();
+        return fileName;
     }
 }

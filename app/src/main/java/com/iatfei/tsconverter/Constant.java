@@ -30,6 +30,9 @@ public class Constant {
     public static final String PREF_SETTINGS_SIMP_MODE = "list_preference_2";
     public static final String PREF_SETTINGS_TTS_LANGUAGE = "list_preference_tts_lang";
 
+    public static final int CONV_ACTIVITY_TYPE_NONE = 0;
+    public static final int CONV_ACTIVITY_TYPE_TILE = 1;
+    public static final int CONV_ACTIVITY_TYPE_FILE = 2;
     public static final String TILE_CONVERT_INTENT_EXTRA = "fromTile";
 
     public static final String CLIPBOARD_LABEL = "ConvertedChinese";

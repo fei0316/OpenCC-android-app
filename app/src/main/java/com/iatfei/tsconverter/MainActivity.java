@@ -46,6 +46,7 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -228,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
                             Uri data = result.getData().getData();
                             getContentResolver().takePersistableUriPermission(
                                     data,
-                                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                                    (Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION) //todo:might be wrong
                             );
                             lastUri = data;
                             openFile(data);
@@ -258,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
                             Uri fileUri = result.getData().getData();
                             getContentResolver().takePersistableUriPermission(
                                     fileUri,
-                                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                                    (Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
                             );
                             try {
                                 String text = et.getText().toString();
@@ -311,6 +312,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openFile(Uri fileUri) {
+        //todo:generalize this to work with the one in ConvertPopupActivity
         TextView filename_text = findViewById(R.id.filename_text);
         StringBuilder sb = new StringBuilder();
         try {
@@ -327,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), getString(R.string.menu_toast_file_readwrite_error), Toast.LENGTH_SHORT).show();
             return;
         }
-        filename_text.setText(getFileNameFromUri(getApplicationContext(), fileUri));
+        filename_text.setText(ConvertUtils.getFileNameFromUri(getApplicationContext(), fileUri));
         String fileData = sb.toString();
         EditText et = findViewById(R.id.editText_convert);
         et.setEnabled(false);
@@ -561,6 +563,8 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(String utteranceId) {
+                        //todo:complain
+                        Log.e("FUCKING", "bro");
                     }
                 });
                 int setLangResult;
@@ -583,15 +587,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    // from Praveen from https://stackoverflow.com/questions/70795185/android-how-to-get-file-name
-    private String getFileNameFromUri(Context context, Uri uri) {
-        String fileName;
-        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
-        cursor.moveToFirst();
-        fileName = cursor.getString(cursor.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME));
-        cursor.close();
-        return fileName;
-    }
-
 }
