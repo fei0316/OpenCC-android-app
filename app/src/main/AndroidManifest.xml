@@ -27,7 +27,6 @@
         </intent>
         <intent>
             <action android:name="android.intent.action.SENDTO" />
-
             <data android:scheme="mailto" />
         </intent>
         <intent>
@@ -61,7 +60,7 @@
         </activity>
         <activity
             android:name=".FirstStartupActivity"
-            android:theme="@style/NoActionbar" />
+            android:theme="@style/AppIntroStyle.NoActionbar" />
         <activity
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
@@ -71,12 +70,12 @@
             android:name=".OpenSourceActivity"
             android:label="@string/about_license"
             android:parentActivityName=".AboutActivity"
-            android:theme="@style/AppThemeMaterial" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ConvertPopupActivity"
             android:exported="true"
             android:label="@string/menu_trans_text"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog">
+            android:theme="@style/Theme.Material3.DayNight.Dialog">
             <intent-filter android:label="@string/menu_trans_text">
                 <action android:name="android.intent.action.PROCESS_TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />

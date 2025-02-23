@@ -22,7 +22,7 @@ package com.iatfei.tsconverter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import com.google.android.material.appbar.MaterialToolbar
 import com.mikepenz.aboutlibraries.LibsBuilder
 
 class OpenSourceActivity : AppCompatActivity() {
@@ -31,7 +31,7 @@ class OpenSourceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_open_source)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar_opensource)
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_opensource)
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)

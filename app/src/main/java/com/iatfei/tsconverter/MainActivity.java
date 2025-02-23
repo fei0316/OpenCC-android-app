@@ -36,8 +36,9 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
+import com.google.android.material.materialswitch.MaterialSwitch;
+import com.google.android.material.appbar.MaterialToolbar;
+
 import androidx.preference.PreferenceManager;
 
 import android.provider.DocumentsContract;
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         Button conv_button = findViewById(R.id.convert_button);
         Button savefile_button = findViewById(R.id.savefile_button);
         Button clear_button = findViewById(R.id.clear_button);
-        SwitchCompat easySW = findViewById(R.id.switch1);
+        MaterialSwitch easySW = findViewById(R.id.easyModeSwitch);
         RadioGroup rgVar = findViewById(R.id.radioGroupVar);
         RadioButton var1 = findViewById((R.id.radioButtonVar1));
         RadioButton var2 = findViewById((R.id.radioButtonVar2));

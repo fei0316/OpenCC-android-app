@@ -27,7 +27,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import com.google.android.material.appbar.MaterialToolbar;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
@@ -43,7 +43,7 @@ public class AboutActivity extends AppCompatActivity {
                 .replace(R.id.about, new SettingsFragment())
                 .commit();
 
-        Toolbar toolbar = findViewById(R.id.toolbar_about);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar_about);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

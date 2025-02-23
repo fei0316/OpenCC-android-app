@@ -24,11 +24,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_opensource"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:theme="@style/AppThemeMaterial.AppBar"/>
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+<!--        android:theme="@style/AppTheme.AppBarOverlay"-->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_opensource"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.Material3.Toolbar.Surface" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
         android:id="@+id/container"

@@ -25,11 +25,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import com.google.android.material.appbar.MaterialToolbar;
 import androidx.preference.ListPreference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -43,7 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
                     .replace(R.id.settings, new SettingsFragment())
                     .commit();
         }
-        Toolbar toolbar = findViewById(R.id.toolbar_settings);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar_settings);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -54,12 +54,13 @@ public class SettingsActivity extends AppCompatActivity {
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            // todo make popups material 3
             addPreferencesFromResource(R.xml.settings);
 
             // finding preferences and setting initial values
             final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(requireContext());
-            final SwitchPreference simpleSwitch = findPreference(Constant.PREF_SETTINGS_EASY_MODE);
-            final SwitchPreference autodetectSwitch = findPreference(Constant.PREF_SETTINGS_AUTODETECT_MODE);
+            final SwitchPreferenceCompat simpleSwitch = findPreference(Constant.PREF_SETTINGS_EASY_MODE);
+            final SwitchPreferenceCompat autodetectSwitch = findPreference(Constant.PREF_SETTINGS_AUTODETECT_MODE);
             final ListPreference lpTraditional = findPreference(Constant.PREF_SETTINGS_TRAD_MODE);
             final ListPreference lpSimplified = findPreference(Constant.PREF_SETTINGS_SIMP_MODE);
 
