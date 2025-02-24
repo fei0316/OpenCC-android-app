@@ -28,7 +28,6 @@ package com.iatfei.tsconverter
 import android.content.Context
 import android.os.Build
 import java.io.ObjectInputStream
-import java.lang.StringBuilder
 
 object SimpleConvert {
     private var charMap = HashMap<Int, ChineseTypes>()

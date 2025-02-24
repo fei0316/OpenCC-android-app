@@ -33,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.Material3.Toolbar.Surface"/>
-        <!--TODO what is the equivalent theme -->
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout

@@ -29,6 +29,7 @@ public class Constant {
     public static final String PREF_SETTINGS_TRAD_MODE = "list_preference_1";
     public static final String PREF_SETTINGS_SIMP_MODE = "list_preference_2";
     public static final String PREF_SETTINGS_TTS_LANGUAGE = "list_preference_tts_lang";
+    public static final String PREF_SETTINGS_UI_LANGUAGE = "list_preference_ui_lang";
 
     public static final String TILE_CONVERT_INTENT_EXTRA = "fromTile";
 

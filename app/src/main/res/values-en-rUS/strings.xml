@@ -125,12 +125,20 @@
     <string name="tts_play">Start Reading Aloud</string>
     <string name="tts_stop">Stop Reading Aloud</string>
     <string name="tts_playpause">Start/Stop Reading Aloud</string>
-    <string name="tts_settings_category">Text-to-Speech Settings</string>
-    <string name="tts_settings_language">Language</string>
+    <string name="lang_settings_category">Language Settings</string>
+    <string name="tts_settings_language">Text-to-Speech Language</string>
     <string name="tts_error_nolanguage">Read Aloud failed. Please check device Text-to-Speech settings.</string>
     <string-array name="tts_settings_languages">
         <item>Mandarin (Taiwan)</item>
         <item>Cantonese (Hong Kong)</item>
         <item>Mandarin (China)</item>
     </string-array>
+
+    <string-array name="ui_lang_settings_languages">
+        <item>System Default</item>
+        <item>Traditional Chinese</item>
+        <item>Simplified Chinese</item>
+        <item>English</item>
+    </string-array>
+    <string name="ui_lang_settings_language">Interface Language</string>
 </resources>

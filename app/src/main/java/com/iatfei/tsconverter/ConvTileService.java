@@ -20,6 +20,8 @@
 
 package com.iatfei.tsconverter;
 
+import android.annotation.SuppressLint;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.service.quicksettings.Tile;
@@ -45,11 +47,23 @@ public class ConvTileService extends TileService {
         super.onStartListening();
     }
 
+    @SuppressLint("StartActivityAndCollapseDeprecated")
     @Override
     public void onClick() {
         Intent intent = new Intent(this, ConvertPopupActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(Constant.TILE_CONVERT_INTENT_EXTRA, true);
-        startActivityAndCollapse(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            startActivityAndCollapse(
+                    PendingIntent.getActivity(
+                            this,
+                            0,
+                            intent,
+                            PendingIntent.FLAG_IMMUTABLE
+                    )
+            );
+        } else {
+            startActivityAndCollapse(intent);
+        }
     }
 }

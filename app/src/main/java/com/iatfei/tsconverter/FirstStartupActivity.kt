@@ -20,11 +20,11 @@
 
 package com.iatfei.tsconverter
 
-import android.content.SharedPreferences.Editor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.github.appintro.AppIntro
 import com.github.appintro.AppIntroFragment
+import androidx.core.content.edit
 
 class FirstStartupActivity : AppIntro() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,9 +75,9 @@ class FirstStartupActivity : AppIntro() {
         super.onSkipPressed(currentFragment)
 
         val prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(baseContext)
-        val edit: Editor = prefs.edit()
-        edit.putInt(Constant.PREF_PREVIOUS_STARTED_VERSION, BuildConfig.VERSION_CODE)
-        edit.apply()
+        prefs.edit {
+            putInt(Constant.PREF_PREVIOUS_STARTED_VERSION, BuildConfig.VERSION_CODE)
+        }
         finish()
     }
 
@@ -85,9 +85,9 @@ class FirstStartupActivity : AppIntro() {
         super.onDonePressed(currentFragment)
 
         val prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(baseContext)
-        val edit: Editor = prefs.edit()
-        edit.putInt(Constant.PREF_PREVIOUS_STARTED_VERSION, BuildConfig.VERSION_CODE)
-        edit.apply()
+        prefs.edit {
+            putInt(Constant.PREF_PREVIOUS_STARTED_VERSION, BuildConfig.VERSION_CODE)
+        }
         finish()
     }
 }

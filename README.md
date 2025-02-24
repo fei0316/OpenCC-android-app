@@ -26,18 +26,18 @@ GitHub Releases: <a href='https://github.com/fei0316/OpenCC-android-app/releases
 
 ### Conversion Modes chart
 
-|  ID   |    From     |            To             |                    Chinese Variant (異體)                    |                   Word Use (用詞)                   |
-| :--: | :---------: | :-----------------------: | :----------------------------------------------------------: | :-------------------------------------------------: |
-|  1   | Simplified  |        Traditional        |               OpenCC standard (OpenCC 標準)                 |                  ❌ (no conversion)                  |
-|  2   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
-|  3   | Simplified  |        Traditional        | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
-|  4   | Simplified  |        Traditional        |           Convert to Taiwan variant (臺灣正體標準)           |       Convert to Taiwan phrases (臺灣常用詞彙)       |
-|  5   | Traditional |        Simplified         |                              ❌                               |                          ❌                          |
-|  6   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          |                          ❌                          |
-|  7   | Traditional |        Simplified         | Convert from Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
-|  8   | Traditional |        Simplified         |          Convert from Taiwan variant (臺灣正體標準)          | Convert to Mainland China phrases (中國大陸常用詞彙) |
-|  9   | OpenCC Traditional | Taiwan Traditional |           Convert to Taiwan variant (臺灣正體標準)           |                          ❌                          |
-|  10  | OpenCC Traditional | Hong Kong Traditional | Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                          ❌                          |
+| ID |        From        |          To           |                Chinese Variant (異體)                 |                Word Use (用詞)                 |
+|:--:|:------------------:|:---------------------:|:---------------------------------------------------:|:--------------------------------------------:|
+| 1  |     Simplified     |      Traditional      |             OpenCC standard (OpenCC 標準)             |              ❌ (no conversion)               |
+| 2  |     Simplified     |      Traditional      |         Convert to Taiwan variant (臺灣正體標準)          |                      ❌                       |
+| 3  |     Simplified     |      Traditional      |  Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準)  |                      ❌                       |
+| 4  |     Simplified     |      Traditional      |         Convert to Taiwan variant (臺灣正體標準)          |      Convert to Taiwan phrases (臺灣常用詞彙)      |
+| 5  |    Traditional     |      Simplified       |                          ❌                          |                      ❌                       |
+| 6  |    Traditional     |      Simplified       |        Convert from Taiwan variant (臺灣正體標準)         |                      ❌                       |
+| 7  |    Traditional     |      Simplified       | Convert from Hong Kong variant (香港繁體標準/香港小學學習字詞表標準) |                      ❌                       |
+| 8  |    Traditional     |      Simplified       |        Convert from Taiwan variant (臺灣正體標準)         | Convert to Mainland China phrases (中國大陸常用詞彙) |
+| 9  | OpenCC Traditional |  Taiwan Traditional   |         Convert to Taiwan variant (臺灣正體標準)          |                      ❌                       |
+| 10 | OpenCC Traditional | Hong Kong Traditional |  Convert to Hong Kong variant (香港繁體標準/香港小學學習字詞表標準)  |                      ❌                       |
 
 
 ### Notes on OpenCC standard

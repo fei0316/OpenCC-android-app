@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
         boolean editTextEmpty = et.getText().toString().trim().isEmpty();
         conv_button.setEnabled(!editTextEmpty);
         savefile_button.setEnabled(!editTextEmpty);
+        clear_button.setEnabled(!editTextEmpty);
 
         // set listeners to elements
         et.addTextChangedListener(new TextWatcher() {
@@ -227,10 +228,12 @@ public class MainActivity extends AppCompatActivity {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         if (result.getData() != null) {
                             Uri data = result.getData().getData();
-                            getContentResolver().takePersistableUriPermission(
-                                    data,
-                                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                            );
+                            if (data != null) {
+                                getContentResolver().takePersistableUriPermission(
+                                        data,
+                                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                                );
+                            }
                             lastUri = data;
                             openFile(data);
                         } else {
@@ -257,10 +260,12 @@ public class MainActivity extends AppCompatActivity {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         if (result.getData() != null) {
                             Uri fileUri = result.getData().getData();
-                            getContentResolver().takePersistableUriPermission(
-                                    fileUri,
-                                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                            );
+                            if (fileUri != null) {
+                                getContentResolver().takePersistableUriPermission(
+                                        fileUri,
+                                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                                );
+                            }
                             try {
                                 String text = et.getText().toString();
                                 String converted;
@@ -273,8 +278,10 @@ public class MainActivity extends AppCompatActivity {
                                 converted = ConvertUtils.openCCConv(text, type, getApplicationContext());
                                 et.setText(converted);
                                 OutputStream outputStream = getContentResolver().openOutputStream(fileUri);
-                                outputStream.write(converted.getBytes(Charsets.UTF_8));
-                                outputStream.close();
+                                if (outputStream != null) {
+                                    outputStream.write(converted.getBytes(Charsets.UTF_8));
+                                    outputStream.close();
+                                }
                             } catch (Exception e) {
                                 Toast.makeText(getApplicationContext(), getString(R.string.menu_toast_file_readwrite_error), Toast.LENGTH_SHORT).show();
                             }
@@ -587,12 +594,14 @@ public class MainActivity extends AppCompatActivity {
 
     // from Praveen from https://stackoverflow.com/questions/70795185/android-how-to-get-file-name
     private String getFileNameFromUri(Context context, Uri uri) {
-        String fileName;
         Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
-        cursor.moveToFirst();
-        fileName = cursor.getString(cursor.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME));
-        cursor.close();
-        return fileName;
+        if (cursor != null) {
+            cursor.moveToFirst();
+            String fileName = cursor.getString(cursor.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME));
+            cursor.close();
+            return fileName;
+        }
+        return "";
     }
 
 }

@@ -20,7 +20,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/tts_settings_category">
+    <PreferenceCategory android:title="@string/lang_settings_category">
         <ListPreference
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +30,19 @@
             android:key="list_preference_tts_lang"
             android:summary="%s"
             android:title="@string/tts_settings_language" />
+        <ListPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/ui_lang_settings_languages"
+            android:entryValues="@array/ui_lang_settings_languages_vals"
+            android:key="list_preference_ui_lang"
+            android:title="@string/ui_lang_settings_language" />
     </PreferenceCategory>
+
+<!--    android:defaultValue="TW"-->
+<!--    android:entries="@array/tts_settings_languages"-->
+<!--    android:entryValues="@array/tts_settings_languages_vals"-->
+<!--    android:key="list_preference_tts_lang"-->
 
     <PreferenceCategory android:title="@string/settings_selmenu">
         <SwitchPreferenceCompat

@@ -127,7 +127,7 @@
     <string name="tts_play">開始朗讀</string>
     <string name="tts_stop">停止朗讀</string>
     <string name="tts_playpause">開始/停止朗讀</string>
-    <string name="tts_settings_category">朗讀設定</string>
+    <string name="lang_settings_category">語言設定</string>
     <string name="tts_settings_language">朗讀語言</string>
     <string name="tts_error_nolanguage">朗讀失敗，請檢查文字轉語音設定</string>
     <string-array name="tts_settings_languages">
@@ -135,4 +135,12 @@
         <item>粵語（香港）</item>
         <item>普通話（中國）</item>
     </string-array>
+
+    <string-array name="ui_lang_settings_languages">
+        <item>系統預設</item>
+        <item>正體中文</item>
+        <item>簡體中文</item>
+        <item>英文</item>
+    </string-array>
+    <string name="ui_lang_settings_language">界面語言</string>
 </resources>
