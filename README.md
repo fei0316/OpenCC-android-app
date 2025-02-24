@@ -146,13 +146,17 @@ java -jar ./dict-gen.jar
 
 ## Any issues?
 
-For problems related to conversion, please open an issue in OpenCC's [GitHub page](https://github.com/BYVoid/OpenCC).
+For problems related to conversion database, please open an issue in OpenCC's [GitHub page](https://github.com/BYVoid/OpenCC).
 
 Otherwise, please open an issue here.
 
+This app's version numbers follows Romantic, [Sentimental Versioning](https://github.com/dominictarr/sentimental-versioning).
+In the version number `x.y.z`, `x` will be updated when significant changes are made, `y` be updated when small changes are made, and `z` is reserved for minor bugfixes. 
+So, don't ask about SemVer, it doesn't really make sense for an app like this anyway.
+
 ## Licenses
 ```
-Copyright (c) 2020-2022 Fei Kuan.
+Copyright (c) 2020-2025 Fei Kuan.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

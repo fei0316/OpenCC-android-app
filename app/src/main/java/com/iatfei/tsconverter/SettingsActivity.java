@@ -93,21 +93,27 @@ public class SettingsActivity extends AppCompatActivity {
                 });
             }
             ListPreference langSelectorPref = findPreference(Constant.PREF_SETTINGS_UI_LANGUAGE);
-            LocaleListCompat selectedLocale = AppCompatDelegate.getApplicationLocales();
-            List<String> supportedLocale = Arrays.asList(getResources().getStringArray(R.array.ui_lang_settings_languages_vals));
+            LocaleListCompat selectedLocaleList = AppCompatDelegate.getApplicationLocales();
+            List<String> supportedLocaleIDs = Arrays.asList(getResources().getStringArray(R.array.ui_lang_settings_languages_vals));
+            List<String> supportedLocale = Arrays.asList(getResources().getStringArray(R.array.ui_lang_settings_languages));
             if (langSelectorPref != null ) {
-                if (selectedLocale.isEmpty()) {
+                if (selectedLocaleList.isEmpty()) {
                     // no language override selected
                     langSelectorPref.setSummary(supportedLocale.get(0));
                     langSelectorPref.setValueIndex(0);
                 } else {
-                    Locale selected = selectedLocale.get(0);
-                    // language override selected. does not match an item in our list (probably selected from system settings)
-                    if (selected != null && supportedLocale.contains(selected.toLanguageTag())) {
+                    Locale selectedLocale = selectedLocaleList.get(0);
+                    String selectedLocaleString = selectedLocale != null ? selectedLocale.toLanguageTag() : "";
+                    if (supportedLocaleIDs.contains(selectedLocaleString)) {
                         // language override selected. matches an item in the preference language list
-                        langSelectorPref.setValue(selected.toLanguageTag());
+                        langSelectorPref.setValue(selectedLocaleString);
                         langSelectorPref.setSummary(getResources()
-                                .getStringArray(R.array.ui_lang_settings_languages)[supportedLocale.indexOf(selected.toLanguageTag())]);
+                                .getStringArray(R.array.ui_lang_settings_languages)
+                                    [supportedLocaleIDs.indexOf(selectedLocaleString)]);
+                    } else {
+                        // language override selected. does not match an item in our list (probably selected from system settings)
+                        langSelectorPref.setValue(null);
+                        langSelectorPref.setSummary(selectedLocaleString);
                     }
                 }
                 langSelectorPref.setOnPreferenceChangeListener((preference, newValue) -> {
