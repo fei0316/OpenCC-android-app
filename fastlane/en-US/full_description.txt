@@ -1,0 +1,35 @@
+No ads! Supports conversion directly in-app automatically! Open source!
+
+My second app project! Hope you will like it!
+
+Makes use of the OpenCC database, which eliminates Simplified to Traditional conversion problems like 「后門」 or 「頭發」. It supports regional variant characters standards of Hong Kong and Taiwan, as well as word use preferences of mainland China and Taiwan.
+
+Features:
+ - Easy Mode automatically detects Traditional/Simplified Chinese and convert to the other
+ - Supports conversion in-place in input boxes of other apps
+ - 10 conversion schemes (see the list below)
+ - Text-to-Speech Feature
+ - Converting from File
+ - Follows latest Material 3 guidelines
+ - Supports night mode
+ - No ads and no tracking (app does not have internet or storage access)
+
+Conversion Schemes: (OpenCC standard recommended unless there is a special need)
+Simplified to Traditional
+1. Simplified to OpenCC Traditional (recommended)
+2. Simplified to Traditional (TW variant)
+3. Simplified to Traditional (HK variant)
+4. Simplified to Traditional (TW variant and phrases)
+Traditional to Simplified
+5. OpenCC Traditional to Simplified (recommended)
+6. Traditional (TW variant) to Simplified 
+7. Traditional (HK variant) to Simplified 
+8. Traditional (TW variant) to Simplified (CN phrases)
+HK-Taiwan variant characters conversion
+9. OpenCC Traditional to Traditional (TW variant)
+10. OpenCC Traditional to Traditional (HK variant)
+
+Weird issues? Send an email to apps@iatfei.com and I will fix it as soon as possible! Or send me a pull request :)
+
+This is an open source project. The source code is released under GPL version 3 or later.
+Source code: https://github.com/fei0316/OpenCC-android-app/
