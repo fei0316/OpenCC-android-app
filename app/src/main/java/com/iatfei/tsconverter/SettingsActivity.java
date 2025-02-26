@@ -104,7 +104,11 @@ public class SettingsActivity extends AppCompatActivity {
                 } else {
                     Locale selectedLocale = selectedLocaleList.get(0);
                     String selectedLocaleString = selectedLocale != null ? selectedLocale.toLanguageTag() : "";
-                    if (supportedLocaleIDs.contains(selectedLocaleString)) {
+                    if (selectedLocaleString.equals("und")) {
+                        // no language override selected, happens on Android 6?
+                        langSelectorPref.setSummary(supportedLocale.get(0));
+                        langSelectorPref.setValueIndex(0);
+                    } else if (supportedLocaleIDs.contains(selectedLocaleString)) {
                         // language override selected. matches an item in the preference language list
                         langSelectorPref.setValue(selectedLocaleString);
                         langSelectorPref.setSummary(getResources()

@@ -1,0 +1,16 @@
+{
+  "uniqueId": "com.github.qichuan:android-opencc",
+  "developers": [
+    {
+      "name": "Zhang Qichuan",
+      "organisationUrl": "https://zhangqichuan.com/"
+    }
+  ],
+  "artifactVersion": "1.2.0",
+  "licenses": [
+    "MIT"
+  ],
+  "description": "An Android library project for conversion between Traditional and Simplified Chinese ",
+  "name": "lib-opencc-android",
+  "website": "https://github.com/qichuan/android-opencc"
+}

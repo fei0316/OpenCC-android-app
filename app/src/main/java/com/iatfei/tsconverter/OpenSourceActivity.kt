@@ -37,7 +37,6 @@ class OpenSourceActivity : AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
         val fragment = LibsBuilder()
-                .withFields(R.string::class.java.fields) // in some cases it may be needed to provide the R class, if it can not be automatically resolved
                 .withAboutIconShown(true)
                 .withAboutVersionShown(true)
                 .withLicenseShown(true)
