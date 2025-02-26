@@ -71,7 +71,6 @@ dependencies {
 
 aboutLibraries {
     configPath = "aboutconfig"
-    offlineMode = true
 }
 java {
     toolchain {
