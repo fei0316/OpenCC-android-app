@@ -9,8 +9,8 @@ android {
         applicationId "com.iatfei.tsconverter"
         minSdkVersion 23
         targetSdkVersion 35
-        versionCode 16
-        versionName "3.0.1"
+        versionCode 17
+        versionName "3.0.2"
         manifestPlaceholders.appName = "@string/app_name"
         resConfigs "en-rUS", "zh-rCN", "zh-rHK", "zh-rTW"
     }
@@ -21,7 +21,6 @@ android {
             applicationIdSuffix ".debug"
         }
         release {
-            shrinkResources true
             signingConfig null
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -71,6 +70,7 @@ dependencies {
 
 aboutLibraries {
     configPath = "aboutconfig"
+    offlineMode = true
 }
 java {
     toolchain {
