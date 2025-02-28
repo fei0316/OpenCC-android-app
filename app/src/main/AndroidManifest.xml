@@ -76,6 +76,11 @@
             android:exported="true"
             android:label="@string/menu_trans_text"
             android:theme="@style/Theme.Material3.DayNight.Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" />
+            </intent-filter>
             <intent-filter android:label="@string/menu_trans_text">
                 <action android:name="android.intent.action.PROCESS_TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />

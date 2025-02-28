@@ -32,42 +32,41 @@ class FirstStartupActivity : AppIntro() {
         isColorTransitionsEnabled = true
         setImmersiveMode()
 
-        // todo: make someone design some graphics for this
-        addSlide(AppIntroFragment.newInstance(
+        addSlide(AppIntroFragment.createInstance(
                 title = getString(R.string.appintro_title_1),
                 description = getString(R.string.appintro_content_1),
                 imageDrawable = R.drawable.ic_applogo_intro,
-                backgroundColor = getColor(R.color.appIntroOne)
+                backgroundColorRes = R.color.appIntroOne
         ))
-        addSlide(AppIntroFragment.newInstance(
+        addSlide(AppIntroFragment.createInstance(
                 title = getString(R.string.appintro_title_2),
                 description = getString(R.string.appintro_content_2),
                 imageDrawable = R.drawable.ic_baseline_info_24,
-                backgroundColor = getColor(R.color.appIntroTwo)
+                backgroundColorRes = R.color.appIntroTwo
         ))
-        addSlide(AppIntroFragment.newInstance(
+        addSlide(AppIntroFragment.createInstance(
                 title = getString(R.string.appintro_title_3_1),
                 description = getString(R.string.appintro_content_3_1),
                 imageDrawable = R.drawable.tutorial_textselection_1,
-                backgroundColor = getColor(R.color.appIntroFour)
+                backgroundColorRes = R.color.appIntroFour
         ))
-        addSlide(AppIntroFragment.newInstance(
+        addSlide(AppIntroFragment.createInstance(
             title = getString(R.string.appintro_title_3_2),
             description = getString(R.string.appintro_content_3_2),
             imageDrawable = R.drawable.tutorial_textselection_2,
-            backgroundColor = getColor(R.color.appIntroFour)
+            backgroundColorRes = R.color.appIntroFour
         ))
-        addSlide(AppIntroFragment.newInstance(
+        addSlide(AppIntroFragment.createInstance(
             title = getString(R.string.appintro_title_3_3),
             description = getString(R.string.appintro_content_3_3),
             imageDrawable = R.drawable.tutorial_textselection_3,
-            backgroundColor = getColor(R.color.appIntroFour)
+            backgroundColorRes = R.color.appIntroFour
         ))
-        addSlide(AppIntroFragment.newInstance(
+        addSlide(AppIntroFragment.createInstance(
                 title = getString(R.string.appintro_title_4),
                 description = getString(R.string.appintro_content_4),
                 imageDrawable = R.drawable.ic_applogo_intro,
-                backgroundColor = getColor(R.color.appIntroThree)
+                backgroundColorRes = R.color.appIntroThree
         ))
     }
 

@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean editTextEmpty = s.toString().trim().isEmpty();
                 conv_button.setEnabled(!editTextEmpty);
                 savefile_button.setEnabled(!editTextEmpty);
+                clear_button.setEnabled(!editTextEmpty);
             }
         });
         easySW.setOnCheckedChangeListener((v, isChecked) -> {
@@ -382,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText(Constant.CLIPBOARD_LABEL, string);
         clipboard.setPrimaryClip(clip);
-        Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_SHORT);
         toast.show();
     }
 

@@ -97,61 +97,50 @@ public class ConvertPopupActivity extends AppCompatActivity {
         int tradMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_TRAD_MODE, "0"));
         int simpMode = Integer.parseInt(pref.getString(Constant.PREF_SETTINGS_SIMP_MODE, "0"));
 
-        if (easyMode) {
-            // easy mode: if detected trad/simp, convert with OpenCC; if not, ask for trad/simp then convert with OpenCC
-            ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
-            if (type == ChineseTypes.TRADITIONAL_CHINESE) {
-                convAndSet(Constant.T2S, text, readonly);
-                finish();
-                if (quitAfterConv) {
-                    moveTaskToBack(true);
-                }
-            } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
-                convAndSet(Constant.S2T, text, readonly);
-                finish();
-                if (quitAfterConv) {
-                    moveTaskToBack(true);
-                }
-            } else {
-                tradSimpPopup(Constant.T2S, Constant.S2T, text, readonly, quitAfterConv);
-            }
-        } else if (autodetect) {
-            // auto detect mode: if detected trad/simp, convert directly if conversion preference chosen,
-            //                                          otherwise present all trad or all simp options
-            //                   if not detected, ask if text is simp or trad if conversion preference chosen,
-            //                                    otherwise present every possible options
-            ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
-            if (type == ChineseTypes.TRADITIONAL_CHINESE) {
-                if (tradMode == 0) {
-                    tradPopup(text, readonly, quitAfterConv);
+        if (text == null) {
+            Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_toast_unknown_error, Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            if (easyMode) {
+                // easy mode: if detected trad/simp, convert with OpenCC; if not, ask for trad/simp then convert with OpenCC
+                ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
+                if (type == ChineseTypes.TRADITIONAL_CHINESE) {
+                    convAndSet(Constant.T2S, text, readonly, quitAfterConv);
+                } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
+                    convAndSet(Constant.S2T, text, readonly, quitAfterConv);
                 } else {
-                    convAndSet(tradMode, text, readonly);
-                    finish();
-                    if (quitAfterConv) {
-                        moveTaskToBack(true);
+                    tradSimpPopup(Constant.T2S, Constant.S2T, text, readonly, quitAfterConv);
+                }
+            } else if (autodetect) {
+                // auto detect mode: if detected trad/simp, convert directly if conversion preference chosen,
+                //                                          otherwise present all trad or all simp options
+                //                   if not detected, ask if text is simp or trad if conversion preference chosen,
+                //                                    otherwise present every possible options
+                ChineseTypes type = SimpleConvert.checkString(text.toString(), getApplicationContext());
+                if (type == ChineseTypes.TRADITIONAL_CHINESE) {
+                    if (tradMode == 0) {
+                        tradPopup(text, readonly, quitAfterConv);
+                    } else {
+                        convAndSet(tradMode, text, readonly, quitAfterConv);
+                    }
+                } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
+                    if (simpMode == 0) {
+                        simpPopup(text, readonly, quitAfterConv);
+                    } else {
+                        convAndSet(simpMode, text, readonly, quitAfterConv);
+                    }
+                } else {
+                    if (tradMode == 0 || simpMode == 0) {
+                        allOptionsPopup(text, readonly, quitAfterConv);
+                    } else {
+                        tradSimpPopup(tradMode, simpMode, text, readonly, quitAfterConv);
                     }
                 }
-            } else if (type == ChineseTypes.SIMPLIFIED_CHINESE) {
-                if (simpMode == 0) {
-                    simpPopup(text, readonly, quitAfterConv);
-                } else {
-                    convAndSet(simpMode, text, readonly);
-                    finish();
-                    if (quitAfterConv) {
-                        moveTaskToBack(true);
-                    }
-                }
-            } else {
-                if (tradMode == 0 || simpMode == 0) {
-                    allOptionsPopup(text, readonly, quitAfterConv);
-                } else {
-                    tradSimpPopup(tradMode, simpMode, text, readonly, quitAfterConv);
-                }
             }
-        }
-        else {
-            // fully manual mode: show all options
-            allOptionsPopup(text, readonly, quitAfterConv);
+            else {
+                // fully manual mode: show all options
+                allOptionsPopup(text, readonly, quitAfterConv);
+            }
         }
     }
 
@@ -172,11 +161,7 @@ public class ConvertPopupActivity extends AppCompatActivity {
             } else {
                 sel = 0;
             }
-            convAndSet(sel, text, readonly);
-            finish();
-            if (quitAfterConv) {
-                moveTaskToBack(true);
-            }
+            convAndSet(sel, text, readonly, quitAfterConv);
         });
     }
 
@@ -205,11 +190,7 @@ public class ConvertPopupActivity extends AppCompatActivity {
             } else {
                 sel = 0;
             }
-            convAndSet(sel, text, readonly);
-            finish();
-            if (quitAfterConv) {
-                moveTaskToBack(true);
-            }
+            convAndSet(sel, text, readonly, quitAfterConv);
         });
     }
 
@@ -234,11 +215,7 @@ public class ConvertPopupActivity extends AppCompatActivity {
             } else {
                 sel = 0;
             }
-            convAndSet(sel, text, readonly);
-            finish();
-            if (quitAfterConv) {
-                moveTaskToBack(true);
-            }
+            convAndSet(sel, text, readonly, quitAfterConv);
         });
     }
 
@@ -275,16 +252,12 @@ public class ConvertPopupActivity extends AppCompatActivity {
             } else {
                 sel = 0;
             }
-            convAndSet(sel, text, readonly);
-            finish();
-            if (quitAfterConv) {
-                moveTaskToBack(true);
-            }
+            convAndSet(sel, text, readonly, quitAfterConv);
         });
     }
 
     private void showConversionError () {
-        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.menu_autonotdetected), Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.menu_autonotdetected), Toast.LENGTH_SHORT);
         toast.show();
     }
 
@@ -298,7 +271,7 @@ public class ConvertPopupActivity extends AppCompatActivity {
         });
     }
 
-    private void convAndSet(int sel, CharSequence text, boolean readonly) {
+    private void convAndSet(int sel, CharSequence text, boolean readonly, boolean quitAfterConv) {
         if (sel != 0) {
             String fromText = Objects.requireNonNull(text).toString();
             String resultText = ConvertUtils.openCCConv(fromText, sel, getApplicationContext());
@@ -308,17 +281,20 @@ public class ConvertPopupActivity extends AppCompatActivity {
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText(Constant.CLIPBOARD_LABEL, resultText);
                 clipboard.setPrimaryClip(clip);
-                Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), R.string.menu_readonly, Toast.LENGTH_SHORT);
                 toast.show();
             } else {
                 // replace text directly
-                //todo:bugreport from email not working
                 Intent intent = new Intent();
                 intent.putExtra(Intent.EXTRA_PROCESS_TEXT, resultText);
                 setResult(RESULT_OK, intent);
             }
         } else {
             showConversionError();
+        }
+        finish();
+        if (quitAfterConv) {
+            moveTaskToBack(true);
         }
     }
 }

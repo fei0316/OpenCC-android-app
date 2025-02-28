@@ -21,7 +21,7 @@
 package com.iatfei.tsconverter;
 
 public class Constant {
-    public static final int APPINTRO_LAST_UPDATE_VERSIONCODE = 12;
+    public static final int APPINTRO_LAST_UPDATE_VERSIONCODE = 18;
     public static final String PREF_MAIN_EASY_MODE = "main_simplemode";
     public static final String PREF_PREVIOUS_STARTED_VERSION = "previous_started_ver";
     public static final String PREF_SETTINGS_EASY_MODE = "switch_preference_1";
