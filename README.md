@@ -14,6 +14,12 @@ Special thanks to Renn for code contribution.
         height=60/>
 </a>
 
+<a href='https://apt.izzysoft.de/fdroid/index/apk/com.iatfei.tsconverter'>
+   <img alt='Get it on IzzyOnDroid'
+        src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
+        height=60/>
+</a>
+      
 GitHub Releases: <a href='https://github.com/fei0316/OpenCC-android-app/releases'>https://github.com/fei0316/OpenCC-android-app/releases</a>
 
 ## Features
