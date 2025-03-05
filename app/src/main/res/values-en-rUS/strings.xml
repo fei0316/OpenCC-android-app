@@ -74,7 +74,7 @@
     <string name="about_title_developed" >Developed by</string>
     <string name="about_mysite">Visit my site</string>
     <string name="about_contact" >Contact me</string>
-    <string name="about_app_license_details" >This application is licensed under the GNU General Public License Version 3 or later. You are free to redistribute and/or modify it under this license. Click to visit my GitHub page for source code and license details.</string>
+    <string name="about_app_license_details" >This application is licensed under the GNU General Public License Version 3 or later. This license allows you to freely redistribute and/or modify this application under certain conditions. Click to visit my GitHub page for source code and license details.</string>
     <string name="about_app_license" >Source Code</string>
     <string name="about_license" >Open Source Licenses</string>
     <string name="about_app">About this App</string>
@@ -88,7 +88,7 @@
     <string name="appintro_title_3_1">Convert directly in-app! (1)</string>
     <string name="appintro_title_3_2">Convert directly in-app! (2)</string>
     <string name="appintro_title_3_3">Convert directly in-app! (3)</string>
-    <string name="appintro_content_3_1">"Select text anywhere and choose \“Chinese Convert\” to convert in place!"</string>
+    <string name="appintro_content_3_1">"Select text anywhere and choose \“Chinese Convert\” to convert in place!\n\nNOTE: Some apps such as WeChat and LINE might not support this method. "</string>
     <string name="appintro_content_3_2">"You can also choose \“Share\”  then \“Chinese Convert\”, and pasted the converted text anywhere."</string>
     <string name="appintro_content_3_3">"You can also add a tile to your Quick Settings panel. Copy text and select the \“Chinese Convert\” tile and paste the converted text anywhere."</string>
     <string name="action_tutorial">Tutorial</string>
@@ -141,4 +141,19 @@
         <item>English</item>
     </string-array>
     <string name="ui_lang_settings_language">Interface Language</string>
+
+    <string-array name="settings_replacement_options">
+        <item>Spaces</item>
+        <item>Numbers</item>
+        <item>Latin Alphabets</item>
+        <item>Punctuations</item>
+        <item>Empty Lines</item>
+        <item>Special Characters</item>
+        <item>Hangul</item>
+        <item>Japanese Kana</item>
+        <item>Bopomofo</item>
+    </string-array>
+    <string name="settings_replacement_title">Delete specific characters</string>
+    <string name="settings_text_processing_cat_title">Text Processing</string>
+    <string name="settings_text_processing_master_switch">Perform Text Processing</string>
 </resources>

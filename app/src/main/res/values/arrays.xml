@@ -46,4 +46,15 @@
         <item>zh-CN</item>
         <item>en-US</item>
     </string-array>
+    <string-array name="settings_replacement_options_vals">
+        <item>space</item>
+        <item>numbers</item>
+        <item>latin</item>
+        <item>punctuation</item>
+        <item>emptyLine</item>
+        <item>specialChar</item>
+        <item>hangul</item>
+        <item>hirakata</item>
+        <item>bopomofo</item>
+    </string-array>
 </resources>

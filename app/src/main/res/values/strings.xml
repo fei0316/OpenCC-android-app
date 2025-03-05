@@ -71,7 +71,7 @@
     <string name="about_mysite">我的網站</string>
     <string name="about_email" translatable="false">kuan@iatfei.com</string>
     <string name="about_contact">聯絡我</string>
-    <string name="about_app_license_details">本軟件以 GNU 通用公共許可證條款第三版發佈（或更新版本）。你可以在此條款下重新發佈和修改本軟件。請點選以進入本程式的 GitHub 頁面獲得原始碼和版權資訊。</string>
+    <string name="about_app_license_details">本軟件以 GNU 通用公共許可證條款第三版（或更新版本）發佈。此條款允許你在遵守某些條件下，無需經本人同意即可重新發佈和修改本軟件。請點選以進入本程式的 GitHub 頁面獲得原始碼和版權資訊。</string>
     <string name="about_license">開放原始碼授權</string>
     <string name="about_restart_title" translatable="false">RE:START</string>
     <string name="about_restart_content" translatable="false">Those who care will come back; those who hate are unimportant.</string>
@@ -89,7 +89,7 @@
     <string name="appintro_title_4">感謝使用！</string>
     <string name="appintro_content_1">輕鬆轉換繁體與簡體。同時亦可轉換地區用詞或異體字。</string>
     <string name="appintro_content_2">如果只需要普通簡繁轉換，請使用簡易模式。</string>
-    <string name="appintro_content_3_1">"在任何軟件選擇文字並按「繁簡轉換」即可轉換並取代原有文字。\n\n注意：某些軟件（如：WeChat、LINE、Telegram）無法使用此方式。請參考下一頁介紹。"</string>
+    <string name="appintro_content_3_1">"在任何軟件選擇文字並按「繁簡轉換」即可轉換並取代原有文字。\n\n注意：某些軟件（如：WeChat、Telegram）無法使用此方式。請參考下一頁介紹。"</string>
     <string name="appintro_content_3_2">選擇文字後也可按「分享」後選擇「繁簡轉換」，並自行貼上轉換後的文字。</string>
     <string name="appintro_content_3_3">將本軟件的圖塊加入到快速設定面板後，複製任何文字後選擇「繁簡轉換」圖塊，並自行貼上轉換後的文字。</string>
     <string name="appintro_content_4">"我的第二個自行開發軟件。本軟件的成功全靠 OpenCC 項目的貢獻者。\n\n因自然語言的複雜性，完美轉換是不可能的，因此請務必仔細檢查。"</string>
@@ -97,8 +97,8 @@
     <string name="about_contributors">貢獻者</string>
     <string name="about_contributors_content">簡易模式提議及部分源碼：Renn</string>
     <string name="menu_settings">設定</string>
-    <string name="settings_selmenu">長按文字功能表</string>
-    <string name="settings_simplemode_desc">在長按文字功能表選擇轉換時，自動偵測繁簡並使用OpenCC標準轉換</string>
+    <string name="settings_selmenu">彈出功能表</string>
+    <string name="settings_simplemode_desc">在彈出功能表選擇轉換時，自動偵測繁簡並使用OpenCC標準轉換</string>
     <string name="settings_easymode">簡易模式</string>
 
     <string-array name="trad_to_simp">
@@ -119,7 +119,7 @@
     </string-array>
     <string name="setting_trad">文字偵測為繁體中文時</string>
     <string name="settings_simp">文字偵測爲簡體中文時</string>
-    <string name="settings_autodetect_desc">使用長按文字功能表時，自動偵測繁簡中文並按照以下模式轉換</string>
+    <string name="settings_autodetect_desc">使用彈出功能表時，自動偵測繁簡中文並按照以下模式轉換</string>
     <string name="settings_autodetect">自動偵測繁簡</string>
     <string name="menu_autonotdetected">選擇的文字中沒有繁/簡獨有字或者不是中文</string>
     <string name="menu_cantdetect">無法偵測繁簡，請手動選擇：</string>
@@ -143,4 +143,23 @@
         <item>英文</item>
     </string-array>
     <string name="ui_lang_settings_language">界面語言</string>
+
+    <string-array name="settings_replacement_options">
+        <item>空格</item>
+        <item>數字</item>
+        <item>拉丁字母</item>
+        <item>標點符號</item>
+        <item>空行</item>
+        <item>特殊符號</item>
+        <item>諺文</item>
+        <item>片假名及平假名</item>
+        <item>注音符號</item>
+    </string-array>
+    <string name="settings_replacement_title">刪除特定文字</string>
+    <string name="settings_text_processing_cat_title">文字處理</string>
+    <string name="settings_text_processing_master_switch">進行文字處理</string>
+
+
+
+    <string-array name="empty_array"/>
 </resources>

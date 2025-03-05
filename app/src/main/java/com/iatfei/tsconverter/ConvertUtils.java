@@ -21,11 +21,17 @@
 package com.iatfei.tsconverter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.zqc.opencc.android.lib.ChineseConverter;
 import com.zqc.opencc.android.lib.ConversionType;
 
 import static com.zqc.opencc.android.lib.ConversionType.*;
+
+import androidx.preference.PreferenceManager;
+
+import java.util.HashSet;
+import java.util.Set;
 
 class ConvertUtils {
 
@@ -34,34 +40,59 @@ class ConvertUtils {
         if (convType == null) {
             return from;
         }
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        if (pref.getBoolean(Constant.PREF_SETTINGS_TEXT_PROCESSING, false)) {
+            Set<String> delSel = pref.getStringSet(Constant.PREF_SETTINGS_DELETE_TEXT, new HashSet<>());
+            from = textProcessing(from, delSel);
+        }
         return ChineseConverter.convert(from, convType, context);
     }
 
-    private static ConversionType findType(int type){
-        switch (type) {
-            case Constant.S2T:
-                return S2T;
-            case Constant.S2TW:
-                return S2TW;
-            case Constant.S2HK:
-                return S2HK;
-            case Constant.S2TWP:
-                return S2TWP;
-            case Constant.T2S:
-                return T2S;
-            case Constant.TW2S:
-                return TW2S;
-            case Constant.HK2S:
-                return HK2S;
-            case Constant.TW2SP:
-                return TW2SP;
-            case Constant.T2TW:
-                return T2TW;
-            case Constant.T2HK:
-                return T2HK;
-            default:
-                return null;
+    private static String textProcessing(String from, Set<String> del) {
+        if (del.contains("space")) {
+            from = from.replaceAll("\\p{Z}+", "");
         }
+        if (del.contains("numbers")) {
+            from = from.replaceAll("\\d", "");
+        }
+        if (del.contains("latin")) {
+            from = from.replaceAll("\\p{Script=Latin}+", "");
+        }
+        if (del.contains("specialChar")) {
+            from = from.replaceAll("\\p{S}", "");
+        }
+        if (del.contains("emptyLine")) {
+            from = from.replaceAll("(\\r?\\n){2,}", "\n");
+        }
+        if (del.contains("hangul")) {
+            from = from.replaceAll("\\p{Script=Hangul}+", "");
+        }
+        if (del.contains("hirakata")) {
+            from = from.replaceAll("[\\p{IsKatakana}\\p{IsHiragana}]+", "");
+        }
+        if (del.contains("bopomofo")) {
+            from = from.replaceAll("\\p{Script=Bopomofo}+", "");
+        }
+        if (del.contains("punctuation")) {
+            from = from.replaceAll("\\p{P}+", "");
+        }
+        return from;
+    }
+
+    private static ConversionType findType(int type){
+        return switch (type) {
+            case Constant.S2T -> S2T;
+            case Constant.S2TW -> S2TW;
+            case Constant.S2HK -> S2HK;
+            case Constant.S2TWP -> S2TWP;
+            case Constant.T2S -> T2S;
+            case Constant.TW2S -> TW2S;
+            case Constant.HK2S -> HK2S;
+            case Constant.TW2SP -> TW2SP;
+            case Constant.T2TW -> T2TW;
+            case Constant.T2HK -> T2HK;
+            default -> null;
+        };
     }
 
     static int radioToType (boolean t1, boolean t2, boolean t3, boolean v1, boolean v2, boolean v3, boolean v4, boolean v5, boolean i1, boolean i2, boolean i3){

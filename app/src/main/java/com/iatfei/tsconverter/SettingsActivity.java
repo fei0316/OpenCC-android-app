@@ -30,6 +30,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.os.LocaleListCompat;
 import androidx.preference.ListPreference;
+import androidx.preference.MultiSelectListPreference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
@@ -68,15 +69,20 @@ public class SettingsActivity extends AppCompatActivity {
             final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(requireContext());
             final SwitchPreferenceCompat simpleSwitch = findPreference(Constant.PREF_SETTINGS_EASY_MODE);
             final SwitchPreferenceCompat autodetectSwitch = findPreference(Constant.PREF_SETTINGS_AUTODETECT_MODE);
+            final SwitchPreferenceCompat textProcessingSwitch = findPreference("settings_text_processing_master_switch");
             final ListPreference lpTraditional = findPreference(Constant.PREF_SETTINGS_TRAD_MODE);
             final ListPreference lpSimplified = findPreference(Constant.PREF_SETTINGS_SIMP_MODE);
+            final MultiSelectListPreference deleteTextPref = findPreference("multi_select_list_preference_1");
 
-            if (autodetectSwitch != null && lpTraditional != null && lpSimplified != null && simpleSwitch != null) {
+            if (autodetectSwitch != null && lpTraditional != null && lpSimplified != null
+                    && simpleSwitch != null && textProcessingSwitch != null && deleteTextPref != null) {
                 boolean easyMode = pref.getBoolean(Constant.PREF_SETTINGS_EASY_MODE, true);
                 boolean autoDetect = pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true);
+                boolean textProcessing = pref.getBoolean(Constant.PREF_SETTINGS_TEXT_PROCESSING, false);
                 autodetectSwitch.setEnabled(!easyMode);
                 lpTraditional.setEnabled(!easyMode && autoDetect);
                 lpSimplified.setEnabled(!easyMode && autoDetect);
+                deleteTextPref.setEnabled(textProcessing);
                 simpleSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
                     boolean autoDetect2 = pref.getBoolean(Constant.PREF_SETTINGS_AUTODETECT_MODE, true);
                     boolean newValEasy = (Boolean) newValue;
@@ -89,6 +95,11 @@ public class SettingsActivity extends AppCompatActivity {
                     boolean newVal = (Boolean) newValue;
                     lpTraditional.setEnabled(newVal);
                     lpSimplified.setEnabled(newVal);
+                    return true;
+                });
+                textProcessingSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
+                    boolean newVal = (Boolean) newValue;
+                    deleteTextPref.setEnabled(newVal);
                     return true;
                 });
             }
