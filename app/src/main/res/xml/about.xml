@@ -82,7 +82,7 @@
         app:iconSpaceReserved="false">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="mailto:kuan@iatfei.com" />
+            android:data="mailto:apps@iatfei.com" />
     </Preference>
     <Preference
         android:layout_width="wrap_content"

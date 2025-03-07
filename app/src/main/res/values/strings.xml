@@ -69,7 +69,7 @@
     <string name="about_title_developed">開發</string>
     <string name="about_iatfei_link" translatable="false">https://iatfei.com</string>
     <string name="about_mysite">我的網站</string>
-    <string name="about_email" translatable="false">kuan@iatfei.com</string>
+    <string name="about_email" translatable="false">apps@iatfei.com</string>
     <string name="about_contact">聯絡我</string>
     <string name="about_app_license_details">本軟件以 GNU 通用公共許可證條款第三版（或更新版本）發佈。此條款允許你在遵守某些條件下，無需經本人同意即可重新發佈和修改本軟件。請點選以進入本程式的 GitHub 頁面獲得原始碼和版權資訊。</string>
     <string name="about_license">開放原始碼授權</string>
