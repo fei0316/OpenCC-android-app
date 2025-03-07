@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="License-applied" pattern="file[app]:src/main/java//*||file[app]:src/main/AndroidManifest.xml||file[app]:src/main/res/layout//*||file[app]:src/main/res/menu//*||file[app]:src/main/res/values//*||file[app]:src/main/res/values-en-rUS//*||file[app]:src/main/res/values-night//*||file[app]:src/main/res/values-zh-rCN//*||file[app]:src/main/res/xml//*" />
-</component>

@@ -6,20 +6,23 @@ build/
 local.properties
 
 # Android Studio and IntelliJ IDEA files
-.idea/
+.idea/*
 *.iml
 *.iws
 *.ipr
 
+# unignore copyright files
+!.idea/copyright/
+
 # Android Studio cache
-.idea/caches/
-.idea/libraries/
-.idea/modules.xml
-.idea/workspace.xml
-.idea/gradle.xml
-.idea/usage.statistics.xml
-.idea/dictionaries/
-.idea/httpRequests/
+#.idea/caches/
+#.idea/libraries/
+#.idea/modules.xml
+#.idea/workspace.xml
+#.idea/gradle.xml
+#.idea/usage.statistics.xml
+#.idea/dictionaries/
+#.idea/httpRequests/
 
 # Keystore files
 *.jks
@@ -37,7 +40,8 @@ app/build/
 */build/
 
 # Proguard configuration files
-proguard-rules.pro
+# not necessary for open-source app?
+# proguard-rules.pro
 
 # Miscellaneous
 *.apk
