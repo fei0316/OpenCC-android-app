@@ -8,10 +8,17 @@ My third project! Developed during the COVID-19 pandemic.
 Special thanks to BYVoid for the [OpenCC project](https://github.com/BYVoid/OpenCC), and qichuan for the [Android OpenCC Library](https://github.com/qichuan/android-opencc).
 Special thanks to Renn for code contribution.
 
+My app can be downloaded in the following three sources. Thanks to [Reproducible Builds](https://f-droid.org/docs/Reproducible_Builds/), apk from all sources are signed with my own keys, allowing cross-updates.
+
 <a href='https://play.google.com/store/apps/details?id=com.iatfei.tsconverter'>
    <img alt='Get it on Google Play'
         src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'
         height=60/>
+</a>
+
+<a href="https://f-droid.org/app/com.iatfei.tsconverter">
+    <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+         alt="Get it on F-Droid" height="60">
 </a>
 
 GitHub Releases: <a href='https://github.com/fei0316/OpenCC-android-app/releases'>https://github.com/fei0316/OpenCC-android-app/releases</a>
